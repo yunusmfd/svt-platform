@@ -7,7 +7,7 @@
  */
 
 import { t, ui } from "../core/i18n.js";
-import { svg, FIGURES } from "../core/icons.js";
+import { svg, FIGURES, specStyle } from "../core/icons.js";
 import { lessonCardHTML } from "../components/lessonCard.js";
 import { getLevels, getAllLessons, findLesson } from "../core/content.js";
 import { FEATURED_COUNT } from "../core/config.js";
@@ -27,12 +27,12 @@ function featuredLessons() {
   return picked.slice(0, FEATURED_COUNT);
 }
 
-/** بطاقات المميّزات: [أيقونة, مفتاح العنوان, مفتاح الوصف]. */
+/** بطاقات المميّزات: [أيقونة, مفتاح العنوان, مفتاح الوصف, لون الطيف]. */
 const FEATURES = [
-  ["video", "feat1_t", "feat1_d"],
-  ["layers", "feat2_t", "feat2_d"],
-  ["quiz", "feat3_t", "feat3_d"],
-  ["download", "feat4_t", "feat4_d"],
+  ["video", "feat1_t", "feat1_d", "--spec-green"],
+  ["layers", "feat2_t", "feat2_d", "--spec-teal"],
+  ["quiz", "feat3_t", "feat3_d", "--spec-violet"],
+  ["download", "feat4_t", "feat4_d", "--spec-gold"],
 ];
 
 /** شارات الشريط الدعائي: [أيقونة, مفتاح النص]. */
@@ -77,9 +77,9 @@ export function renderHome() {
       </div>
       <div class="feature-grid">
         ${FEATURES.map(
-          ([icon, title, desc]) => `
+          ([icon, title, desc, spec]) => `
         <div class="feature">
-          <div class="ico">${svg(icon)}</div>
+          <div class="ico" style="${specStyle(spec)}">${svg(icon)}</div>
           <h3>${ui(title)}</h3>
           <p>${ui(desc)}</p>
         </div>`

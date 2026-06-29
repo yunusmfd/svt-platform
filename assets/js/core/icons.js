@@ -70,9 +70,15 @@ export function fillIcon(name, cls = "") {
 export const LOGO =
   '<svg viewBox="0 0 40 40" fill="none" aria-hidden="true" style="width:100%;height:100%">' +
   '<circle cx="20" cy="20" r="17" stroke="#52B788" stroke-width="2.2"/>' +
-  '<path d="M20 7c-7 5-9 13-3 22 9-2 13-9 11-19-3 1-6 0-8-3z" fill="#52B788" opacity=".9"/>' +
-  '<path d="M14 30c0-4 2-8 9-10" stroke="#0C1A13" stroke-width="1.6" stroke-linecap="round"/>' +
   '<circle cx="20" cy="20" r="17" stroke="#C9A84C" stroke-width="1" stroke-dasharray="2 5" opacity=".6"/>' +
+  '<g transform="translate(9.8 10.2) scale(0.85)" stroke="#52B788" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">' +
+  '<path d="M6 18h8"/>' +
+  '<path d="M3 22h18"/>' +
+  '<path d="M14 22a7 7 0 1 0 0-14h-1"/>' +
+  '<path d="M9 14h2"/>' +
+  '<path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/>' +
+  '<path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/>' +
+  "</g>" +
   "</svg>";
 
 /* ── الخطاطات العلمية (محايدة اللغة) ─────────────────────────────────────── */
@@ -88,3 +94,13 @@ export const FIGURES = {
 export function figFor(key) {
   return FIGURES[key] || FIGURES.cell;
 }
+
+/**
+ * يبني نمطاً مضمّناً لأيقونة ملوّنة من طيف التخصّصات: لون الأيقونة وخلفيتها
+ * يُشتقّان من لون واحد عبر color-mix، فيتكيّفان تلقائياً مع الوضعين الفاتح
+ * والليلي. على المتصفّحات القديمة التي لا تدعم color-mix يعود إلى الأخضر.
+ * @param {string} token اسم متغيّر اللون، مثل "--spec-teal".
+ */
+export const specStyle = (token) =>
+  `color:color-mix(in srgb, var(${token}) 78%, var(--text));` +
+  `background:color-mix(in srgb, var(${token}) 15%, var(--surface))`;

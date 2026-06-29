@@ -113,7 +113,7 @@
   color:#fff;
 }
 .hero h1 .grad{
-  background:linear-gradient(100deg, var(--sage), var(--mint-bright) 60%, var(--gold));
+  background:linear-gradient(100deg, var(--sage) 0%, var(--spec-teal) 32%, var(--spec-violet) 64%, var(--gold) 100%);
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;

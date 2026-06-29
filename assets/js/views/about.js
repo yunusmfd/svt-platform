@@ -6,16 +6,16 @@
  */
 
 import { t, ui } from "../core/i18n.js";
-import { svg } from "../core/icons.js";
+import { svg, specStyle } from "../core/icons.js";
 import { getLevels, getAllLessons } from "../core/content.js";
 import { app } from "../core/dom.js";
 
-/** بطاقات "لماذا المنصة": [أيقونة, مفتاح العنوان, مفتاح الوصف]. */
+/** بطاقات "لماذا المنصة": [أيقونة, مفتاح العنوان, مفتاح الوصف, لون الطيف]. */
 const WHY = [
-  ["flag", "why1_t", "why1_d"],
-  ["globe", "why2_t", "why2_d"],
-  ["quiz", "why3_t", "why3_d"],
-  ["device", "why4_t", "why4_d"],
+  ["flag", "why1_t", "why1_d", "--spec-green"],
+  ["globe", "why2_t", "why2_d", "--spec-teal"],
+  ["quiz", "why3_t", "why3_d", "--spec-violet"],
+  ["device", "why4_t", "why4_d", "--spec-gold"],
 ];
 
 export function renderAbout() {
@@ -56,9 +56,9 @@ export function renderAbout() {
       </div>
       <div class="why-grid">
         ${WHY.map(
-          ([icon, title, desc]) => `
+          ([icon, title, desc, spec]) => `
         <div class="why">
-          <div class="ico">${svg(icon)}</div>
+          <div class="ico" style="${specStyle(spec)}">${svg(icon)}</div>
           <h3>${ui(title)}</h3>
           <p>${ui(desc)}</p>
         </div>`
