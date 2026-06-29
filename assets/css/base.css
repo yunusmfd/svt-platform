@@ -1,0 +1,198 @@
+/* ==========================================================================
+   Nova SVT — الأساس (Base)
+   --------------------------------------------------------------------------
+   تصفير الأنماط، الطباعة، الوسائط، أساس النماذج، الأدوات المساعدة،
+   وقواعد إتاحة الوصول. لا توجد هنا أي قيم لونية صريحة — كلها من tokens.css.
+   ========================================================================== */
+
+/* ── 1) تصفير ────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+/* ── 2) المستند والجسم ───────────────────────────────────────────────── */
+html{
+  scroll-behavior:smooth;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+
+body{
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.6;
+  color:var(--text);
+  background:var(--bg);
+  overflow-x:hidden;                 /* تمنع التمرير الأفقي من زخارف الواجهة */
+  accent-color:var(--sage);          /* لون موحّد لعناصر النماذج الأصيلة */
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  transition:background var(--t) var(--ease), color var(--t) var(--ease);
+}
+
+/* الفرنسية أكثف قليلاً في ارتفاع السطر */
+html.lang-fr body{ line-height:1.55; }
+
+/* ── 3) الطباعة ──────────────────────────────────────────────────────── */
+h1,h2,h3,h4{
+  font-family:var(--font-display);
+  font-weight:700;
+  line-height:1.18;
+  letter-spacing:-.01em;
+  color:var(--text);
+  text-wrap:balance;                 /* توازن أفضل لأسطر العناوين (تحسين تدريجي) */
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font-family:inherit;
+  color:inherit;
+  background:none;
+  border:none;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+
+/* ── 4) الوسائط ──────────────────────────────────────────────────────── */
+img,
+svg{
+  display:block;
+  max-width:100%;
+}
+img{ height:auto; }                  /* الحفاظ على نسبة الأبعاد */
+
+/* ── 5) أساس النماذج ─────────────────────────────────────────────────── */
+input,
+textarea,
+select{
+  font:inherit;
+  color:inherit;
+}
+
+/* ── 6) الأدوات المساعدة ─────────────────────────────────────────────── */
+/* حاوية المحتوى الموحّدة (عرض أقصى + هوامش جانبية متجاوبة) */
+.wrap{
+  max-width:var(--maxw);
+  margin-inline:auto;
+  padding-inline:clamp(16px, 3vw, 48px);
+}
+
+.center{
+  text-align:center;
+  margin-inline:auto;
+}
+
+/* تسمية فوقية صغيرة بخط مونوسبيس */
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--pine);
+}
+
+.mono{ font-family:var(--font-mono); }
+
+/* عزل مقاطع لاتينية/أرقام داخل نص عربي بالاتجاه الصحيح */
+.ltr{
+  direction:ltr;
+  unicode-bidi:isolate;
+  display:inline-block;
+}
+
+/* مخفي بصرياً، متاح لقارئات الشاشة */
+.sr-only{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  clip-path:inset(50%);
+  white-space:nowrap;
+  border:0;
+}
+
+/* ── 7) إتاحة الوصول ─────────────────────────────────────────────────── */
+/* رابط "تجاوز إلى المحتوى": مخفي حتى يصله التركيز بلوحة المفاتيح */
+.skip-link{
+  position:fixed;
+  inset-block-start:10px;
+  inset-inline-start:10px;
+  z-index:calc(var(--z-toast) + 1);
+  background:var(--forest);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:var(--r);
+  font-weight:700;
+  font-size:14px;
+  box-shadow:var(--shadow-lg);
+  opacity:0;
+  transform:translateY(-150%);
+  pointer-events:none;
+  transition:transform var(--t) var(--ease), opacity var(--t) var(--ease);
+}
+.skip-link:focus{
+  opacity:1;
+  transform:none;
+  pointer-events:auto;
+}
+
+/* حلقة تركيز واضحة لمستخدمي لوحة المفاتيح فقط */
+:focus-visible{
+  outline:3px solid var(--sage);
+  outline-offset:2px;
+}
+
+/* حاوية المحتوى تُركَّز برمجياً عند تبديل الصفحة (إتاحة وصول) — بلا إطار */
+#app:focus{ outline:none; }
+
+/* حاوية الصفحات هدفٌ برمجي للتركيز (من رابط التجاوز) — دون حلقة مرئية */
+main#app:focus{ outline:none; }
+
+/* تحديد النص */
+::selection{
+  background:var(--mint);
+  color:var(--ink);
+}
+
+/* احترام تفضيل تقليل الحركة (إيقاف عام للحركات والانتقالات) */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,
+  *::before,
+  *::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+  }
+}
+
+/* ── 8) رسالة تعطيل JavaScript ───────────────────────────────────────── */
+.noscript-banner{
+  margin:16px;
+  padding:16px 20px;
+  background:var(--gold-tint);
+  color:var(--ink);
+  border:1px solid var(--gold);
+  border-radius:var(--r);
+  font-weight:600;
+  line-height:1.7;
+  text-align:center;
+}
+.noscript-banner span{
+  display:block;
+  direction:ltr;
+  margin-top:4px;
+  font-size:.9em;
+  color:var(--text-2);
+}

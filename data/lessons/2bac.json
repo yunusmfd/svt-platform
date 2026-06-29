@@ -1,0 +1,119 @@
+[
+  {
+    "id": "tectonique-plaques",
+    "level": "2bac",
+    "branch": "geo",
+    "fig": "tecto",
+    "duration": 65,
+    "unit": { "ar": "الوحدة: علم الأرض وتكتونية الصفائح", "fr": "Unité : Géologie et tectonique des plaques" },
+    "title": { "ar": "تكتونية الصفائح والظواهر المصاحبة", "fr": "La tectonique des plaques et phénomènes associés" },
+    "desc": { "ar": "نظرية تكتونية الصفائح، حركية الغلاف الصخري، وعلاقتها بالزلازل والبراكين وتشكّل السلاسل الجبلية.", "fr": "Théorie de la tectonique des plaques, dynamique de la lithosphère, séismes, volcans et chaînes de montagnes." },
+    "video": { "title": { "ar": "مدخل إلى تكتونية الصفائح", "fr": "Introduction à la tectonique des plaques" }, "length": "12:15" },
+    "intro": [
+      { "ar": "تصف نظرية <strong>تكتونية الصفائح</strong> الغلاف الصخري للأرض (Lithosphère) المقسّم إلى صفائح صلبة تنزلق فوق طبقة لدنة هي الأَسْتِينُوسْفير. هذه الحركية الدائمة مسؤولة عن تشكّل الجبال والزلازل والنشاط البركاني.", "fr": "La théorie de la <strong>tectonique des plaques</strong> décrit la lithosphère terrestre divisée en plaques rigides glissant sur l'asthénosphère, couche ductile. Cette dynamique est responsable des montagnes, des séismes et du volcanisme." },
+      { "ar": "المحرّك الأساسي لحركة الصفائح هو <strong>تيارات الحمل الحراري</strong> داخل الرداء، حيث تتباعد الصفائح عند الظهرات المحيطية وتتقارب في مناطق الطمر.", "fr": "Le moteur du mouvement est constitué par les <strong>courants de convection</strong> dans le manteau : les plaques s'écartent aux dorsales océaniques et convergent aux zones de subduction." }
+    ],
+    "figs": [
+      { "key": "tecto", "label": { "ar": "الشكل 1 — منطقة الطمر", "fr": "Fig. 1 — Zone de subduction" }, "cap": { "ar": "تقارب الصفائح والصهارة", "fr": "Convergence et magma" } },
+      { "key": "cell", "label": { "ar": "الشكل 2 — بنية الأرض", "fr": "Fig. 2 — Structure interne" }, "cap": { "ar": "الغلاف الصخري والرداء", "fr": "Lithosphère et manteau" } }
+    ],
+    "quiz": [
+      {
+        "q": { "ar": "ما المحرك الأساسي لحركة الصفائح التكتونية؟", "fr": "Quel est le moteur du mouvement des plaques ?" },
+        "options": [
+          { "ar": "قوى الجذب المغناطيسي", "fr": "Les forces magnétiques" },
+          { "ar": "تيارات الحمل الحراري", "fr": "Les courants de convection" },
+          { "ar": "دوران الأرض حول نفسها", "fr": "La rotation de la Terre" },
+          { "ar": "جاذبية القمر", "fr": "L'attraction lunaire" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "تيارات الحمل الحراري في الرداء تحرّك الصفائح.", "fr": "Les courants de convection dans le manteau déplacent les plaques." }
+      },
+      {
+        "q": { "ar": "تتباعد الصفائح عند:", "fr": "Les plaques s'écartent au niveau :" },
+        "options": [
+          { "ar": "مناطق الطمر", "fr": "des zones de subduction" },
+          { "ar": "الظهرات المحيطية", "fr": "des dorsales océaniques" },
+          { "ar": "السلاسل الجبلية", "fr": "des chaînes de montagnes" },
+          { "ar": "الفوالق التحويلية", "fr": "des failles transformantes" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "عند الظهرات المحيطية يتشكّل غلاف صخري جديد بالتباعد.", "fr": "Aux dorsales, une nouvelle lithosphère se forme par écartement." }
+      },
+      {
+        "q": { "ar": "الطبقة اللدنة التي تطفو فوقها الصفائح هي:", "fr": "La couche ductile sous les plaques est :" },
+        "options": [
+          { "ar": "الغلاف الصخري", "fr": "La lithosphère" },
+          { "ar": "الأستينوسفير", "fr": "L'asthénosphère" },
+          { "ar": "القشرة القارية", "fr": "La croûte continentale" },
+          { "ar": "النواة", "fr": "Le noyau" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "الأستينوسفير طبقة لدنة من الرداء العلوي.", "fr": "L'asthénosphère est une couche ductile du manteau supérieur." }
+      },
+      {
+        "q": { "ar": "في منطقة الطمر، تنغرز صفيحة:", "fr": "En zone de subduction, une plaque :" },
+        "options": [
+          { "ar": "قارية تحت محيطية", "fr": "continentale sous océanique" },
+          { "ar": "محيطية تحت أخرى", "fr": "océanique sous une autre" },
+          { "ar": "لا تنغرز أي صفيحة", "fr": "aucune plaque ne plonge" },
+          { "ar": "الصفيحتان معاً نحو الأعلى", "fr": "les deux montent" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "الصفيحة المحيطية الأكثف تنغرز تحت الأخرى.", "fr": "La plaque océanique, plus dense, plonge sous l'autre." }
+      }
+    ]
+  },
+  {
+    "id": "genetique-populations",
+    "level": "2bac",
+    "branch": "bio",
+    "fig": "dna",
+    "duration": 55,
+    "unit": { "ar": "الوحدة: علم الوراثة وعلم الوراثة السكانية", "fr": "Unité : Génétique et génétique des populations" },
+    "title": { "ar": "الخريطة الصبغية وعلم الوراثة السكانية", "fr": "Génétique et génétique des populations" },
+    "desc": { "ar": "دراسة انتقال الصفات وفق قوانين مندل، والتأثيرات على بنية الساكنة الوراثية.", "fr": "Transmission des caractères selon Mendel et structure génétique des populations." },
+    "video": { "title": { "ar": "من الفرد إلى الساكنة", "fr": "De l'individu à la population" }, "length": "10:05" },
+    "intro": [
+      { "ar": "يدرس <strong>علم الوراثة السكانية</strong> توزّع الحليلات داخل ساكنة معينة وتطوّر تردداتها عبر الأجيال تحت تأثير عوامل كالانتقاء والهجرة والطفرات، انطلاقاً من قوانين مندل.", "fr": "La <strong>génétique des populations</strong> étudie la répartition des allèles dans une population et l'évolution de leurs fréquences sous l'effet de la sélection, des migrations et des mutations, à partir des lois de Mendel." }
+    ],
+    "figs": [
+      { "key": "dna", "label": { "ar": "الشكل 1 — التردد الحليلي", "fr": "Fig. 1 — Fréquence allélique" }, "cap": { "ar": "بنية الساكنة الوراثية", "fr": "Structure génétique de la population" } }
+    ],
+    "quiz": [
+      {
+        "q": { "ar": "تجمع أفراد من نفس النوع يعيشون في مجال معيّن يسمى:", "fr": "Un ensemble d'individus d'une même espèce sur un territoire est :" },
+        "options": [
+          { "ar": "النوع", "fr": "L'espèce" },
+          { "ar": "الساكنة", "fr": "La population" },
+          { "ar": "الحليل", "fr": "L'allèle" },
+          { "ar": "المشيج", "fr": "Le gamète" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "الساكنة = أفراد نفس النوع في مجال محدّد.", "fr": "La population = individus d'une même espèce sur un territoire." }
+      },
+      {
+        "q": { "ar": "تردد حليل في ساكنة هو:", "fr": "La fréquence d'un allèle dans une population est :" },
+        "options": [
+          { "ar": "عدد الأفراد الكلي", "fr": "Le nombre total d'individus" },
+          { "ar": "نسبة هذا الحليل بين كل الحليلات", "fr": "La proportion de cet allèle parmi tous" },
+          { "ar": "عدد الصبغيات", "fr": "Le nombre de chromosomes" },
+          { "ar": "حجم الخلية", "fr": "La taille de la cellule" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "التردد الحليلي = نسبة الحليل ضمن مجموع الحليلات.", "fr": "La fréquence allélique = proportion de l'allèle parmi l'ensemble." }
+      },
+      {
+        "q": { "ar": "من العوامل المؤثرة في تطور الساكنة الوراثية:", "fr": "Un facteur d'évolution de la population est :" },
+        "options": [
+          { "ar": "الانتقاء الطبيعي", "fr": "La sélection naturelle" },
+          { "ar": "لون الطلاء", "fr": "La couleur de peinture" },
+          { "ar": "درجة حرارة الفصل", "fr": "La température de la classe" },
+          { "ar": "عدد الكتب", "fr": "Le nombre de livres" }
+        ],
+        "correct": 0,
+        "explain": { "ar": "الانتقاء الطبيعي يغيّر ترددات الحليلات عبر الأجيال.", "fr": "La sélection naturelle modifie les fréquences alléliques." }
+      }
+    ]
+  }
+]

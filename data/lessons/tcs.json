@@ -1,0 +1,119 @@
+[
+  {
+    "id": "matiere-energie",
+    "level": "tcs",
+    "branch": "bio",
+    "fig": "cell",
+    "duration": 60,
+    "unit": { "ar": "الوحدة 1: استهلاك المادة العضوية وتدفق الطاقة", "fr": "Unité 1 : Matière organique et flux d'énergie" },
+    "title": { "ar": "استهلاك المادة العضوية وتدفق الطاقة", "fr": "Consommation de la matière organique et flux d'énergie" },
+    "desc": { "ar": "كيف تحرّر الخلايا الطاقة الكامنة في المادة العضوية عبر التنفس والتخمر، ودور الميتوكندري.", "fr": "Comment les cellules libèrent l'énergie de la matière organique par respiration et fermentation." },
+    "video": { "title": { "ar": "الأيض الطاقي للخلية", "fr": "Le métabolisme énergétique" }, "length": "10:40" },
+    "intro": [
+      { "ar": "تحرّر الخلية الطاقة الكامنة في <strong>المادة العضوية</strong> (الكليكوز خاصة) عبر تفاعلات الهدم. في حضور O₂ يحدث <strong>التنفس</strong> داخل الميتوكندري بمردود طاقي مرتفع، وفي غيابه يحدث <strong>التخمر</strong> بمردود ضعيف.", "fr": "La cellule libère l'énergie de la <strong>matière organique</strong> (surtout le glucose) par dégradation. En présence d'O₂ : <strong>respiration</strong> dans la mitochondrie à rendement élevé ; en absence d'O₂ : <strong>fermentation</strong> à faible rendement." },
+      { "ar": "تُخزَّن الطاقة المحرَّرة في جزيئات <strong>ATP</strong> التي تستعملها الخلية في مختلف أنشطتها الحيوية.", "fr": "L'énergie libérée est stockée dans des molécules d'<strong>ATP</strong> utilisées par la cellule pour ses activités vitales." }
+    ],
+    "figs": [
+      { "key": "cell", "label": { "ar": "الشكل 1 — الميتوكندري", "fr": "Fig. 1 — La mitochondrie" }, "cap": { "ar": "مقر التنفس الخلوي", "fr": "Siège de la respiration cellulaire" } },
+      { "key": "gas", "label": { "ar": "الشكل 2 — مدخلات ومخرجات", "fr": "Fig. 2 — Entrées et sorties" }, "cap": { "ar": "O₂ والمادة العضوية", "fr": "O₂ et matière organique" } }
+    ],
+    "quiz": [
+      {
+        "q": { "ar": "أين يتم التنفس الخلوي؟", "fr": "Où se déroule la respiration cellulaire ?" },
+        "options": [
+          { "ar": "في النواة", "fr": "Dans le noyau" },
+          { "ar": "في الميتوكندري", "fr": "Dans la mitochondrie" },
+          { "ar": "في الغشاء", "fr": "Dans la membrane" },
+          { "ar": "في الفجوة", "fr": "Dans la vacuole" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "الميتوكندري هي مقر التنفس الخلوي.", "fr": "La mitochondrie est le siège de la respiration cellulaire." }
+      },
+      {
+        "q": { "ar": "المركّب الطاقي الذي تخزّن فيه الخلية الطاقة هو:", "fr": "Le composé de stockage d'énergie est :" },
+        "options": [
+          { "ar": "ADN", "fr": "ADN" },
+          { "ar": "ATP", "fr": "ATP" },
+          { "ar": "ARN", "fr": "ARN" },
+          { "ar": "الكليكوجين", "fr": "Le glycogène" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "ATP هو عملة الطاقة في الخلية.", "fr": "L'ATP est la monnaie énergétique cellulaire." }
+      },
+      {
+        "q": { "ar": "التخمر يحدث:", "fr": "La fermentation se produit :" },
+        "options": [
+          { "ar": "في حضور O₂", "fr": "En présence d'O₂" },
+          { "ar": "في غياب O₂", "fr": "En absence d'O₂" },
+          { "ar": "تحت الضوء فقط", "fr": "Sous lumière seulement" },
+          { "ar": "في الماء فقط", "fr": "Dans l'eau seulement" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "التخمر مسار لاهوائي يحدث في غياب O₂.", "fr": "La fermentation est anaérobie (sans O₂)." }
+      },
+      {
+        "q": { "ar": "أي مسار يعطي مردوداً طاقياً أكبر؟", "fr": "Quelle voie a le meilleur rendement ?" },
+        "options": [
+          { "ar": "التخمر", "fr": "La fermentation" },
+          { "ar": "التنفس", "fr": "La respiration" },
+          { "ar": "الترشيح", "fr": "La filtration" },
+          { "ar": "التبخر", "fr": "L'évaporation" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "التنفس يعطي طاقة أكبر بكثير من التخمر.", "fr": "La respiration produit beaucoup plus d'énergie." }
+      }
+    ]
+  },
+  {
+    "id": "cycle-sedimentaire",
+    "level": "tcs",
+    "branch": "geo",
+    "fig": "tecto",
+    "duration": 50,
+    "unit": { "ar": "الوحدة 3: الظواهر الجيولوجية الخارجية", "fr": "Unité 3 : Phénomènes géologiques externes" },
+    "title": { "ar": "الدورة الرسوبية وتشكّل الصخور", "fr": "Cycle sédimentaire et formation des roches" },
+    "desc": { "ar": "مراحل تشكّل الصخور الرسوبية من تعرية ونقل وترسّب، وأهميتها في قراءة تاريخ الأرض.", "fr": "Étapes de formation des roches sédimentaires et leur importance dans l'histoire de la Terre." },
+    "video": { "title": { "ar": "من الصخرة إلى الرسابة", "fr": "De la roche au sédiment" }, "length": "08:00" },
+    "intro": [
+      { "ar": "تخضع الصخور على سطح الأرض لـ<strong>التعرية</strong> ثم <strong>النقل</strong> فالـ<strong>ترسّب</strong>، لتتشكّل صخور رسوبية على شكل طبقات تحفظ آثار البيئات القديمة.", "fr": "Les roches en surface subissent l'<strong>érosion</strong>, le <strong>transport</strong> puis le <strong>dépôt</strong>, formant des roches sédimentaires en strates qui conservent les traces des milieux anciens." }
+    ],
+    "figs": [
+      { "key": "tecto", "label": { "ar": "الشكل 1 — مقطع جيولوجي", "fr": "Fig. 1 — Coupe géologique" }, "cap": { "ar": "تتالي الطبقات", "fr": "Succession des strates" } }
+    ],
+    "quiz": [
+      {
+        "q": { "ar": "الترتيب الصحيح لمراحل الدورة الرسوبية:", "fr": "L'ordre correct du cycle sédimentaire :" },
+        "options": [
+          { "ar": "ترسّب ← نقل ← تعرية", "fr": "dépôt ← transport ← érosion" },
+          { "ar": "تعرية ← نقل ← ترسّب", "fr": "érosion ← transport ← dépôt" },
+          { "ar": "نقل ← ترسّب ← تعرية", "fr": "transport ← dépôt ← érosion" },
+          { "ar": "ترسّب ← تعرية ← نقل", "fr": "dépôt ← érosion ← transport" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "التعرية أولاً، ثم النقل، فالترسّب.", "fr": "Érosion, puis transport, puis dépôt." }
+      },
+      {
+        "q": { "ar": "الصخور المتكوّنة على شكل طبقات تسمى:", "fr": "Les roches formées en strates sont dites :" },
+        "options": [
+          { "ar": "نارية", "fr": "magmatiques" },
+          { "ar": "رسوبية", "fr": "sédimentaires" },
+          { "ar": "متحولة", "fr": "métamorphiques" },
+          { "ar": "بركانية", "fr": "volcaniques" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "الترسّب الطبقي يميّز الصخور الرسوبية.", "fr": "La stratification caractérise les roches sédimentaires." }
+      },
+      {
+        "q": { "ar": "تساعد المتحجرات على:", "fr": "Les fossiles permettent de :" },
+        "options": [
+          { "ar": "إنتاج الطاقة", "fr": "produire de l'énergie" },
+          { "ar": "تأريخ الطبقات ومعرفة البيئات القديمة", "fr": "dater les strates et connaître les milieux anciens" },
+          { "ar": "تصفية الماء", "fr": "filtrer l'eau" },
+          { "ar": "توليد الزلازل", "fr": "générer des séismes" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "المتحجرات شواهد على الزمن والبيئة القديمة.", "fr": "Les fossiles témoignent du temps et des milieux anciens." }
+      }
+    ]
+  }
+]

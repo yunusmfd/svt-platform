@@ -1,0 +1,70 @@
+/* ==========================================================================
+   Nova SVT — الاستجابة (Responsive) — أسلوب Mobile-First
+   --------------------------------------------------------------------------
+   القيم الافتراضية (في base/components/views) مكتوبة للهاتف أولاً، وهنا
+   التحسينات التدريجية للشاشات الأكبر عبر min-width.
+   النقاط: 561px ← 821px ← 1001px (مكافئة تماماً لحدود التصميم السابق).
+
+   قواعد إتاحة الوصول (تقليل الحركة) في base.css، وإيقاف حركات الزخارف في
+   views.css.
+   ========================================================================== */
+
+/* ── ≥ 561px: نهاية الهواتف الصغيرة ──────────────────────────────────── */
+@media (min-width: 561px){
+  body{ font-size:17px; }
+
+  .feature{ padding:26px 22px; }
+
+  /* شبكات تنتقل إلى عمودين */
+  .lesson-grid{ grid-template-columns:1fr 1fr; }
+  .fig-grid{ grid-template-columns:1fr 1fr; }
+  .qoptions{ grid-template-columns:1fr 1fr; }
+
+  /* إحصائيات الواجهة: عنصران في الصف */
+  .stat{ min-width:140px; }
+
+  /* مبدّل اللغة بحجمه الكامل */
+  .lang-toggle button{ min-width:64px; padding:7px 15px; }
+
+  /* الشريط الدعائي أفقي */
+  .band{ flex-direction:row; align-items:center; }
+
+  /* التذييل: عمودان والعلامة تمتد عرضياً */
+  .footer-inner{ grid-template-columns:1fr 1fr; }
+  .footer .f-brand{ grid-column:1 / -1; }
+}
+
+/* ── ≥ 821px: لوحي وحاسوب صغير ───────────────────────────────────────── */
+@media (min-width: 821px){
+  /* إظهار روابط التنقّل وإخفاء زر القائمة */
+  .nav-links{ display:flex; }
+  .menu-btn{ display:none; }
+
+  /* شبكات أوسع */
+  .feature-grid{ grid-template-columns:repeat(4, 1fr); }
+  .dual{ grid-template-columns:1fr 1fr; }
+  .lesson-grid{ grid-template-columns:repeat(3, 1fr); }
+  .why-grid{ grid-template-columns:1fr 1fr; }
+}
+
+/* ── ≥ 1001px: حواسيب ────────────────────────────────────────────────── */
+@media (min-width: 1001px){
+  /* صفحة الدرس: عمود جانبي للفهرس */
+  .detail{ grid-template-columns:260px 1fr; }
+  .toc{ display:block; }
+
+  /* المختبر: لوحة جانبية بحدّ جانبي */
+  .lab{ grid-template-columns:340px 1fr; }
+  .lab-side{ border-inline-end:1px solid var(--line); border-block-end:none; }
+
+  /* التذييل بثلاثة أعمدة */
+  .footer-inner{ grid-template-columns:1.6fr 1fr 1fr; }
+  .footer .f-brand{ grid-column:auto; }
+}
+
+/* ── ≥ 1400px: شاشات عريضة ──────────────────────────────────────────── */
+@media (min-width: 1400px){
+  body{ font-size:17.5px; }
+  .hero h1{ font-size:4.2rem; }
+  .lesson-grid{ grid-template-columns:repeat(3, 1fr); }
+}

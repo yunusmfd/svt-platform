@@ -1,0 +1,19 @@
+{
+  "name": "Nova SVT — منصة علوم الحياة والأرض",
+  "short_name": "Nova SVT",
+  "description": "منصة رقمية مجانية لتعليم علوم الحياة والأرض بالمغرب — دروس، خطاطات، وملفات واختبارات بتصحيح فوري، للإعدادي والثانوي.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0C1A13",
+  "theme_color": "#0C1A13",
+  "categories": ["education"],
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

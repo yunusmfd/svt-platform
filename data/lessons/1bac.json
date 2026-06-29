@@ -1,0 +1,119 @@
+[
+  {
+    "id": "immunologie",
+    "level": "1bac",
+    "branch": "bio",
+    "fig": "cell",
+    "duration": 58,
+    "unit": { "ar": "الوحدة: المناعة عند الإنسان", "fr": "Unité : L'immunité chez l'Homme" },
+    "title": { "ar": "المناعة الطبيعية والمكتسبة", "fr": "L'immunité naturelle et acquise" },
+    "desc": { "ar": "خطوط الدفاع عن الجسم ضد العناصر الغريبة، ودور الخلايا المناعية والأجسام المضادة.", "fr": "Lignes de défense de l'organisme et rôle des cellules immunitaires et des anticorps." },
+    "video": { "title": { "ar": "دفاعات الجسم", "fr": "Les défenses de l'organisme" }, "length": "11:10" },
+    "intro": [
+      { "ar": "تواجه العضوية الأجسام الغريبة (<strong>مولّدات المضاد</strong>) عبر مناعة <strong>طبيعية (لانوعية)</strong> سريعة، ومناعة <strong>مكتسبة (نوعية)</strong> دقيقة تعتمد على اللمفاويات T و B.", "fr": "L'organisme affronte les corps étrangers (<strong>antigènes</strong>) par une immunité <strong>naturelle (non spécifique)</strong> rapide et une immunité <strong>acquise (spécifique)</strong> reposant sur les lymphocytes T et B." },
+      { "ar": "تُنتج اللمفاويات B <strong>أجساماً مضادة</strong> تُبطل مفعول مولّدات المضاد، بينما تتدخّل اللمفاويات T في التعرّف والتخريب المباشر للخلايا المصابة.", "fr": "Les lymphocytes B produisent des <strong>anticorps</strong> qui neutralisent les antigènes, tandis que les lymphocytes T reconnaissent et détruisent les cellules infectées." }
+    ],
+    "figs": [
+      { "key": "cell", "label": { "ar": "الشكل 1 — اللمفاوية", "fr": "Fig. 1 — Le lymphocyte" }, "cap": { "ar": "خلية مناعية أساسية", "fr": "Cellule immunitaire clé" } },
+      { "key": "dna", "label": { "ar": "الشكل 2 — التنوع المناعي", "fr": "Fig. 2 — Diversité immunitaire" }, "cap": { "ar": "أساس النوعية المناعية", "fr": "Base de la spécificité" } }
+    ],
+    "quiz": [
+      {
+        "q": { "ar": "الجسم الغريب الذي يثير استجابة مناعية يسمى:", "fr": "Le corps étranger déclenchant une réponse est :" },
+        "options": [
+          { "ar": "الجسم المضاد", "fr": "L'anticorps" },
+          { "ar": "مولّد المضاد", "fr": "L'antigène" },
+          { "ar": "اللمفاوية", "fr": "Le lymphocyte" },
+          { "ar": "البلعمية", "fr": "Le phagocyte" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "مولّد المضاد هو ما يثير الاستجابة المناعية.", "fr": "L'antigène déclenche la réponse immunitaire." }
+      },
+      {
+        "q": { "ar": "الخلايا المنتجة للأجسام المضادة هي:", "fr": "Les cellules produisant les anticorps sont :" },
+        "options": [
+          { "ar": "اللمفاويات B", "fr": "Les lymphocytes B" },
+          { "ar": "الكريات الحمراء", "fr": "Les globules rouges" },
+          { "ar": "الصفيحات الدموية", "fr": "Les plaquettes" },
+          { "ar": "العصبونات", "fr": "Les neurones" }
+        ],
+        "correct": 0,
+        "explain": { "ar": "اللمفاويات B تنتج الأجسام المضادة (مناعة خلطية).", "fr": "Les lymphocytes B produisent les anticorps (immunité humorale)." }
+      },
+      {
+        "q": { "ar": "المناعة الطبيعية تتميز بأنها:", "fr": "L'immunité naturelle est :" },
+        "options": [
+          { "ar": "نوعية وبطيئة", "fr": "spécifique et lente" },
+          { "ar": "لانوعية وسريعة", "fr": "non spécifique et rapide" },
+          { "ar": "وراثية فقط", "fr": "héréditaire seulement" },
+          { "ar": "غائبة عند الإنسان", "fr": "absente chez l'Homme" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "المناعة الطبيعية لانوعية وتتدخل بسرعة.", "fr": "L'immunité naturelle est non spécifique et rapide." }
+      },
+      {
+        "q": { "ar": "اللمفاويات T المسؤولة عن التخريب المباشر هي:", "fr": "Les lymphocytes T de destruction directe sont :" },
+        "options": [
+          { "ar": "LT4 المساعدة", "fr": "LT4 auxiliaires" },
+          { "ar": "LT8 السامة", "fr": "LT8 cytotoxiques" },
+          { "ar": "اللمفاويات B", "fr": "Les lymphocytes B" },
+          { "ar": "البلعميات", "fr": "Les phagocytes" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "LT8 السامة تخرّب الخلايا المصابة مباشرة.", "fr": "Les LT8 cytotoxiques détruisent directement les cellules infectées." }
+      }
+    ]
+  },
+  {
+    "id": "heredite-humaine",
+    "level": "1bac",
+    "branch": "bio",
+    "fig": "dna",
+    "duration": 52,
+    "unit": { "ar": "الوحدة: علم الوراثة البشرية", "fr": "Unité : La génétique humaine" },
+    "title": { "ar": "انتقال الصفات الوراثية عند الإنسان", "fr": "Transmission des caractères chez l'Homme" },
+    "desc": { "ar": "دراسة انتقال الأمراض الوراثية وشجرة النسب وقوانين مندل عند الإنسان.", "fr": "Étude des maladies héréditaires, de l'arbre généalogique et des lois de Mendel." },
+    "video": { "title": { "ar": "شجرة النسب والوراثة", "fr": "Arbre généalogique et hérédité" }, "length": "09:40" },
+    "intro": [
+      { "ar": "تُمكّن <strong>شجرة النسب</strong> من تتبّع انتقال صفة وراثية عبر الأجيال وتحديد نمط انتقالها (سائد أو متنحٍ، مرتبط بالجنس أو لا). تخضع هذه الصفات لـ<strong>قوانين مندل</strong>.", "fr": "L'<strong>arbre généalogique</strong> permet de suivre la transmission d'un caractère à travers les générations et d'en déterminer le mode (dominant/récessif, lié ou non au sexe). Ces caractères suivent les <strong>lois de Mendel</strong>." }
+    ],
+    "figs": [
+      { "key": "dna", "label": { "ar": "الشكل 1 — الحليلات", "fr": "Fig. 1 — Les allèles" }, "cap": { "ar": "أساس التنوع الوراثي", "fr": "Base de la diversité génétique" } }
+    ],
+    "quiz": [
+      {
+        "q": { "ar": "الأشكال المختلفة لنفس المورثة تسمى:", "fr": "Les formes différentes d'un même gène sont :" },
+        "options": [
+          { "ar": "الصبغيات", "fr": "Les chromosomes" },
+          { "ar": "الحليلات", "fr": "Les allèles" },
+          { "ar": "الأمشاج", "fr": "Les gamètes" },
+          { "ar": "النوى", "fr": "Les noyaux" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "الحليلات هي النسخ المختلفة للمورثة.", "fr": "Les allèles sont les versions différentes d'un gène." }
+      },
+      {
+        "q": { "ar": "الفرد الذي يحمل حليلين مختلفين يُسمى:", "fr": "L'individu portant deux allèles différents est :" },
+        "options": [
+          { "ar": "صرف (متماثل اللواقح)", "fr": "homozygote" },
+          { "ar": "مختلط (متخالف اللواقح)", "fr": "hétérozygote" },
+          { "ar": "نقي", "fr": "pur" },
+          { "ar": "طافر", "fr": "mutant" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "متخالف اللواقح يحمل حليلين مختلفين.", "fr": "L'hétérozygote porte deux allèles différents." }
+      },
+      {
+        "q": { "ar": "الصفة التي تظهر عند المختلط تسمى:", "fr": "Le caractère qui s'exprime chez l'hétérozygote est :" },
+        "options": [
+          { "ar": "متنحية", "fr": "récessif" },
+          { "ar": "سائدة", "fr": "dominant" },
+          { "ar": "مرتبطة بالجنس", "fr": "lié au sexe" },
+          { "ar": "مكتسبة", "fr": "acquis" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "الصفة السائدة تظهر حتى مع حليل واحد.", "fr": "Le caractère dominant s'exprime même avec un seul allèle." }
+      }
+    ]
+  }
+]

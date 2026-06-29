@@ -1,0 +1,8 @@
+[
+  { "id": "1ac",  "stage": "college", "code": "1AC",  "name": { "ar": "الأولى إعدادي",        "fr": "1ère collège" } },
+  { "id": "2ac",  "stage": "college", "code": "2AC",  "name": { "ar": "الثانية إعدادي",        "fr": "2ème collège" } },
+  { "id": "3ac",  "stage": "college", "code": "3AC",  "name": { "ar": "الثالثة إعدادي",        "fr": "3ème collège" } },
+  { "id": "tcs",  "stage": "lycee",   "code": "TCS",  "name": { "ar": "الجذع المشترك العلمي",  "fr": "Tronc commun sc." } },
+  { "id": "1bac", "stage": "lycee",   "code": "1BAC", "name": { "ar": "الأولى باك علوم",        "fr": "1ère Bac sc. exp." } },
+  { "id": "2bac", "stage": "lycee",   "code": "2BAC", "name": { "ar": "الثانية باك علوم",        "fr": "2ème Bac sc. exp." } }
+]

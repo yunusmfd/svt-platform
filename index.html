@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar" class="lang-ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0C1A13" />
+
+  <title>Nova SVT — منصة علوم الحياة والأرض</title>
+  <meta name="description" content="منصة Nova SVT الرقمية المجانية لمادة علوم الحياة والأرض بالمغرب — فيديوهات، خطاطات، ملفات واختبارات بتصحيح فوري، بدون تسجيل." />
+
+  <!-- المشاركة على الشبكات الاجتماعية (Open Graph) -->
+  <meta property="og:title" content="Nova SVT — منصة علوم الحياة والأرض" />
+  <meta property="og:description" content="منصة رقمية مجانية لتعليم علوم الحياة والأرض بالمغرب — للإعدادي والثانوي، بدون تسجيل." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ar_MA" />
+  <meta property="og:locale:alternate" content="fr_MA" />
+
+  <!-- أيقونة الموقع وتطبيق الويب التقدّمي (PWA) -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Nova SVT" />
+
+  <!-- الخطوط -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Cairo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- ضبط المظهر قبل رسم الصفحة لمنع وميض الانتقال بين الفاتح والليلي -->
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("nova-svt:theme");
+        var dark =
+          stored === "dark" ||
+          ((!stored || stored === "system") &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- أنماط المنصة (مقسّمة بالترتيب: المتغيرات ← الأساس ← المكوّنات ← الصفحات ← الاستجابة) -->
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/views.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+<body>
+  <!-- تجاوز إلى المحتوى (إتاحة الوصول) -->
+  <a class="skip-link" href="#app" data-i18n="skip_to_content">تجاوز إلى المحتوى</a>
+
+  <!-- ===== شريط التنقّل الثابت ===== -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#/" aria-label="Nova SVT — الصفحة الرئيسية">
+        <span class="logo" id="brandLogo" aria-hidden="true"></span>
+        <span class="name">Nova<span>SVT</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="القائمة الرئيسية">
+        <a class="nav-link" data-route="home"    href="#/"        data-i18n="nav_home"></a>
+        <a class="nav-link" data-route="lessons" href="#/lessons" data-i18n="nav_lessons"></a>
+        <a class="nav-link" data-route="lab"     href="#/lab"     data-i18n="nav_lab"></a>
+        <a class="nav-link" data-route="about"   href="#/about"   data-i18n="nav_about"></a>
+      </nav>
+
+      <div class="nav-right">
+        <button class="icon-btn theme-btn" id="themeBtn" type="button"
+                aria-label="تبديل المظهر الليلي" aria-pressed="false"></button>
+
+        <!-- مبدّل اللغة (العنصر المميّز للمنصة) -->
+        <div class="lang-toggle" role="group" aria-label="اللغة">
+          <span class="glider" aria-hidden="true"></span>
+          <button class="ar-opt" type="button" data-lang="ar" aria-pressed="true">العربية</button>
+          <button class="fr-opt" type="button" data-lang="fr" aria-pressed="false">Français</button>
+        </div>
+
+        <button class="icon-btn menu-btn" id="menuBtn" type="button"
+                aria-label="فتح القائمة" aria-expanded="false" aria-controls="drawer"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== قائمة جانبية للهاتف ===== -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-scrim" data-drawer-close></div>
+    <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="القائمة">
+      <div class="drawer-head">
+        <span class="brand"><span class="name">Nova<span>SVT</span></span></span>
+        <button class="icon-btn" id="drawerClose" type="button" aria-label="إغلاق القائمة" data-drawer-close></button>
+      </div>
+      <a class="nav-link" data-route="home"    href="#/"        data-i18n="nav_home"    data-drawer-close></a>
+      <a class="nav-link" data-route="lessons" href="#/lessons" data-i18n="nav_lessons" data-drawer-close></a>
+      <a class="nav-link" data-route="lab"     href="#/lab"     data-i18n="nav_lab"     data-drawer-close></a>
+      <a class="nav-link" data-route="about"   href="#/about"   data-i18n="nav_about"   data-drawer-close></a>
+    </aside>
+  </div>
+
+  <!-- ===== منطقة عرض الصفحات (تُحقن ديناميكياً عبر JavaScript) ===== -->
+  <main id="app" tabindex="-1"></main>
+
+  <!-- منطقة إعلان مخفية لقارئات الشاشة (تصحيح الاختبار، الحالات الديناميكية) -->
+  <div id="srLive" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ===== التذييل الثابت ===== -->
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="f-brand">
+        <div class="name">Nova<span>SVT</span></div>
+        <p data-i18n="foot_about"></p>
+      </div>
+      <nav class="f-col" aria-label="روابط التصفّح">
+        <h5 data-i18n="foot_explore"></h5>
+        <a href="#/"        data-i18n="nav_home"></a>
+        <a href="#/lessons" data-i18n="nav_lessons"></a>
+        <a href="#/lab"     data-i18n="nav_lab"></a>
+        <a href="#/about"   data-i18n="nav_about"></a>
+      </nav>
+      <nav class="f-col" aria-label="روابط المستويات">
+        <h5 data-i18n="foot_levels"></h5>
+        <a href="#/lessons/1ac"  data-i18n="foot_college"></a>
+        <a href="#/lessons/tcs"  data-i18n="foot_lycee"></a>
+        <a href="#/lessons/2bac" data-i18n="foot_bac"></a>
+      </nav>
+    </div>
+    <div class="wrap footer-bottom">
+      <span data-i18n="foot_rights"></span>
+      <span data-i18n="foot_made"></span>
+    </div>
+  </footer>
+
+  <!-- ===== تنبيهات منبثقة (Toast) ===== -->
+  <div class="toast-wrap" aria-live="polite" aria-atomic="true">
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <!-- رسالة عند تعطيل JavaScript -->
+  <noscript>
+    <div class="noscript-banner">
+      لتشغيل منصة Nova SVT يرجى تفعيل JavaScript في المتصفّح.
+      <span dir="ltr">Veuillez activer JavaScript pour utiliser Nova SVT.</span>
+    </div>
+  </noscript>
+
+  <!-- نقطة الدخول البرمجية (ES Module) -->
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
