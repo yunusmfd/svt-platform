@@ -36,8 +36,9 @@
 
 /* ── ≥ 821px: لوحي وحاسوب صغير ───────────────────────────────────────── */
 @media (min-width: 821px){
-  /* إظهار روابط التنقّل وإخفاء زر القائمة */
+  /* إظهار روابط التنقّل وشريط اللغة، وإخفاء زر القائمة */
   .nav-links{ display:flex; }
+  .nav-inner .lang-toggle{ display:inline-flex; }
   .menu-btn{ display:none; }
 
   /* شبكات أوسع */
@@ -60,11 +61,4 @@
   /* التذييل بثلاثة أعمدة */
   .footer-inner{ grid-template-columns:1.6fr 1fr 1fr; }
   .footer .f-brand{ grid-column:auto; }
-}
-
-/* ── ≥ 1400px: شاشات عريضة ──────────────────────────────────────────── */
-@media (min-width: 1400px){
-  body{ font-size:17.5px; }
-  .hero h1{ font-size:4.2rem; }
-  .lesson-grid{ grid-template-columns:repeat(3, 1fr); }
 }

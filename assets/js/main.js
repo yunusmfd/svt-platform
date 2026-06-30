@@ -15,7 +15,7 @@
 import { STORAGE_KEYS, DEFAULT_LANG, ROUTES, APP_NAME } from "./core/config.js";
 import { get, set } from "./core/storage.js";
 import { t, ui, setLanguage } from "./core/i18n.js";
-import { LOGO } from "./core/icons.js";
+import { LOGO, svg } from "./core/icons.js";
 import { initTheme } from "./core/theme.js";
 import { loadContent, findLesson, findLevel } from "./core/content.js";
 import { initRouter } from "./core/router.js";
@@ -83,9 +83,13 @@ function centerMessage(html) {
 }
 
 async function boot() {
-  // 1) الشعار
+  // 1) الشعار وأيقونات أزرار الواجهة
   const logo = document.getElementById("brandLogo");
   if (logo) logo.innerHTML = LOGO;
+  const menuBtn = document.getElementById("menuBtn");
+  if (menuBtn) menuBtn.innerHTML = svg("menu");
+  const drawerClose = document.getElementById("drawerClose");
+  if (drawerClose) drawerClose.innerHTML = svg("close");
 
   // 2) المظهر واللغة
   initTheme();
@@ -120,9 +124,37 @@ async function boot() {
   registerServiceWorker();
 }
 
-/** يسجّل عامل الخدمة بعد اكتمال التحميل (لا يعمل عبر file://). */
+/**
+ * يسجّل عامل الخدمة على المواقع المنشورة فقط (HTTPS).
+ * أثناء التطوير المحلّي (localhost) يُعطَّل التخزين المؤقّت ويُلغى أي عامل خدمة
+ * عالق، حتى ترى تعديلاتك فوراً دون أي التباس.
+ */
 function registerServiceWorker() {
   if (!("serviceWorker" in navigator)) return;
+
+  const host = location.hostname;
+  const isLocal =
+    host === "localhost" ||
+    host === "127.0.0.1" ||
+    host === "" ||
+    host === "[::1]" ||
+    host.endsWith(".local") ||
+    host.startsWith("192.168.") ||
+    host.startsWith("10.");
+
+  if (isLocal) {
+    // تطوير محلّي: لا تخزين مؤقّت — ألغِ أي عامل خدمة عالق وامسح مخزونه
+    navigator.serviceWorker
+      .getRegistrations()
+      .then((regs) => regs.forEach((r) => r.unregister()))
+      .catch(() => {});
+    if (window.caches) {
+      caches.keys().then((keys) => keys.forEach((k) => caches.delete(k))).catch(() => {});
+    }
+    return;
+  }
+
+  // موقع منشور: فعّل العمل دون إنترنت
   const reg = () => navigator.serviceWorker.register("sw.js").catch(() => {});
   if (document.readyState === "complete") reg();
   else window.addEventListener("load", reg, { once: true });

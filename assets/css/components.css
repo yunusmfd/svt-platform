@@ -184,6 +184,14 @@ html.lang-fr .lang-toggle .fr-opt{ color:#fff; }
 /* زر القائمة يظهر على الشاشات الصغيرة فقط (انظر responsive.css) */
 .menu-btn{ display:inline-flex; }
 
+/* في الهاتف: شريط اللغة بالهيدر مخفي، ويظهر داخل القائمة الجانبية بدله */
+.nav-inner .lang-toggle{ display:none; }
+.drawer-lang{
+  margin-top:18px;
+  padding-top:18px;
+  border-top:1px solid var(--line);
+}
+
 /* ╔══════════════════════════════════════════════════════════════════════╗
    ║ 4) القائمة الجانبية للهاتف (Drawer)                                   ║
    ╚══════════════════════════════════════════════════════════════════════╝ */
