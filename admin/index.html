@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova SVT — لوحة تحرير الدروس</title>
+
+  <!-- Quill Rich Text Editor -->
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+  <!-- خطوط Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- تنسيقات لوحة الإدارة -->
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <div class="admin-container">
+    <!-- ===== رأس الصفحة ===== -->
+    <header class="admin-header">
+      <div class="header-content">
+        <h1>Nova SVT — محرّر الدروس</h1>
+        <p class="subtitle">أنشئ وحرّر دروس المنصة بكل سهولة</p>
+      </div>
+    </header>
+
+    <!-- ===== المحتوى الرئيسي ===== -->
+    <main class="admin-main">
+      <!-- الجانب الأيسر: نموذج الإدخال -->
+      <div class="editor-panel">
+        <form id="lessonForm">
+          <!-- البيانات الأساسية -->
+          <section class="form-section">
+            <h2>البيانات الأساسية</h2>
+
+            <div class="form-group">
+              <label for="lessonId">معرّف الدرس (ID) *</label>
+              <input type="text" id="lessonId" placeholder="مثلاً: photosynthese" required />
+              <small>أحرف لاتينية صغيرة وشرطات فقط</small>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="lessonLevel">المستوى *</label>
+                <select id="lessonLevel" required>
+                  <option value="">اختر مستوى</option>
+                  <option value="1ac">الأولى إعدادي</option>
+                  <option value="2ac">الثانية إعدادي</option>
+                  <option value="3ac">الثالثة إعدادي</option>
+                  <option value="tcs">الجذع المشترك العلمي</option>
+                  <option value="1bac">الأولى باك علوم</option>
+                  <option value="2bac">الثانية باك علوم</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="lessonBranch">الفرع *</label>
+                <select id="lessonBranch" required>
+                  <option value="">اختر فرع</option>
+                  <option value="bio">حياة (Bio)</option>
+                  <option value="geo">أرض (Geo)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="lessonFig">الخطاطة (صورة البطاقة) *</label>
+              <select id="lessonFig" required>
+                <option value="">اختر خطاطة</option>
+                <option value="cell">خلية</option>
+                <option value="dna">ADN (حمض نووي)</option>
+                <option value="tecto">تكتونية الصفائح</option>
+                <option value="gas">مبادلات غازية</option>
+                <option value="digest">جهاز هضمي</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="lessonDuration">مدّة الدرس (دقائق) *</label>
+              <input type="number" id="lessonDuration" min="1" max="180" placeholder="45" required />
+            </div>
+          </section>
+
+          <!-- النصوص -->
+          <section class="form-section">
+            <h2>النصوص (عربي وفرنسي)</h2>
+
+            <div class="lang-tabs">
+              <button type="button" class="lang-tab active" data-lang="ar">العربية</button>
+              <button type="button" class="lang-tab" data-lang="fr">Français</button>
+            </div>
+
+            <div class="lang-content" data-lang="ar">
+              <div class="form-group">
+                <label for="unitAr">اسم الوحدة (عربي) *</label>
+                <input type="text" id="unitAr" placeholder="مثلاً: الوحدة 3: التغذية عند النباتات الخضراء" required />
+              </div>
+
+              <div class="form-group">
+                <label for="titleAr">عنوان الدرس (عربي) *</label>
+                <input type="text" id="titleAr" placeholder="مثلاً: التركيب الضوئي" required />
+              </div>
+
+              <div class="form-group">
+                <label for="descAr">وصف مختصر (عربي) *</label>
+                <textarea id="descAr" rows="3" placeholder="وصف الدرس في سطر أو سطرين..." required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="videoTitleAr">عنوان الفيديو (عربي) *</label>
+                <input type="text" id="videoTitleAr" placeholder="مثلاً: آلية التركيب الضوئي" required />
+              </div>
+
+              <div class="form-group">
+                <label for="videoLengthAr">طول الفيديو (دقائق:ثوان) *</label>
+                <input type="text" id="videoLengthAr" placeholder="08:30" pattern="\d{1,2}:\d{2}" required />
+              </div>
+            </div>
+
+            <div class="lang-content" data-lang="fr" style="display: none">
+              <div class="form-group">
+                <label for="unitFr">Unité (Français) *</label>
+                <input type="text" id="unitFr" placeholder="Ex: Unité 3 : La nutrition chez les plantes vertes" required />
+              </div>
+
+              <div class="form-group">
+                <label for="titleFr">Titre (Français) *</label>
+                <input type="text" id="titleFr" placeholder="Ex: La photosynthèse" required />
+              </div>
+
+              <div class="form-group">
+                <label for="descFr">Description (Français) *</label>
+                <textarea id="descFr" rows="3" placeholder="Description courte..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="videoTitleFr">Titre vidéo (Français) *</label>
+                <input type="text" id="videoTitleFr" placeholder="Ex: Mécanisme de la photosynthèse" required />
+              </div>
+
+              <div class="form-group">
+                <label for="videoLengthFr">Durée vidéo (mm:ss) *</label>
+                <input type="text" id="videoLengthFr" placeholder="08:30" pattern="\d{1,2}:\d{2}" required />
+              </div>
+            </div>
+          </section>
+
+          <!-- محتوى الدرس -->
+          <section class="form-section">
+            <h2>محتوى الدرس (المقدّمة)</h2>
+            <div class="editor-wrapper">
+              <div id="editor"></div>
+            </div>
+          </section>
+
+          <!-- الأزرار -->
+          <section class="form-section form-actions">
+            <button type="button" id="saveDraft" class="btn btn-secondary">
+              💾 حفظ مسودة
+            </button>
+            <button type="button" id="exportJSON" class="btn btn-primary">
+              📥 تصدير JSON
+            </button>
+            <button type="button" id="clearForm" class="btn btn-danger">
+              🗑️ مسح النموذج
+            </button>
+          </section>
+        </form>
+      </div>
+
+      <!-- الجانب الأيمن: معاينة فورية -->
+      <aside class="preview-panel">
+        <div class="preview-header">
+          <h3>معاينة الدرس</h3>
+          <p class="preview-subtitle">يُحدَّث تلقائياً أثناء الكتابة</p>
+        </div>
+        <div class="preview-content" id="previewContent">
+          <div class="preview-placeholder">
+            <p>👈 املأ البيانات لرؤية المعاينة</p>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <!-- Modal لتصدير JSON -->
+  <div id="exportModal" class="modal" style="display: none">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModal">&times;</button>
+      <h2>تصدير JSON</h2>
+      <p>انسخ هذا الـ JSON والصقه في ملف المستوى المناسب داخل <code>data/lessons/</code>:</p>
+      <textarea id="jsonOutput" class="json-textarea" readonly></textarea>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="copyJSON">📋 نسخ</button>
+        <button class="btn btn-secondary" id="downloadJSON">⬇️ تحميل ملف</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal لحفظ المسودة -->
+  <div id="saveModal" class="modal" style="display: none">
+    <div class="modal-content">
+      <button class="modal-close" id="closeSaveModal">&times;</button>
+      <h2>✅ تم الحفظ</h2>
+      <p>تم حفظ المسودة في متصفّحك. إذا أغلقت الصفحة ورجعت، ستظهر البيانات كما هي.</p>
+      <p class="modal-note">💡 ملاحظة: البيانات محفوظة محلياً فقط. استخدم "تصدير JSON" لحفظ نسخة احتياطية.</p>
+      <button class="btn btn-primary" id="closeSaveBtn">حسناً</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/editor.js"></script>
+</body>
+</html>

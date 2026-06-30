@@ -1,0 +1,463 @@
+/* ============================================================================
+   Nova SVT — Admin Panel CSS
+   ============================================================================
+   لوحة إدارة احترافية لمحرّر الدروس — تصميم RTL/LTR توافقي
+*/
+
+/* ── متغيّرات التصميم ──────────────────────────────────────────────────── */
+:root {
+  --sage: #52b788;
+  --dark-bg: #0c1a13;
+  --light-bg: #f5f7f6;
+  --surface: #ffffff;
+  --text: #1a2e27;
+  --text-muted: #6e817a;
+  --border: #e0e8e4;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --radius: 8px;
+  --duration: 0.3s;
+}
+
+[data-theme="dark"] {
+  --light-bg: #0c1a13;
+  --surface: #1a2e27;
+  --text: #f5f7f6;
+  --text-muted: #a8c5b8;
+  --border: #2a4035;
+}
+
+/* ── إعادة تعيين عام ────────────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Tajawal', system-ui, sans-serif;
+  background: var(--light-bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── الهيكل الرئيسي ─────────────────────────────────────────────────────── */
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.admin-header {
+  background: linear-gradient(135deg, var(--dark-bg), #1d3a2e);
+  color: #fff;
+  padding: 32px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.header-content h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.header-content .subtitle {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.admin-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+  padding: 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── جانب المحرّر ────────────────────────────────────────────────────────── */
+.editor-panel {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+
+.form-section {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.form-section:last-child {
+  border-bottom: none;
+}
+
+.form-section h2 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--sage);
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--surface);
+  transition: all var(--duration);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px rgba(82, 183, 136, 0.1);
+}
+
+.form-group small {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ── علامات اللغة ───────────────────────────────────────────────────────── */
+.lang-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.lang-tab {
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: all var(--duration);
+}
+
+.lang-tab.active {
+  color: var(--sage);
+  border-bottom-color: var(--sage);
+}
+
+.lang-content {
+  display: none;
+}
+
+.lang-content.active {
+  display: block;
+}
+
+/* ── محرّر Quill ────────────────────────────────────────────────────────── */
+.editor-wrapper {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.ql-toolbar {
+  background: var(--light-bg) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding: 8px !important;
+}
+
+.ql-toolbar.ql-snow .ql-formats {
+  margin-right: 12px;
+}
+
+.ql-container {
+  font-family: 'Tajawal', sans-serif !important;
+  font-size: 15px !important;
+}
+
+.ql-editor {
+  min-height: 400px;
+  padding: 16px !important;
+  line-height: 1.8 !important;
+}
+
+.ql-editor.ql-blank::before {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ── أزرار الإجراءات ────────────────────────────────────────────────────── */
+.form-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  border: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all var(--duration);
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--sage);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #3d9670;
+  box-shadow: 0 4px 12px rgba(82, 183, 136, 0.3);
+}
+
+.btn-secondary {
+  background: var(--light-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: var(--border);
+}
+
+.btn-danger {
+  background: #db6483;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: #c45470;
+}
+
+/* ── جانب المعاينة ──────────────────────────────────────────────────────── */
+.preview-panel {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  height: fit-content;
+  position: sticky;
+  top: 24px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+}
+
+.preview-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.preview-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.preview-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.preview-placeholder p {
+  font-size: 14px;
+}
+
+/* ── Modal ──────────────────────────────────────────────────────────────── */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 32px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.modal-close:hover {
+  color: var(--text);
+}
+
+.modal-content h2 {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.modal-content p {
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.modal-content code {
+  background: var(--light-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+}
+
+.json-textarea {
+  width: 100%;
+  min-height: 300px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  margin-bottom: 16px;
+  background: var(--light-bg);
+  color: var(--text);
+  resize: vertical;
+}
+
+.modal-note {
+  background: rgba(82, 183, 136, 0.1);
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .admin-main {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-panel {
+    position: static;
+    max-height: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-header {
+    padding: 24px;
+  }
+
+  .header-content h1 {
+    font-size: 20px;
+  }
+
+  .editor-panel {
+    padding: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ql-editor {
+    min-height: 300px;
+  }
+
+  .modal-content {
+    padding: 24px;
+  }
+}
+
+/* ── Quill Dark Mode Support ────────────────────────────────────────────── */
+[data-theme="dark"] .ql-toolbar {
+  background: var(--dark-bg) !important;
+}
+
+[data-theme="dark"] .ql-container {
+  background: var(--surface) !important;
+}
+
+[data-theme="dark"] .ql-editor {
+  color: var(--text) !important;
+}
