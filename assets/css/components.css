@@ -176,7 +176,7 @@ html[dir="ltr"].lang-fr .lang-toggle .glider{ transform:translateX(100%); }
   color:var(--text-2);
   transition:color var(--t) var(--ease);
 }
-.lang-toggle button.ar-opt{ font-family:'Tajawal',sans-serif; }
+.lang-toggle button.ar-opt{ font-family:'Cairo',sans-serif; }
 .lang-toggle button.fr-opt{ font-family:'Sora',sans-serif; }
 html.lang-ar .lang-toggle .ar-opt{ color:#fff; }
 html.lang-fr .lang-toggle .fr-opt{ color:#fff; }

@@ -40,7 +40,7 @@ html {
 }
 
 body {
-  font-family: 'Tajawal', system-ui, sans-serif;
+  font-family: 'Cairo', system-ui, sans-serif;
   background: var(--light-bg);
   color: var(--text);
   line-height: 1.6;
@@ -207,7 +207,7 @@ body {
 }
 
 .ql-container {
-  font-family: 'Tajawal', sans-serif !important;
+  font-family: 'Cairo', sans-serif !important;
   font-size: 15px !important;
 }
 

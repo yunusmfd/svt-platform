@@ -66,8 +66,8 @@
   --shadow-lg:0 18px 50px rgba(8,30,20,.18);
 
   /* ── 8) الخطوط ──────────────────────────────────────────────────────── */
-  --font-display:'Sora','Tajawal',system-ui,sans-serif;  /* العناوين */
-  --font-body:'Tajawal',system-ui,sans-serif;           /* النص (عربي) */
+  --font-display:'Sora','Cairo',system-ui,sans-serif;  /* العناوين */
+  --font-body:'Cairo',system-ui,sans-serif;           /* النص (عربي) */
   --font-mono:'IBM Plex Mono',ui-monospace,monospace;  /* الأرقام والتسميات */
 
   /* ── 9) الزوايا ─────────────────────────────────────────────────────── */
