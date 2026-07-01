@@ -13,7 +13,7 @@
  * ملاحظة: عامل الخدمة يحتاج HTTPS أو localhost (لا يعمل عبر file://).
  */
 
-const VERSION = "nova-svt-v5";
+const VERSION = "nova-svt-v6";
 
 /** هيكل التطبيق وكل الأصول التي تُخزَّن عند التثبيت (مسارات نسبية). */
 const PRECACHE = [
@@ -100,8 +100,18 @@ self.addEventListener("fetch", (event) => {
   const req = event.request;
   if (req.method !== "GET") return;
 
-  // التنقّل (SPA): قدّم هيكل التطبيق من الذاكرة
-  if (req.mode === "navigate") {
+  // التنقّل (SPA): قدّم هيكل التطبيق من الذاكرة — فقط لتنقّلات الإطار
+  // الرئيسي نحو صفحات المنصّة نفسها. صفحات التجارب/المقالات المستقلّة
+  // (ملفات HTML كاملة بذاتها تحت data/، تُعرض داخل <iframe>) يجب ألّا
+  // تُستبدل بهيكل التطبيق — وإلا ظهرت واجهة المنصّة داخل الإطار المضمَّن
+  // بدل محتوى الملفّ الفعلي. نستثنيها عبر destination و/أو المسار.
+  const url = new URL(req.url);
+  const isAppShellNavigation =
+    req.mode === "navigate" &&
+    req.destination !== "iframe" &&
+    !url.pathname.includes("/data/");
+
+  if (isAppShellNavigation) {
     event.respondWith(
       (async () => {
         const cache = await caches.open(VERSION);
