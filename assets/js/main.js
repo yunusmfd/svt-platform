@@ -142,44 +142,22 @@ async function boot() {
   // 5) تشغيل الموجّه (يعالج الرابط الحالي مباشرةً ويستدعي render)
   initRouter(render);
 
-  // 6) تسجيل عامل الخدمة للعمل دون إنترنت (HTTPS أو localhost فقط)
-  registerServiceWorker();
+  // 6) المنصة تعمل بالإنترنت فقط الآن — أزِل أي عامل خدمة/تخزين مؤقّت
+  // عالق من زيارات سابقة كانت تُفعّل العمل دون إنترنت، كي لا يبقى الزائر
+  // عالقاً على نسخة قديمة مخزَّنة لديه.
+  unregisterServiceWorker();
 }
 
-/**
- * يسجّل عامل الخدمة على المواقع المنشورة فقط (HTTPS).
- * أثناء التطوير المحلّي (localhost) يُعطَّل التخزين المؤقّت ويُلغى أي عامل خدمة
- * عالق، حتى ترى تعديلاتك فوراً دون أي التباس.
- */
-function registerServiceWorker() {
+/** يُلغي أي عامل خدمة مسجَّل مسبقاً ويمسح كل تخزينه المؤقّت. */
+function unregisterServiceWorker() {
   if (!("serviceWorker" in navigator)) return;
-
-  const host = location.hostname;
-  const isLocal =
-    host === "localhost" ||
-    host === "127.0.0.1" ||
-    host === "" ||
-    host === "[::1]" ||
-    host.endsWith(".local") ||
-    host.startsWith("192.168.") ||
-    host.startsWith("10.");
-
-  if (isLocal) {
-    // تطوير محلّي: لا تخزين مؤقّت — ألغِ أي عامل خدمة عالق وامسح مخزونه
-    navigator.serviceWorker
-      .getRegistrations()
-      .then((regs) => regs.forEach((r) => r.unregister()))
-      .catch(() => {});
-    if (window.caches) {
-      caches.keys().then((keys) => keys.forEach((k) => caches.delete(k))).catch(() => {});
-    }
-    return;
+  navigator.serviceWorker
+    .getRegistrations()
+    .then((regs) => regs.forEach((r) => r.unregister()))
+    .catch(() => {});
+  if (window.caches) {
+    caches.keys().then((keys) => keys.forEach((k) => caches.delete(k))).catch(() => {});
   }
-
-  // موقع منشور: فعّل العمل دون إنترنت
-  const reg = () => navigator.serviceWorker.register("sw.js").catch(() => {});
-  if (document.readyState === "complete") reg();
-  else window.addEventListener("load", reg, { once: true });
 }
 
 boot();
