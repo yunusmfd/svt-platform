@@ -297,5 +297,70 @@
         "explain": { "ar": "الصفيحة المحيطية الأكثف تنغرز تحت الأخرى.", "fr": "La plaque océanique, plus dense, plonge sous l'autre." }
       }
     ]
+  },
+  {
+    "id": "tabir-warithi",
+    "level": "2bac-svt",
+    "branch": "bio",
+    "fig": "dna",
+    "duration": 55,
+    "unit": { "ar": "الوحدة الثانية: طبيعة الخبر الوراثي — الهندسة الوراثية", "fr": "Unité 2 : La nature de l'information génétique — le génie génétique" },
+    "title": { "ar": "من الجين إلى البروتين: آلية التعبير الوراثي", "fr": "Du gène à la protéine : le mécanisme de l'expression génétique" },
+    "desc": { "ar": "كيف يتحوّل الخبر الوراثي المشفَّر في الـ ADN إلى بروتين وظيفي عبر مرحلتي الاستنساخ والترجمة.", "fr": "Comment l'information génétique codée dans l'ADN est convertie en protéine fonctionnelle via la transcription et la traduction." },
+    "video": { "title": { "ar": "من الشفرة إلى البروتين", "fr": "Du code à la protéine" }, "length": "09:20" },
+    "intro": [
+      { "ar": "يوجد الخبر الوراثي مشفّراً في متتالية نيكليوتيدات <strong>الـ ADN</strong> داخل النواة، بينما يتمّ تركيب البروتينات في الهيولى على مستوى <strong>الريبوزومات</strong>. يستلزم التعبير عن المورثة إذن وسيطاً ينقل المعلومة من النواة إلى الهيولى، هو <strong>الـ ARN الرسول</strong> الذي يُصطنع خلال مرحلة <strong>الاستنساخ</strong> بنسخ إحدى سلسلتي الـ ADN.", "fr": "L'information génétique est codée dans la séquence de nucléotides de l'<strong>ADN</strong> au sein du noyau, alors que les protéines sont synthétisées dans le cytoplasme au niveau des <strong>ribosomes</strong>. L'expression d'un gène nécessite donc un intermédiaire transportant l'information du noyau vers le cytoplasme : l'<strong>ARN messager</strong>, synthétisé lors de la <strong>transcription</strong> par copie de l'un des deux brins d'ADN." },
+      { "ar": "خلال <strong>الترجمة</strong>، يقرأ الريبوزوم متتالية الـ ARN الرسول ثلاثيةً ثلاثية؛ إذ تحدّد كل ثلاثية نيكليوتيدية تسمّى <strong>الرامزة (codon)</strong> حمضاً أمينياً معيّناً وفق <strong>الشفرة الوراثية</strong>. تتوالى الأحماض الأمينية مكوّنةً سلسلة ببتيدية تلتوي لتُعطي بروتيناً وظيفياً، فتُحدَّد بذلك الصفة المظهرية على المستوى الجزيئي.", "fr": "Lors de la <strong>traduction</strong>, le ribosome lit la séquence de l'ARN messager triplet par triplet : chaque triplet de nucléotides appelé <strong>codon</strong> spécifie un acide aminé donné selon le <strong>code génétique</strong>. Les acides aminés s'enchaînent en une chaîne peptidique qui se replie pour donner une protéine fonctionnelle, déterminant ainsi le phénotype au niveau moléculaire." }
+    ],
+    "figs": [
+      { "key": "dna", "label": { "ar": "الشكل 1 — الـ ADN و الـ ARN الرسول", "fr": "Fig. 1 — ADN et ARN messager" }, "cap": { "ar": "الاستنساخ داخل النواة", "fr": "La transcription dans le noyau" } },
+      { "key": "cell", "label": { "ar": "الشكل 2 — الريبوزوم", "fr": "Fig. 2 — Le ribosome" }, "cap": { "ar": "الترجمة في الهيولى", "fr": "La traduction dans le cytoplasme" } }
+    ],
+    "quiz": [
+      {
+        "q": { "ar": "الجزيء الوسيط الذي ينقل الخبر الوراثي من النواة إلى الهيولى هو:", "fr": "La molécule intermédiaire transportant l'information du noyau au cytoplasme est :" },
+        "options": [
+          { "ar": "الـ ADN", "fr": "L'ADN" },
+          { "ar": "الـ ARN الرسول", "fr": "L'ARN messager" },
+          { "ar": "البروتين", "fr": "La protéine" },
+          { "ar": "الريبوزوم", "fr": "Le ribosome" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "الـ ARN الرسول يُصطنع في النواة وينقل المعلومة إلى الريبوزومات في الهيولى.", "fr": "L'ARN messager, synthétisé dans le noyau, transporte l'information vers les ribosomes." }
+      },
+      {
+        "q": { "ar": "مرحلة اصطناع الـ ARN الرسول انطلاقاً من الـ ADN تسمى:", "fr": "L'étape de synthèse de l'ARN messager à partir de l'ADN est :" },
+        "options": [
+          { "ar": "الترجمة", "fr": "La traduction" },
+          { "ar": "الاستنساخ", "fr": "La transcription" },
+          { "ar": "المضاعفة", "fr": "La réplication" },
+          { "ar": "الإلقاح", "fr": "La fécondation" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "الاستنساخ هو نسخ متتالية الـ ADN إلى ARN رسول داخل النواة.", "fr": "La transcription copie la séquence d'ADN en ARN messager dans le noyau." }
+      },
+      {
+        "q": { "ar": "الرامزة (codon) هي:", "fr": "Un codon est :" },
+        "options": [
+          { "ar": "نيكليوتيد واحد", "fr": "Un seul nucléotide" },
+          { "ar": "ثلاثة نيكليوتيدات تحدّد حمضاً أمينياً", "fr": "Trois nucléotides spécifiant un acide aminé" },
+          { "ar": "بروتين كامل", "fr": "Une protéine entière" },
+          { "ar": "صبغي كامل", "fr": "Un chromosome entier" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "الرامزة ثلاثية نيكليوتيدية على الـ ARN الرسول تقابل حمضاً أمينياً واحداً.", "fr": "Un codon est un triplet de nucléotides de l'ARNm correspondant à un acide aminé." }
+      },
+      {
+        "q": { "ar": "تتمّ ترجمة الـ ARN الرسول إلى بروتين على مستوى:", "fr": "La traduction de l'ARNm en protéine se déroule au niveau :" },
+        "options": [
+          { "ar": "النواة", "fr": "Du noyau" },
+          { "ar": "الريبوزومات", "fr": "Des ribosomes" },
+          { "ar": "الغشاء الهيولي", "fr": "De la membrane" },
+          { "ar": "الميتوكندري فقط", "fr": "Des mitochondries uniquement" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "الترجمة تتمّ في الهيولى على مستوى الريبوزومات التي تقرأ الرامزات.", "fr": "La traduction s'effectue dans le cytoplasme au niveau des ribosomes lisant les codons." }
+      }
+    ]
   }
 ]

@@ -1,1 +1,108 @@
-[]
+[
+  {
+    "id": "silsila-ghidhaiya",
+    "level": "tcs",
+    "branch": "bio",
+    "fig": "cell",
+    "duration": 50,
+    "unit": { "ar": "الوحدة 1: علم البيئة", "fr": "Unité 1 : L'écologie" },
+    "title": { "ar": "السلاسل والشبكات الغذائية داخل النظام البيئي", "fr": "Chaînes et réseaux alimentaires dans l'écosystème" },
+    "desc": { "ar": "كيف تنتقل المادة والطاقة بين الكائنات الحية عبر المستويات الغذائية المختلفة داخل النظام البيئي.", "fr": "Comment la matière et l'énergie circulent entre les êtres vivants à travers les différents niveaux trophiques de l'écosystème." },
+    "video": { "title": { "ar": "من المنتج إلى المحلِّل", "fr": "Du producteur au décomposeur" }, "length": "08:15" },
+    "intro": [
+      { "ar": "تشكّل <strong>المنتجات</strong> (النباتات الخضراء) قاعدة السلسلة الغذائية، إذ تصنع مادتها العضوية بنفسها انطلاقاً من المادة المعدنية والضوء. تتغذّى عليها <strong>المستهلكات</strong> من الرتبة الأولى (العواشب)، ثم تتغذّى عليها مستهلكات من رتب أعلى (اللواحم).", "fr": "Les <strong>producteurs</strong> (plantes vertes) forment la base de la chaîne alimentaire, fabriquant leur propre matière organique à partir de matière minérale et de lumière. Ils sont consommés par les <strong>consommateurs</strong> de premier ordre (herbivores), puis par des consommateurs d'ordres supérieurs (carnivores)." },
+      { "ar": "تتدخّل <strong>المحلِّلات</strong> (بكتيريا وفطريات) في النهاية لتفكيك بقايا الكائنات الحية وفضلاتها إلى مادة معدنية تعود إلى الوسط، فتُغلَق بذلك دورة المادة داخل النظام البيئي. ترتبط السلاسل الغذائية المتشابكة فيما بينها لتشكّل <strong>شبكة غذائية</strong> أكثر تعقيداً وواقعية.", "fr": "Les <strong>décomposeurs</strong> (bactéries, champignons) interviennent enfin pour dégrader les restes et déchets en matière minérale, bouclant ainsi le cycle de la matière. Les chaînes alimentaires interconnectées forment un <strong>réseau alimentaire</strong> plus complexe et réaliste." }
+    ],
+    "figs": [
+      { "key": "cell", "label": { "ar": "الشكل 1 — المستويات الغذائية", "fr": "Fig. 1 — Les niveaux trophiques" }, "cap": { "ar": "من المنتج إلى المحلِّل", "fr": "Du producteur au décomposeur" } }
+    ],
+    "quiz": [
+      {
+        "q": { "ar": "المنتجات في النظام البيئي هي:", "fr": "Les producteurs de l'écosystème sont :" },
+        "options": [
+          { "ar": "الحيوانات اللاحمة", "fr": "Les animaux carnivores" },
+          { "ar": "النباتات الخضراء", "fr": "Les plantes vertes" },
+          { "ar": "الفطريات", "fr": "Les champignons" },
+          { "ar": "البكتيريا المحلِّلة", "fr": "Les bactéries décomposeuses" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "النباتات الخضراء تصنع مادتها العضوية بنفسها فهي منتجات.", "fr": "Les plantes vertes fabriquent leur propre matière organique : ce sont les producteurs." }
+      },
+      {
+        "q": { "ar": "دور المحلِّلات هو:", "fr": "Le rôle des décomposeurs est de :" },
+        "options": [
+          { "ar": "صنع المادة العضوية", "fr": "Fabriquer la matière organique" },
+          { "ar": "تفكيك البقايا إلى مادة معدنية", "fr": "Dégrader les restes en matière minérale" },
+          { "ar": "افتراس المستهلكات", "fr": "Prédater les consommateurs" },
+          { "ar": "إنتاج الأكسجين فقط", "fr": "Produire uniquement de l'oxygène" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "المحلِّلات تفكّك البقايا والفضلات وتعيد المادة المعدنية إلى الوسط.", "fr": "Les décomposeurs dégradent les restes et renvoient la matière minérale au milieu." }
+      },
+      {
+        "q": { "ar": "تجمّع سلاسل غذائية مترابطة يُشكِّل:", "fr": "Un ensemble de chaînes alimentaires reliées forme :" },
+        "options": [
+          { "ar": "شبكة غذائية", "fr": "Un réseau alimentaire" },
+          { "ar": "مستوى غذائياً واحداً", "fr": "Un seul niveau trophique" },
+          { "ar": "محلِّلاً", "fr": "Un décomposeur" },
+          { "ar": "مشيجاً", "fr": "Un gamète" }
+        ],
+        "correct": 0,
+        "explain": { "ar": "الشبكة الغذائية تجمع عدّة سلاسل غذائية متقاطعة.", "fr": "Le réseau alimentaire regroupe plusieurs chaînes alimentaires interconnectées." }
+      }
+    ]
+  },
+  {
+    "id": "tawalod-nabatat",
+    "level": "tcs",
+    "branch": "bio",
+    "fig": "cell",
+    "duration": 45,
+    "unit": { "ar": "الوحدة 2: التوالد عند النباتات", "fr": "Unité 2 : La reproduction chez les plantes" },
+    "title": { "ar": "التكاثر الجنسي عند النباتات الزهرية", "fr": "La reproduction sexuée chez les plantes à fleurs" },
+    "desc": { "ar": "بنية الزهرة، وكيفية الإلقاح عبر التلقيح، وتشكّل البذور والثمار بعده.", "fr": "Structure de la fleur, mécanisme de la pollinisation et formation des graines et des fruits." },
+    "video": { "title": { "ar": "رحلة حبوب اللقاح", "fr": "Le voyage du pollen" }, "length": "07:45" },
+    "intro": [
+      { "ar": "تضمّ الزهرة أعضاء تناسلية ذكرية (<strong>الأسدية</strong> المنتجة لحبوب اللقاح) وأعضاء تناسلية أنثوية (<strong>المدقّة</strong> الحاوية على البويضات). ينتقل حبوب اللقاح من الأسدية إلى ميسم المدقّة عبر <strong>التلقيح</strong>، الذي قد يتمّ بواسطة الرياح أو الحشرات.", "fr": "La fleur porte des organes mâles (<strong>étamines</strong> produisant le pollen) et des organes femelles (<strong>pistil</strong> contenant les ovules). Le pollen est transporté des étamines jusqu'au stigmate du pistil lors de la <strong>pollinisation</strong>, assurée par le vent ou les insectes." },
+      { "ar": "بعد التلقيح، يلتحم مشيج ذكري من حبة اللقاح بالبويضة خلال <strong>الإلقاح</strong>، فتتحوّل البويضة إلى بذرة والمبيض إلى ثمرة تحمي البذور وتساهم أحياناً في انتشارها.", "fr": "Après pollinisation, un gamète mâle du grain de pollen féconde l'ovule lors de la <strong>fécondation</strong> : l'ovule devient une graine et l'ovaire se transforme en fruit, protégeant les graines et favorisant parfois leur dispersion." }
+    ],
+    "figs": [
+      { "key": "cell", "label": { "ar": "الشكل 1 — بنية الزهرة", "fr": "Fig. 1 — Structure de la fleur" }, "cap": { "ar": "الأعضاء الذكرية والأنثوية", "fr": "Organes mâles et femelles" } }
+    ],
+    "quiz": [
+      {
+        "q": { "ar": "العضو الذكري المنتج لحبوب اللقاح هو:", "fr": "L'organe mâle producteur de pollen est :" },
+        "options": [
+          { "ar": "المدقّة", "fr": "Le pistil" },
+          { "ar": "الأسدية", "fr": "Les étamines" },
+          { "ar": "البتلات", "fr": "Les pétales" },
+          { "ar": "الكأس", "fr": "Le calice" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "الأسدية هي الأعضاء الذكرية المنتجة لحبوب اللقاح.", "fr": "Les étamines sont les organes mâles produisant le pollen." }
+      },
+      {
+        "q": { "ar": "انتقال حبوب اللقاح إلى ميسم المدقّة يسمى:", "fr": "Le transport du pollen jusqu'au stigmate est appelé :" },
+        "options": [
+          { "ar": "الإلقاح", "fr": "La fécondation" },
+          { "ar": "التلقيح", "fr": "La pollinisation" },
+          { "ar": "الإنبات", "fr": "La germination" },
+          { "ar": "التبرعم", "fr": "Le bourgeonnement" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "التلقيح هو انتقال حبوب اللقاح من الأسدية إلى ميسم المدقّة.", "fr": "La pollinisation est le transport du pollen des étamines au stigmate." }
+      },
+      {
+        "q": { "ar": "بعد الإلقاح، يتحوّل المبيض إلى:", "fr": "Après fécondation, l'ovaire se transforme en :" },
+        "options": [
+          { "ar": "بذرة", "fr": "Graine" },
+          { "ar": "ثمرة", "fr": "Fruit" },
+          { "ar": "ورقة", "fr": "Feuille" },
+          { "ar": "جذر", "fr": "Racine" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "المبيض يتحوّل إلى ثمرة، بينما تتحوّل البويضة إلى بذرة.", "fr": "L'ovaire devient un fruit, tandis que l'ovule devient une graine." }
+      }
+    ]
+  }
+]
