@@ -5,8 +5,8 @@
     "code": "1AC",
     "name": { "ar": "الأولى إعدادي", "fr": "1ère collège" },
     "units": [
-      { "num": 1, "ar": "الوحدة الأولى: العلاقات بين الكائنات الحية وتفاعلها مع الوسط", "fr": "Unité 1 : Les relations entre les êtres vivants et leurs interactions avec le milieu" },
-      { "num": 2, "ar": "الوحدة الثانية: الظواهر الجيولوجية الخارجية", "fr": "Unité 2 : Les phénomènes géologiques externes" }
+      { "num": 1, "spec": "green", "ar": "الوحدة الأولى: العلاقات بين الكائنات الحية وتفاعلها مع الوسط", "fr": "Unité 1 : Les relations entre les êtres vivants et leurs interactions avec le milieu" },
+      { "num": 2, "spec": "gold", "ar": "الوحدة الثانية: الظواهر الجيولوجية الخارجية", "fr": "Unité 2 : Les phénomènes géologiques externes" }
     ]
   },
   {
@@ -15,8 +15,8 @@
     "code": "2AC",
     "name": { "ar": "الثانية إعدادي", "fr": "2ème collège" },
     "units": [
-      { "num": 3, "ar": "الوحدة الثالثة: الظواهر الجيولوجية الباطنية", "fr": "Unité 3 : Les phénomènes géologiques internes" },
-      { "num": 4, "ar": "الوحدة الرابعة: التوالد عند الكائنات الحية والوراثة عند الإنسان", "fr": "Unité 4 : La reproduction chez les êtres vivants et l'hérédité humaine" }
+      { "num": 3, "spec": "gold", "ar": "الوحدة الثالثة: الظواهر الجيولوجية الباطنية", "fr": "Unité 3 : Les phénomènes géologiques internes" },
+      { "num": 4, "spec": "teal", "ar": "الوحدة الرابعة: التوالد عند الكائنات الحية والوراثة عند الإنسان", "fr": "Unité 4 : La reproduction chez les êtres vivants et l'hérédité humaine" }
     ]
   },
   {
@@ -25,8 +25,8 @@
     "code": "3AC",
     "name": { "ar": "الثالثة إعدادي", "fr": "3ème collège" },
     "units": [
-      { "num": 5, "ar": "الوحدة الخامسة: وظائف الاقتيات والتربية الغذائية", "fr": "Unité 5 : Les fonctions de nutrition et l'éducation nutritionnelle" },
-      { "num": 6, "ar": "الوحدة السادسة: وظائف الربط وعلم المناعة", "fr": "Unité 6 : Les fonctions de relation et l'immunologie" }
+      { "num": 5, "spec": "teal", "ar": "الوحدة الخامسة: وظائف الاقتيات والتربية الغذائية", "fr": "Unité 5 : Les fonctions de nutrition et l'éducation nutritionnelle" },
+      { "num": 6, "spec": "violet", "ar": "الوحدة السادسة: وظائف الربط وعلم المناعة", "fr": "Unité 6 : Les fonctions de relation et l'immunologie" }
     ]
   },
   {
@@ -35,8 +35,8 @@
     "code": "TCS",
     "name": { "ar": "الجذع المشترك العلمي", "fr": "Tronc commun sc." },
     "units": [
-      { "num": 1, "ar": "الوحدة 1: علم البيئة", "fr": "Unité 1 : L'écologie" },
-      { "num": 2, "ar": "الوحدة 2: التوالد عند النباتات", "fr": "Unité 2 : La reproduction chez les plantes" }
+      { "num": 1, "spec": "green", "ar": "الوحدة 1: علم البيئة", "fr": "Unité 1 : L'écologie" },
+      { "num": 2, "spec": "blue", "ar": "الوحدة 2: التوالد عند النباتات", "fr": "Unité 2 : La reproduction chez les plantes" }
     ]
   },
   {
@@ -45,10 +45,10 @@
     "code": "1BAC",
     "name": { "ar": "الأولى باك علوم", "fr": "1ère Bac sc. exp." },
     "units": [
-      { "num": 1, "ar": "الوحدة 1: الظواهر الجيولوجية الخارجية", "fr": "Unité 1 : Les phénomènes géologiques externes" },
-      { "num": 2, "ar": "الوحدة 2: إنتاج المادة العضوية", "fr": "Unité 2 : La production de la matière organique" },
-      { "num": 3, "ar": "الوحدة 3: التواصلات العصبية والهرمونية", "fr": "Unité 3 : Les communications nerveuse et hormonale" },
-      { "num": 4, "ar": "الوحدة 4: الاندماج العصبي الهرموني", "fr": "Unité 4 : L'intégration nerveuse et hormonale" }
+      { "num": 1, "spec": "gold", "ar": "الوحدة 1: الظواهر الجيولوجية الخارجية", "fr": "Unité 1 : Les phénomènes géologiques externes" },
+      { "num": 2, "spec": "green", "ar": "الوحدة 2: إنتاج المادة العضوية", "fr": "Unité 2 : La production de la matière organique" },
+      { "num": 3, "spec": "violet", "ar": "الوحدة 3: التواصلات العصبية والهرمونية", "fr": "Unité 3 : Les communications nerveuse et hormonale" },
+      { "num": 4, "spec": "violet", "ar": "الوحدة 4: الاندماج العصبي الهرموني", "fr": "Unité 4 : L'intégration nerveuse et hormonale" }
     ]
   },
   {
@@ -57,12 +57,12 @@
     "code": "2BAC",
     "name": { "ar": "الثانية باك علوم", "fr": "2ème Bac sc. exp." },
     "units": [
-      { "num": 1, "ar": "الوحدة الأولى: استهلاك المادة وتدفق الطاقة", "fr": "Unité 1 : Consommation de la matière et flux d'énergie" },
-      { "num": 2, "ar": "الوحدة الثانية: طبيعة الخبر الوراثي — الهندسة الوراثية", "fr": "Unité 2 : La nature de l'information génétique — le génie génétique" },
-      { "num": 3, "ar": "الوحدة الثالثة: نقل الخبر الوراثي عبر التوالد الجنسي — علم الوراثة البشرية", "fr": "Unité 3 : Transmission de l'information génétique par la reproduction sexuée — génétique humaine" },
-      { "num": 4, "ar": "الوحدة الرابعة: علم وراثة الساكنة", "fr": "Unité 4 : La génétique des populations" },
-      { "num": 5, "ar": "الوحدة الخامسة: علم المناعة", "fr": "Unité 5 : L'immunologie" },
-      { "num": 6, "ar": "الوحدة السادسة: الظواهر المصاحبة لنشوء السلاسل الجبلية وعلاقتها بتكتونية الصفائح", "fr": "Unité 6 : Les phénomènes accompagnant la formation des chaînes de montagnes et leur relation avec la tectonique des plaques" }
+      { "num": 1, "spec": "green", "ar": "الوحدة الأولى: استهلاك المادة وتدفق الطاقة", "fr": "Unité 1 : Consommation de la matière et flux d'énergie" },
+      { "num": 2, "spec": "teal", "ar": "الوحدة الثانية: طبيعة الخبر الوراثي — الهندسة الوراثية", "fr": "Unité 2 : La nature de l'information génétique — le génie génétique" },
+      { "num": 3, "spec": "teal", "ar": "الوحدة الثالثة: نقل الخبر الوراثي عبر التوالد الجنسي — علم الوراثة البشرية", "fr": "Unité 3 : Transmission de l'information génétique par la reproduction sexuée — génétique humaine" },
+      { "num": 4, "spec": "blue", "ar": "الوحدة الرابعة: علم وراثة الساكنة", "fr": "Unité 4 : La génétique des populations" },
+      { "num": 5, "spec": "rose", "ar": "الوحدة الخامسة: علم المناعة", "fr": "Unité 5 : L'immunologie" },
+      { "num": 6, "spec": "gold", "ar": "الوحدة السادسة: الظواهر المصاحبة لنشوء السلاسل الجبلية وعلاقتها بتكتونية الصفائح", "fr": "Unité 6 : Les phénomènes accompagnant la formation des chaînes de montagnes et leur relation avec la tectonique des plaques" }
     ]
   }
 ]

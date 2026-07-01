@@ -1,21 +1,22 @@
 /**
  * Nova SVT — بوّابة الدروس (Lessons)
  * ----------------------------------------------------------------------------
- * تسلسل تصفّح متدرّج بثلاث طبقات: المستويات (شريط علوي) ← الوحدات (عناوين
- * أكورديون قابلة للطي) ← الدروس (تظهر عند فتح وحدتها). اختيار المستوى يتم
- * عبر روابط hash (#/lessons/{id}) فيعيد الموجّه بناء الصفحة ويجعل الرابط
- * قابلاً للمشاركة. البحث محليّ: يفتح تلقائياً كل وحدة تحوي نتيجة مطابقة،
- * ويُصفَّر عند كل دخول للصفحة (أي عند تبديل المستوى).
+ * تسلسل تصفّح متدرّج بثلاث طبقات:
+ *   #/lessons            → دليل المستويات: بطاقات مصنّفة حسب السلك (إعدادي/تأهيلي).
+ *   #/lessons/{levelId}  → صفحة المستوى: وحداته كأكورديون ملوَّن حسب تخصّصها،
+ *                          تكشف كل وحدة دروسها عند فتحها.
+ * البحث محليّ (داخل صفحة المستوى فقط): يفتح تلقائياً كل وحدة تحوي نتيجة
+ * مطابقة، ويُصفَّر عند كل دخول للصفحة (أي عند تبديل المستوى).
  */
 
 import { t, ui } from "../core/i18n.js";
-import { svg } from "../core/icons.js";
+import { svg, specStyle } from "../core/icons.js";
 import { lessonCardHTML } from "../components/lessonCard.js";
 import { getLevelId } from "../core/state.js";
 import { lessonsForLevel, findLevel, levelsByStage } from "../core/content.js";
 import { app, esc } from "../core/dom.js";
 
-/** نص البحث الحالي (ephemeral — يُصفّر مع كل بناء للصفحة). */
+/** نص البحث الحالي (ephemeral — يُصفّر مع كل بناء لصفحة مستوى). */
 let searchTerm = "";
 
 /**
@@ -25,47 +26,77 @@ let searchTerm = "";
  */
 let openUnitIdx;
 
-/** رقاقة مستوى كرابط hash؛ تُبرز المستوى النشط. */
-function chip(level, activeId) {
-  const active = level.id === activeId ? " active" : "";
-  return `<a class="chip${active}" href="#/lessons/${level.id}"><span class="tag">${esc(
-    level.code
-  )}</span>${esc(t(level.name))}</a>`;
+export function renderLessons() {
+  const levelId = getLevelId();
+  if (!levelId) {
+    renderLevelCatalog();
+  } else {
+    renderLevelPage(levelId);
+  }
 }
 
-export function renderLessons() {
-  searchTerm = "";
-  openUnitIdx = undefined;
-  const levelId = getLevelId();
+/* ============================================================================
+   الطبقة 1: دليل المستويات (بلا مستوى محدَّد في الرابط)
+   ========================================================================== */
+
+/** بطاقة مستوى واحد ضمن دليل المستويات. */
+function levelCardHTML(level) {
+  const count = (level.units || []).length;
+  return `
+  <a class="level-card" href="#/lessons/${esc(level.id)}">
+    <span class="code">${esc(level.code)}</span>
+    <h3>${esc(t(level.name))}</h3>
+    <p class="count">${count} ${esc(ui("level_units_count"))}</p>
+    <span class="browse">${ui("browse_units")}${svg("chevR")}</span>
+  </a>`;
+}
+
+function renderLevelCatalog() {
   const groups = levelsByStage();
   const college = groups.college || [];
   const lycee = groups.lycee || [];
 
   app().innerHTML = `
-  <section class="portal-hero">
-    <div class="hero-dots"></div>
-    <div class="wrap portal-hero-inner">
-      <h1>${ui("portal_title")}</h1>
-      <p>${ui("portal_lead")}</p>
-    </div>
-  </section>
-
-  <div class="levelbar">
-    <div class="wrap levelbar-inner">
-      <div class="lvl-cycle">
-        ${college.length ? `<span class="eyebrow lvl-label">${ui("lvl_college")}</span>` : ""}
-        <div class="lvl-group">${college.map((l) => chip(l, levelId)).join("")}</div>
-      </div>
-      ${lycee.length ? '<div class="lvl-sep"></div>' : ""}
-      <div class="lvl-cycle">
-        ${lycee.length ? `<span class="eyebrow lvl-label">${ui("lvl_lycee")}</span>` : ""}
-        <div class="lvl-group">${lycee.map((l) => chip(l, levelId)).join("")}</div>
-      </div>
-    </div>
-  </div>
-
   <section class="section">
     <div class="wrap">
+      <div class="section-head">
+        <h1>${ui("portal_title")}</h1>
+        <p>${ui("portal_lead")}</p>
+      </div>
+
+      ${
+        college.length
+          ? `<div class="block-title" style="margin-bottom:20px"><span class="bar"></span><h2>${ui(
+              "lvl_college"
+            )}</h2></div>
+             <div class="level-grid">${college.map(levelCardHTML).join("")}</div>`
+          : ""
+      }
+
+      ${
+        lycee.length
+          ? `<div class="block-title" style="margin-bottom:20px"><span class="bar"></span><h2>${ui(
+              "lvl_lycee"
+            )}</h2></div>
+             <div class="level-grid">${lycee.map(levelCardHTML).join("")}</div>`
+          : ""
+      }
+    </div>
+  </section>`;
+}
+
+/* ============================================================================
+   الطبقة 2 و3: صفحة مستوى — أكورديون الوحدات، وكل وحدة تكشف دروسها
+   ========================================================================== */
+
+function renderLevelPage(levelId) {
+  searchTerm = "";
+  openUnitIdx = undefined;
+
+  app().innerHTML = `
+  <section class="section">
+    <div class="wrap">
+      <a class="back-link" href="#/lessons">${svg("arrow")}${ui("back_levels")}</a>
       <div class="lessons-top">
         <div>
           <h2 id="lvlTitle"></h2>
@@ -158,13 +189,14 @@ function renderGrid() {
   wireAccordion();
 }
 
-/** بند أكورديون واحد لوحدة: رأس قابل للنقر (رقم + اسم + عدد الدروس) وجسم قابل للطي. */
+/** بند أكورديون واحد لوحدة: رأس قابل للنقر (رقم ملوّن حسب التخصّص + اسم + عدد الدروس) وجسم قابل للطي. */
 function accordionItemHTML(unit, lessons, idx, isOpen) {
   const count = lessons.length;
+  const token = `--spec-${unit.spec || "green"}`;
   return `
-  <div class="acc-item${isOpen ? " open" : ""}">
+  <div class="acc-item${isOpen ? " open" : ""}" style="--spec-item:var(${token})">
     <button class="acc-head" type="button" data-acc="${idx}" aria-expanded="${isOpen}">
-      <span class="acc-num">${String(unit.num).padStart(2, "0")}</span>
+      <span class="acc-num" style="${specStyle(token)}">${String(unit.num).padStart(2, "0")}</span>
       <span class="acc-title">${esc(t(unit))}</span>
       <span class="acc-count">${count} ${esc(ui("lessons_count"))}</span>
       ${svg("chevR", "acc-chev")}

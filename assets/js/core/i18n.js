@@ -84,11 +84,14 @@ const STRINGS = {
   band_bilingual: { ar: "عربية / فرنسية", fr: "Arabe / Français" },
   band_device: { ar: "هاتف وحاسوب", fr: "Mobile et ordinateur" },
 
-  /* بوّابة الدروس */
-  portal_title: { ar: "استكشف عالم علوم الحياة والأرض", fr: "Explore le monde des SVT" },
-  portal_lead: { ar: "اختر مستواك الدراسي وابدأ رحلة التعلّم — من الأولى إعدادي إلى الثانية باكالوريا.", fr: "Choisis ton niveau et commence ton parcours — de la 1ère collège à la 2ème Bac." },
+  /* دليل المستويات (#/lessons) */
+  portal_title: { ar: "اختر مستواك الدراسي", fr: "Choisis ton niveau scolaire" },
+  portal_lead: { ar: "تصفّح المستويات من الإعدادي إلى الباكالوريا، واختر مستواك لاستكشاف وحداته ودروسه.", fr: "Parcours les niveaux du collège au baccalauréat, et choisis le tien pour explorer ses unités et ses cours." },
   lvl_college: { ar: "السلك الإعدادي", fr: "Collège" },
   lvl_lycee: { ar: "السلك الثانوي التأهيلي", fr: "Lycée qualifiant" },
+  level_units_count: { ar: "وحدة", fr: "unité(s)" },
+  browse_units: { ar: "تصفّح الوحدات", fr: "Voir les unités" },
+  back_levels: { ar: "العودة إلى المستويات", fr: "Retour aux niveaux" },
   search_ph: { ar: "ابحث عن درس...", fr: "Rechercher un cours..." },
   lessons_count: { ar: "درس متاح", fr: "cours disponible(s)" },
   no_results: { ar: "لا توجد دروس مطابقة لبحثك.", fr: "Aucun cours ne correspond à votre recherche." },
@@ -146,33 +149,18 @@ const STRINGS = {
   res_best: { ar: "أفضل نتيجة", fr: "Meilleur score" },
 
   /* المختبر */
-  lab_eyebrow: { ar: "تجربة افتراضية", fr: "Expérience virtuelle" },
+  lab_eyebrow: { ar: "معرض التجارب", fr: "Galerie d'expériences" },
   lab_title: { ar: "المختبر الافتراضي", fr: "Le laboratoire virtuel" },
-  lab_lead: { ar: "لاحظ مراحل الانقسام غير المباشر للخلية تحت المجهر — اختر المرحلة وتفحّص الصبغيات.", fr: "Observe les phases de la mitose au microscope — choisis la phase et examine les chromosomes." },
-  lab_exp_title: { ar: "ملاحظة الانقسام الخيطي المتساوي", fr: "Observation de la mitose" },
-  lab_exp_sub: { ar: "المستوى: الثانية باكالوريا علوم", fr: "Niveau : 2ème Bac sciences" },
-  lab_steps_h: { ar: "التعليمات", fr: "Instructions" },
-  lab_step1: { ar: "اختر مرحلة من مراحل الانقسام أسفله.", fr: "Choisis une phase de la mitose ci-dessous." },
-  lab_step2: { ar: "تأمّل وضعية الصبغيات داخل الخلية في الشاشة.", fr: "Observe la position des chromosomes dans la cellule." },
-  lab_step3: { ar: "استعمل أزرار التكبير لتفحّص التفاصيل.", fr: "Utilise le zoom pour examiner les détails." },
-  lab_phases_h: { ar: "مراحل الانقسام", fr: "Phases de la mitose" },
-  phase1: { ar: "الطور التمهيدي", fr: "Prophase" },
-  phase2: { ar: "الطور الاستوائي", fr: "Métaphase" },
-  phase3: { ar: "الطور الانفصالي", fr: "Anaphase" },
-  phase4: { ar: "الطور النهائي", fr: "Télophase" },
-  lab_readout: { ar: "المرحلة الحالية", fr: "Phase actuelle" },
-
-  /* معرض تجارب المختبر (فيديو / animation / صفحة تفاعلية) */
-  exp_eyebrow: { ar: "تجارب إضافية", fr: "Expériences supplémentaires" },
-  exp_title: { ar: "معرض التجارب", fr: "Galerie d'expériences" },
-  exp_lead: { ar: "فيديوهات، رسوم متحركة، وصفحات تفاعلية يضيفها الأستاذ لإثراء الملاحظة والتجريب.", fr: "Vidéos, animations et pages interactives ajoutées par l'enseignant pour enrichir l'observation." },
+  lab_lead: { ar: "تجارب علمية على شكل فيديوهات ورسوم متحركة وصفحات تفاعلية.", fr: "Des expériences scientifiques sous forme de vidéos, d'animations et de pages interactives." },
   exp_empty: { ar: "لا توجد تجارب منشورة بعد — ترقّبوها قريباً.", fr: "Aucune expérience publiée pour l'instant — à venir bientôt." },
   exp_type_video: { ar: "فيديو", fr: "Vidéo" },
-  exp_type_animation: { ar: "Animation", fr: "Animation" },
+  exp_type_animation: { ar: "رسم متحرك", fr: "Animation" },
   exp_type_interactive: { ar: "صفحة تفاعلية", fr: "Page interactive" },
   exp_soon: { ar: "سيُضاف محتوى هذه التجربة قريباً من طرف الأستاذ.", fr: "Le contenu de cette expérience sera ajouté prochainement par l'enseignant." },
-  exp_open: { ar: "فتح في نافذة كاملة", fr: "Ouvrir en plein écran" },
+  exp_open: { ar: "افتح التجربة", fr: "Ouvrir l'expérience" },
+  exp_open_tab: { ar: "فتح في نافذة كاملة", fr: "Ouvrir en plein écran" },
   exp_loading: { ar: "…جارٍ تحميل التجربة", fr: "Chargement de l'expérience…" },
+  back_lab: { ar: "العودة إلى المختبر", fr: "Retour au laboratoire" },
 
   /* المدونة */
   blog_eyebrow: { ar: "آخر المستجدات", fr: "Dernières nouvelles" },
@@ -186,6 +174,7 @@ const STRINGS = {
   tag_news: { ar: "خبر", fr: "Actualité" },
   tag_guide: { ar: "توجيه", fr: "Conseil" },
   tag_announcement: { ar: "إعلان", fr: "Annonce" },
+  post_pinned: { ar: "مثبّت", fr: "Épinglé" },
 
   /* عن المنصة */
   about_title: { ar: "نبسّط علوم الحياة والأرض لكل تلميذ مغربي", fr: "Rendre les SVT accessibles à chaque élève marocain" },

@@ -1,10 +1,11 @@
 [
   {
-    "id": "bienvenue-nova-svt",
-    "date": "2026-07-01",
-    "tag": "news",
-    "title": { "ar": "مرحباً بكم في مدونة Nova SVT", "fr": "Bienvenue sur le blog de Nova SVT" },
-    "excerpt": { "ar": "تنطلق مدونة المنصة لتكون نافذة دائمة على آخر الأخبار والتحديثات وتوجيهات التلاميذ.", "fr": "Le blog de la plateforme est lancé pour devenir une fenêtre permanente sur les actualités et les conseils aux élèves." }
+    "id": "intilaq-almawsim",
+    "date": "2026-09-05",
+    "tag": "announcement",
+    "pinned": true,
+    "title": { "ar": "انطلاق الموسم الدراسي الجديد", "fr": "Lancement de la nouvelle année scolaire" },
+    "excerpt": { "ar": "مرحباً بكم في موسم دراسي جديد مليء بالدروس والتجارب الممتعة.", "fr": "Bienvenue dans une nouvelle année scolaire pleine de cours et d'expériences passionnantes." }
   },
   {
     "id": "tanzim-wahdat-manhaj",
@@ -14,10 +15,17 @@
     "excerpt": { "ar": "أصبحت بوّابة الدروس منظَّمة حسب السلك، ثم المستوى، ثم وحدات المنهاج الرسمية.", "fr": "Le portail des cours est désormais organisé par cycle, puis par niveau, puis par unités officielles du programme." }
   },
   {
+    "id": "bienvenue-nova-svt",
+    "date": "2026-07-01",
+    "tag": "news",
+    "title": { "ar": "مرحباً بكم في مدونة Nova SVT", "fr": "Bienvenue sur le blog de Nova SVT" },
+    "excerpt": { "ar": "تنطلق مدونة المنصة لتكون نافذة دائمة على آخر الأخبار والتحديثات وتوجيهات التلاميذ.", "fr": "Le blog de la plateforme est lancé pour devenir une fenêtre permanente sur les actualités et les conseils aux élèves." }
+  },
+  {
     "id": "nasa2ih-almoraja3a",
-    "date": "2026-06-20",
+    "date": "2026-05-20",
     "tag": "guide",
-    "title": { "ar": "5 نصائح لمراجعة فعّالة في مادة SVT", "fr": "5 conseils pour une révision efficace en SVT" },
-    "excerpt": { "ar": "خمس عادات بسيطة تجعل مراجعتك لمادة علوم الحياة والأرض أكثر فعالية.", "fr": "Cinq habitudes simples pour rendre votre révision des SVT plus efficace." }
+    "title": { "ar": "نصائح للمراجعة قبل الامتحانات", "fr": "Conseils de révision avant les examens" },
+    "excerpt": { "ar": "خطوات عملية لتنظيم وقتك ومراجعة دروس علوم الحياة والأرض بفعالية.", "fr": "Des étapes pratiques pour organiser votre temps et réviser efficacement les SVT." }
   }
 ]

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>محاكاة الانقسام الخيطي المتساوي — Simulation de la mitose</title>
+<style>
+  :root{
+    --ink:#0C1A13; --surface:#11211A; --line:#21362B; --line-2:#2C4838;
+    --sage:#52B788; --sage-d:#2E8B57; --mint:#9FE6BF;
+    --gold:#C9A84C; --text:#E6F1EB; --text-2:#A7C0B4; --text-3:#7E988B;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; }
+  body{
+    margin:0; padding:16px;
+    background:var(--ink); color:var(--text);
+    font-family:'Tajawal','Sora',system-ui,sans-serif;
+    display:flex; flex-direction:column; gap:14px;
+  }
+  h1{ font-size:1.05rem; margin:0; color:#fff; }
+  .sub{ margin:2px 0 0; color:var(--text-3); font-size:.82rem; }
+  .bi{ display:block; }
+  .bi .fr{ color:var(--text-3); font-size:.85em; }
+
+  .layout{ display:flex; flex-wrap:wrap; gap:16px; flex:1; }
+  .side{ flex:1 1 220px; min-width:200px; display:flex; flex-direction:column; gap:14px; }
+  .stage-wrap{ flex:2 1 320px; min-width:260px; }
+
+  .panel{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:14px; }
+  .panel h2{ margin:0 0 10px; font-size:.85rem; color:var(--mint); }
+  .steps{ display:flex; flex-direction:column; gap:8px; font-size:.82rem; color:var(--text-2); }
+  .steps li{ list-style:none; display:flex; gap:8px; }
+  .steps .n{
+    flex:none; width:18px; height:18px; border-radius:50%; background:var(--sage);
+    color:#06140C; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center;
+  }
+
+  .phase-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .phase{
+    background:var(--ink); border:1px solid var(--line-2); color:var(--text-2);
+    border-radius:9px; padding:8px 6px; font-size:.78rem; cursor:pointer; text-align:center;
+    font-family:inherit;
+  }
+  .phase .pn{ display:block; font-family:monospace; font-size:10px; color:var(--text-3); margin-bottom:2px; }
+  .phase.active{ background:var(--sage); color:#06140C; border-color:var(--sage); font-weight:700; }
+  .phase.active .pn{ color:#06140C; opacity:.7; }
+
+  .stage{
+    position:relative; aspect-ratio:1/1; max-height:360px; margin-inline:auto;
+    border-radius:50%; background:radial-gradient(circle, #14261c 0%, #0a1710 100%);
+    border:2px solid var(--line-2); display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .stage svg.mitosis{ width:78%; height:78%; transition:transform .3s ease; }
+  .readout{
+    display:flex; justify-content:space-between; margin-top:12px; font-size:.8rem;
+    color:var(--text-3); font-family:monospace;
+  }
+  .readout .v{ color:var(--mint); }
+  .controls{ display:flex; justify-content:center; gap:10px; margin-top:12px; }
+  .controls button{
+    width:38px; height:38px; border-radius:50%; border:1px solid var(--line-2);
+    background:var(--surface); color:var(--text); font-size:16px; cursor:pointer;
+  }
+  .controls button:hover{ border-color:var(--sage); color:var(--sage); }
+  .read-line{ margin-top:10px; font-size:.78rem; color:var(--text-2); text-align:center; }
+</style>
+</head>
+<body>
+  <div>
+    <h1 class="bi">ملاحظة الانقسام الخيطي المتساوي <span class="fr">— Observation de la mitose</span></h1>
+    <p class="sub bi">اختر مرحلة وتفحّص وضعية الصبغيات، ثم استعمل التكبير لملاحظة التفاصيل.
+      <span class="fr">Choisis une phase et examine les chromosomes, puis zoome pour voir les détails.</span></p>
+  </div>
+
+  <div class="layout">
+    <div class="side">
+      <div class="panel">
+        <h2 class="bi">مراحل الانقسام <span class="fr">Phases</span></h2>
+        <div class="phase-grid" id="phaseGrid">
+          <button class="phase active" data-phase="1"><span class="pn">01</span>تمهيدي / Prophase</button>
+          <button class="phase" data-phase="2"><span class="pn">02</span>استوائي / Métaphase</button>
+          <button class="phase" data-phase="3"><span class="pn">03</span>انفصالي / Anaphase</button>
+          <button class="phase" data-phase="4"><span class="pn">04</span>نهائي / Télophase</button>
+        </div>
+      </div>
+      <div class="panel">
+        <h2 class="bi">ملاحظة الطور الحالي <span class="fr">Phase actuelle</span></h2>
+        <p class="read-line" id="readLine">تكثّف الصبغيات وبداية اختفاء الغشاء النووي</p>
+      </div>
+    </div>
+
+    <div class="stage-wrap">
+      <div class="panel">
+        <div class="stage">
+          <svg id="stageSvg" class="mitosis" viewBox="0 0 200 200" fill="none"></svg>
+        </div>
+        <div class="readout">
+          <span>الطور / Phase : <span class="v" id="roPhase">01</span></span>
+          <span>ZOOM : <span class="v" id="roZoom">×4.0</span></span>
+        </div>
+        <div class="controls">
+          <button id="zoomOut" aria-label="zoom out">−</button>
+          <button id="zoomIn" aria-label="zoom in">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+(function () {
+  var MITOSIS = {
+    1: {
+      svg: '<circle cx="100" cy="100" r="78" fill="#0f2a1d" stroke="#52B788" stroke-width="2"/><circle cx="100" cy="100" r="40" stroke="#9FE6BF" stroke-width="1.5" stroke-dasharray="3 5" fill="none"/><g stroke-width="5" stroke-linecap="round"><path d="M80 80 q8 18 -2 38" stroke="#C9A84C"/><path d="M88 78 q8 18 -2 40" stroke="#E5A23C"/><path d="M118 82 q-8 16 2 36" stroke="#52B788"/><path d="M126 84 q-8 16 2 34" stroke="#9FE6BF"/></g>',
+      read: "تكثّف الصبغيات وبداية اختفاء الغشاء النووي / Condensation des chromosomes, disparition de l'enveloppe nucléaire"
+    },
+    2: {
+      svg: '<circle cx="100" cy="100" r="78" fill="#0f2a1d" stroke="#52B788" stroke-width="2"/><line x1="100" y1="30" x2="100" y2="170" stroke="#9FE6BF" stroke-width="1" stroke-dasharray="4 6"/><g stroke-width="5" stroke-linecap="round"><path d="M92 70 q-10 30 0 60" stroke="#C9A84C"/><path d="M108 70 q10 30 0 60" stroke="#E5A23C"/></g><g stroke="#52B788" stroke-width="1.5"><line x1="40" y1="60" x2="96" y2="95"/><line x1="160" y1="60" x2="104" y2="95"/><line x1="40" y1="140" x2="96" y2="105"/><line x1="160" y1="140" x2="104" y2="105"/></g>',
+      read: "اصطفاف الصبغيات في المستوى الاستوائي للخلية / Alignement des chromosomes sur le plan équatorial"
+    },
+    3: {
+      svg: '<circle cx="100" cy="100" r="78" fill="#0f2a1d" stroke="#52B788" stroke-width="2"/><g stroke-width="5" stroke-linecap="round"><path d="M70 55 q-12 14 0 30" stroke="#C9A84C"/><path d="M70 145 q-12 -14 0 -30" stroke="#C9A84C"/><path d="M130 55 q12 14 0 30" stroke="#E5A23C"/><path d="M130 145 q12 -14 0 -30" stroke="#E5A23C"/></g><g stroke="#9FE6BF" stroke-width="1.5" stroke-dasharray="3 4"><line x1="50" y1="50" x2="78" y2="72"/><line x1="50" y1="150" x2="78" y2="128"/><line x1="150" y1="50" x2="122" y2="72"/><line x1="150" y1="150" x2="122" y2="128"/></g>',
+      read: "انفصال الصبيغيات الشقيقة نحو قطبي الخلية / Séparation des chromatides vers les pôles"
+    },
+    4: {
+      svg: '<path d="M22 100 a78 78 0 0 1 156 0" fill="#0f2a1d" stroke="#52B788" stroke-width="2"/><path d="M178 100 a78 78 0 0 1 -156 0" fill="#0f2a1d" stroke="#52B788" stroke-width="2"/><path d="M40 100 h120" stroke="#1E5C40" stroke-width="3"/><circle cx="100" cy="62" r="22" stroke="#9FE6BF" stroke-width="1.5" stroke-dasharray="3 5" fill="none"/><circle cx="100" cy="138" r="22" stroke="#9FE6BF" stroke-width="1.5" stroke-dasharray="3 5" fill="none"/><g stroke-width="4" stroke-linecap="round"><path d="M92 54 q-6 8 0 16" stroke="#C9A84C"/><path d="M108 54 q6 8 0 16" stroke="#E5A23C"/><path d="M92 130 q-6 8 0 16" stroke="#C9A84C"/><path d="M108 130 q6 8 0 16" stroke="#E5A23C"/></g>',
+      read: "تشكّل نواتين وبداية انقسام السيتوبلازم / Formation de deux noyaux et début de cytodiérèse"
+    }
+  };
+
+  var ZOOM_MIN = 200, ZOOM_MAX = 800, ZOOM_BASE = 400, ZOOM_STEP = 100;
+  var zoom = ZOOM_BASE;
+
+  var stageSvg = document.getElementById("stageSvg");
+  var readLine = document.getElementById("readLine");
+  var roPhase = document.getElementById("roPhase");
+  var roZoom = document.getElementById("roZoom");
+
+  function zoomLabel(z) { return "×" + (z / 100).toFixed(1); }
+
+  function selectPhase(n) {
+    stageSvg.innerHTML = MITOSIS[n].svg;
+    readLine.textContent = MITOSIS[n].read;
+    roPhase.textContent = String(n).padStart(2, "0");
+    document.querySelectorAll("#phaseGrid .phase").forEach(function (b) {
+      b.classList.toggle("active", Number(b.dataset.phase) === n);
+    });
+  }
+
+  document.querySelectorAll("#phaseGrid .phase").forEach(function (btn) {
+    btn.addEventListener("click", function () { selectPhase(Number(btn.dataset.phase)); });
+  });
+
+  document.getElementById("zoomIn").addEventListener("click", function () { changeZoom(1); });
+  document.getElementById("zoomOut").addEventListener("click", function () { changeZoom(-1); });
+
+  function changeZoom(dir) {
+    zoom = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, zoom + dir * ZOOM_STEP));
+    stageSvg.style.transform = "scale(" + (zoom / ZOOM_BASE) + ")";
+    roZoom.textContent = zoomLabel(zoom);
+  }
+
+  selectPhase(1);
+})();
+</script>
+</body>
+</html>

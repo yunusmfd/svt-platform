@@ -65,6 +65,7 @@ export const ROUTES = {
   lessons: "lessons",
   detail: "detail",
   lab: "lab",
+  labExperiment: "labExperiment",
   blog: "blog",
   blogPost: "blogPost",
   about: "about",
@@ -72,9 +73,6 @@ export const ROUTES = {
 
 /** الصفحة الافتراضية عند فتح المنصة أو عند مسار غير معروف. */
 export const DEFAULT_ROUTE = ROUTES.home;
-
-/** المستوى المختار افتراضياً في صفحة الدروس. */
-export const DEFAULT_LEVEL = "1ac";
 
 /** عدد الدروس المميّزة المعروضة في الصفحة الرئيسية. */
 export const FEATURED_COUNT = 3;

@@ -18,6 +18,8 @@ import { svg } from "../core/icons.js";
 /** يترجم مفتاح صنف المنشور (خبر/توجيه/إعلان) إلى صنف "دتاق" لونيّ موجود مسبقاً. */
 const TAG_CLASS = { news: "lvl", guide: "unit", announcement: "subj" };
 const TAG_LABEL = { news: "tag_news", guide: "tag_guide", announcement: "tag_announcement" };
+/** أيقونة الصورة المصغّرة حسب صنف المنشور. */
+const TAG_ICON = { news: "spark", guide: "book", announcement: "flag" };
 
 const DATE_LOCALE = { ar: "ar-MA", fr: "fr-FR" };
 
@@ -40,15 +42,22 @@ function tagPill(post) {
 }
 
 function postCardHTML(post) {
+  const label = TAG_LABEL[post.tag] ? ui(TAG_LABEL[post.tag]) : "";
   return `
   <article class="post-card">
-    <div class="post-meta">
-      ${tagPill(post)}
+    <a class="post-thumb" href="#/blog/${esc(post.id)}" aria-hidden="true" tabindex="-1">
+      <span class="ptag">${svg(TAG_ICON[post.tag] || "spark")}${esc(label)}</span>
+      ${post.pinned ? `<span class="pinned">${svg("spark")}${esc(ui("post_pinned"))}</span>` : ""}
+      ${svg(TAG_ICON[post.tag] || "spark", "big-ico")}
+    </a>
+    <div class="post-body">
+      <h3><a href="#/blog/${esc(post.id)}">${esc(t(post.title))}</a></h3>
+      <p>${esc(t(post.excerpt))}</p>
+    </div>
+    <div class="post-foot">
+      <a class="post-more" href="#/blog/${esc(post.id)}">${ui("blog_read_more")}${svg("chevR")}</a>
       <time datetime="${esc(post.date)}">${esc(formatDate(post.date))}</time>
     </div>
-    <h3><a href="#/blog/${esc(post.id)}">${esc(t(post.title))}</a></h3>
-    <p>${esc(t(post.excerpt))}</p>
-    <a class="post-more" href="#/blog/${esc(post.id)}">${ui("blog_read_more")}${svg("arrow")}</a>
   </article>`;
 }
 

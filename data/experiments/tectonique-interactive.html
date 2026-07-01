@@ -1,10 +1,31 @@
-<div class="exp-placeholder">
-  <p class="i18n-ar">تجربة تفاعلية لاستكشاف حركة الصفائح التكتونية عند الظهرات المحيطية ومناطق الطمر.</p>
-  <p class="i18n-fr">Expérience interactive pour explorer le mouvement des plaques tectoniques aux dorsales océaniques et aux zones de subduction.</p>
-  <p class="i18n-ar">ستُضاف الصفحة التفاعلية هنا قريباً من طرف الأستاذ.</p>
-  <p class="i18n-fr">La page interactive sera ajoutée ici prochainement par l'enseignant.</p>
-</div>
-<!--
-  عند توفّر الصفحة التفاعلية، استبدل المحتوى أعلاه بإطار مضمَّن، مثلاً:
-  <iframe src="https://exemple.org/simulation-plaques" allowfullscreen title="Tectonique des plaques"></iframe>
--->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>محاكاة حدود الصفائح — Simulation des limites de plaques</title>
+<style>
+  :root{ --ink:#0C1A13; --surface:#11211A; --line:#21362B; --sage:#52B788; --mint:#9FE6BF; --text:#E6F1EB; --text-3:#7E988B; }
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; margin:0; }
+  body{
+    background:var(--ink); color:var(--text); font-family:'Tajawal','Sora',system-ui,sans-serif;
+    display:flex; align-items:center; justify-content:center; padding:24px; text-align:center;
+  }
+  .box{ max-width:420px; }
+  .ico{ font-size:40px; margin-bottom:14px; }
+  h1{ font-size:1.1rem; margin:0 0 10px; color:#fff; }
+  p{ color:var(--text-3); font-size:.92rem; line-height:1.7; margin:4px 0; }
+  .fr{ font-size:.86em; }
+</style>
+</head>
+<body>
+  <div class="box">
+    <div class="ico">🌍</div>
+    <h1>محاكاة حدود الصفائح التكتونية</h1>
+    <p>تجربة تفاعلية لاستكشاف حركة الصفائح عند الظهرات المحيطية ومناطق الطمر.</p>
+    <p><strong>ستُضاف الصفحة التفاعلية الكاملة هنا قريباً من طرف الأستاذ.</strong></p>
+    <p class="fr">Simulation interactive pour explorer le mouvement des plaques aux dorsales et zones de subduction.<br>Cette page interactive sera complétée prochainement par l'enseignant.</p>
+  </div>
+</body>
+</html>

@@ -13,7 +13,7 @@
  * ملاحظة: عامل الخدمة يحتاج HTTPS أو localhost (لا يعمل عبر file://).
  */
 
-const VERSION = "nova-svt-v4";
+const VERSION = "nova-svt-v5";
 
 /** هيكل التطبيق وكل الأصول التي تُخزَّن عند التثبيت (مسارات نسبية). */
 const PRECACHE = [

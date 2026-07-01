@@ -6,10 +6,11 @@
  *
  * الأنماط المدعومة:
  *   #/                      → الرئيسية
- *   #/lessons               → بوّابة الدروس (المستوى الافتراضي)
- *   #/lessons/{levelId}     → بوّابة الدروس عند مستوى محدّد
+ *   #/lessons               → دليل المستويات (اختر مستواك، مصنّفة حسب السلك)
+ *   #/lessons/{levelId}     → صفحة المستوى: وحداته كأكورديون، ودروس كل وحدة
  *   #/lesson/{lessonId}     → صفحة درس
- *   #/lab                   → المختبر
+ *   #/lab                   → معرض تجارب المختبر
+ *   #/lab/{expId}           → صفحة تجربة (ملف HTML منفصل لكل تجربة)
  *   #/blog                  → المدونة
  *   #/blog/{postId}         → مقال مدونة (ملف HTML منفصل لكل مقال)
  *   #/about                 → عن المنصة
@@ -21,7 +22,7 @@
  * كي لا تتعارض مع المسارات — تُمرَّر بالتمرير عبر JavaScript بدل ذلك.
  */
 
-import { ROUTES, DEFAULT_LEVEL } from "./config.js";
+import { ROUTES } from "./config.js";
 import { setRoute } from "./state.js";
 
 let _onChange = null;
@@ -36,13 +37,12 @@ export function parseHash(hash) {
   const [segment, param] = parts;
   switch (segment) {
     case "lessons":
-      return { view: ROUTES.lessons, levelId: param || DEFAULT_LEVEL };
+      // بلا معرّف مستوى → دليل المستويات؛ بمعرّف → صفحة ذلك المستوى.
+      return { view: ROUTES.lessons, levelId: param || null };
     case "lesson":
-      return param
-        ? { view: ROUTES.detail, lessonId: param }
-        : { view: ROUTES.lessons, levelId: DEFAULT_LEVEL };
+      return param ? { view: ROUTES.detail, lessonId: param } : { view: ROUTES.lessons, levelId: null };
     case "lab":
-      return { view: ROUTES.lab };
+      return param ? { view: ROUTES.labExperiment, expId: param } : { view: ROUTES.lab };
     case "blog":
       return param ? { view: ROUTES.blogPost, blogId: param } : { view: ROUTES.blog };
     case "about":
@@ -64,6 +64,8 @@ function applyRoute() {
     setRoute({ view: route.view, lessonId: route.lessonId });
   } else if (route.view === ROUTES.blogPost) {
     setRoute({ view: route.view, blogId: route.blogId });
+  } else if (route.view === ROUTES.labExperiment) {
+    setRoute({ view: route.view, expId: route.expId });
   } else {
     setRoute({ view: route.view });
   }
@@ -92,6 +94,8 @@ export function go(view, param) {
   else if (view === ROUTES.detail) navigate(`/lesson/${param}`);
   else if (view === ROUTES.blogPost) navigate(`/blog/${param}`);
   else if (view === ROUTES.blog) navigate("/blog");
+  else if (view === ROUTES.labExperiment) navigate(`/lab/${param}`);
+  else if (view === ROUTES.lab) navigate("/lab");
   else if (view === ROUTES.home) navigate("/");
   else navigate(`/${view}`);
 }
