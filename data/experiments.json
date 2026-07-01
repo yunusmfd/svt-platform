@@ -1,0 +1,23 @@
+[
+  {
+    "id": "mitose-video",
+    "type": "video",
+    "title": { "ar": "فيديو: الانقسام الخيطي المتساوي تحت المجهر", "fr": "Vidéo : la mitose au microscope" },
+    "desc": { "ar": "تسجيل مجهري حقيقي لأطوار الانقسام يكمّل المحاكاة أعلاه.", "fr": "Enregistrement microscopique réel des phases de la mitose, en complément de la simulation ci-dessus." },
+    "src": ""
+  },
+  {
+    "id": "germination-animation",
+    "type": "animation",
+    "title": { "ar": "Animation: إنبات بذرة الفول", "fr": "Animation : germination d'une graine de fève" },
+    "desc": { "ar": "رسم متحرك يوضّح مراحل إنبات البذرة من الامتصاص إلى ظهور الجذير والسويقة.", "fr": "Animation illustrant les étapes de la germination, de l'imbibition à l'apparition de la radicule et de la tigelle." },
+    "src": ""
+  },
+  {
+    "id": "tectonique-interactive",
+    "type": "interactive",
+    "title": { "ar": "صفحة تفاعلية: محاكاة حدود الصفائح", "fr": "Page interactive : simulation des limites de plaques" },
+    "desc": { "ar": "تجربة تفاعلية لاستكشاف حركة الصفائح عند الظهرات ومناطق الطمر.", "fr": "Expérience interactive pour explorer le mouvement des plaques aux dorsales et zones de subduction." },
+    "src": ""
+  }
+]

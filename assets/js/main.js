@@ -27,6 +27,7 @@ import { renderHome } from "./views/home.js";
 import { renderLessons } from "./views/lessons.js";
 import { renderDetail } from "./views/detail.js";
 import { renderLab } from "./views/lab.js";
+import { renderBlog } from "./views/blog.js";
 import { renderAbout } from "./views/about.js";
 
 /** الصفحة التي يُبرز عندها رابط "الدروس" في التنقّل (صفحة الدرس تتبع الدروس). */
@@ -47,6 +48,9 @@ function render() {
       break;
     case ROUTES.lab:
       renderLab();
+      break;
+    case ROUTES.blog:
+      renderBlog();
       break;
     case ROUTES.about:
       renderAbout();
@@ -71,6 +75,8 @@ function updateTitle(view) {
     prefix = level ? t(level.name) : ui("nav_lessons");
   } else if (view === ROUTES.lab) {
     prefix = ui("nav_lab");
+  } else if (view === ROUTES.blog) {
+    prefix = ui("nav_blog");
   } else if (view === ROUTES.about) {
     prefix = ui("nav_about");
   }

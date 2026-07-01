@@ -25,9 +25,31 @@ function chip(level, activeId) {
   )}</span>${esc(t(level.name))}</a>`;
 }
 
+/** كتلة "وحدات هذا المستوى" — تعرض السلّم الرسمي لوحدات المستوى الحالي. */
+function unitSyllabusHTML(level) {
+  const units = (level && level.units) || [];
+  if (!units.length) return "";
+  return `
+  <div class="unit-syllabus">
+    <span class="unit-syllabus-h">${ui("units_of_level")}</span>
+    <div class="unit-chips">
+      ${units
+        .map(
+          (u) =>
+            `<span class="unit-chip"><span class="num">${String(u.num).padStart(
+              2,
+              "0"
+            )}</span>${esc(t(u))}</span>`
+        )
+        .join("")}
+    </div>
+  </div>`;
+}
+
 export function renderLessons() {
   searchTerm = "";
   const levelId = getLevelId();
+  const level = findLevel(levelId);
   const groups = levelsByStage();
   const college = groups.college || [];
   const lycee = groups.lycee || [];
@@ -43,9 +65,15 @@ export function renderLessons() {
 
   <div class="levelbar">
     <div class="wrap levelbar-inner">
-      <div class="lvl-group">${college.map((l) => chip(l, levelId)).join("")}</div>
+      <div class="lvl-cycle">
+        ${college.length ? `<span class="eyebrow lvl-label">${ui("lvl_college")}</span>` : ""}
+        <div class="lvl-group">${college.map((l) => chip(l, levelId)).join("")}</div>
+      </div>
       ${lycee.length ? '<div class="lvl-sep"></div>' : ""}
-      <div class="lvl-group">${lycee.map((l) => chip(l, levelId)).join("")}</div>
+      <div class="lvl-cycle">
+        ${lycee.length ? `<span class="eyebrow lvl-label">${ui("lvl_lycee")}</span>` : ""}
+        <div class="lvl-group">${lycee.map((l) => chip(l, levelId)).join("")}</div>
+      </div>
     </div>
   </div>
 
@@ -62,7 +90,8 @@ export function renderLessons() {
                  aria-label="${esc(ui("search_ph"))}" autocomplete="off" />
         </div>
       </div>
-      <div class="lesson-grid" id="lessonGrid"></div>
+      ${unitSyllabusHTML(level)}
+      <div class="lesson-groups" id="lessonGrid"></div>
     </div>
   </section>`;
 
@@ -106,8 +135,29 @@ function renderGrid() {
 
   if (!grid) return;
   if (list.length === 0) {
-    grid.innerHTML = `<div class="empty">${svg("search")}<p>${ui("no_results")}</p></div>`;
+    const msg = term ? ui("no_results") : ui("no_lessons_level");
+    grid.innerHTML = `<div class="empty">${svg("search")}<p>${esc(msg)}</p></div>`;
     return;
   }
-  grid.innerHTML = list.map(lessonCardHTML).join("");
+
+  const units = (level && level.units) || [];
+  const groups = units
+    .map((unit) => ({ unit, lessons: list.filter((l) => l.unit && l.unit.ar === unit.ar) }))
+    .filter((g) => g.lessons.length > 0);
+
+  const grouped = new Set(groups.flatMap((g) => g.lessons));
+  const rest = list.filter((l) => !grouped.has(l));
+
+  grid.innerHTML =
+    groups.map((g) => unitGroupHTML(g.unit, g.lessons)).join("") +
+    (rest.length ? `<div class="lesson-grid">${rest.map(lessonCardHTML).join("")}</div>` : "");
+}
+
+/** كتلة دروس وحدة واحدة: عنوان الوحدة + شبكة بطاقاتها. */
+function unitGroupHTML(unit, lessons) {
+  return `
+  <div class="unit-block">
+    <div class="block-title"><span class="bar"></span><h3>${esc(t(unit))}</h3></div>
+    <div class="lesson-grid">${lessons.map(lessonCardHTML).join("")}</div>
+  </div>`;
 }

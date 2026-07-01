@@ -26,6 +26,7 @@ const STRINGS = {
   nav_home: { ar: "الرئيسية", fr: "Accueil" },
   nav_lessons: { ar: "الدروس", fr: "Cours" },
   nav_lab: { ar: "المختبر", fr: "Laboratoire" },
+  nav_blog: { ar: "المدونة", fr: "Blog" },
   nav_about: { ar: "عن المنصة", fr: "À propos" },
   foot_about: { ar: "منصة رقمية مجانية لتعليم علوم الحياة والأرض بالمغرب، بفيديوهات وخطاطات وملفات واختبارات بتصحيح فوري — للإعدادي والثانوي.", fr: "Plateforme numérique gratuite pour l'enseignement des SVT au Maroc : vidéos, schémas, fichiers et quiz à correction immédiate — collège et lycée." },
   foot_explore: { ar: "تصفّح", fr: "Explorer" },
@@ -86,11 +87,13 @@ const STRINGS = {
   /* بوّابة الدروس */
   portal_title: { ar: "استكشف عالم علوم الحياة والأرض", fr: "Explore le monde des SVT" },
   portal_lead: { ar: "اختر مستواك الدراسي وابدأ رحلة التعلّم — من الأولى إعدادي إلى الثانية باكالوريا.", fr: "Choisis ton niveau et commence ton parcours — de la 1ère collège à la 2ème Bac." },
-  lvl_college: { ar: "الإعدادي", fr: "Collège" },
-  lvl_lycee: { ar: "الثانوي", fr: "Lycée" },
+  lvl_college: { ar: "السلك الإعدادي", fr: "Collège" },
+  lvl_lycee: { ar: "السلك الثانوي التأهيلي", fr: "Lycée qualifiant" },
+  units_of_level: { ar: "وحدات هذا المستوى", fr: "Unités de ce niveau" },
   search_ph: { ar: "ابحث عن درس...", fr: "Rechercher un cours..." },
   lessons_count: { ar: "درس متاح", fr: "cours disponible(s)" },
   no_results: { ar: "لا توجد دروس مطابقة لبحثك.", fr: "Aucun cours ne correspond à votre recherche." },
+  no_lessons_level: { ar: "الدروس قيد الإعداد لهذا المستوى — ترقّبوها قريباً.", fr: "Les cours de ce niveau sont en préparation — à venir bientôt." },
   branch_bio: { ar: "حياة", fr: "Vie" },
   branch_geo: { ar: "أرض", fr: "Terre" },
   tag_video: { ar: "فيديو", fr: "Vidéo" },
@@ -159,6 +162,27 @@ const STRINGS = {
   phase3: { ar: "الطور الانفصالي", fr: "Anaphase" },
   phase4: { ar: "الطور النهائي", fr: "Télophase" },
   lab_readout: { ar: "المرحلة الحالية", fr: "Phase actuelle" },
+
+  /* معرض تجارب المختبر (فيديو / animation / صفحة تفاعلية) */
+  exp_eyebrow: { ar: "تجارب إضافية", fr: "Expériences supplémentaires" },
+  exp_title: { ar: "معرض التجارب", fr: "Galerie d'expériences" },
+  exp_lead: { ar: "فيديوهات، رسوم متحركة، وصفحات تفاعلية يضيفها الأستاذ لإثراء الملاحظة والتجريب.", fr: "Vidéos, animations et pages interactives ajoutées par l'enseignant pour enrichir l'observation." },
+  exp_empty: { ar: "لا توجد تجارب منشورة بعد — ترقّبوها قريباً.", fr: "Aucune expérience publiée pour l'instant — à venir bientôt." },
+  exp_pick: { ar: "اختر تجربة من القائمة لعرضها هنا.", fr: "Choisis une expérience dans la liste pour l'afficher ici." },
+  exp_type_video: { ar: "فيديو", fr: "Vidéo" },
+  exp_type_animation: { ar: "Animation", fr: "Animation" },
+  exp_type_interactive: { ar: "صفحة تفاعلية", fr: "Page interactive" },
+  exp_soon: { ar: "سيُضاف رابط هذه التجربة قريباً من طرف الأستاذ.", fr: "Le lien de cette expérience sera ajouté prochainement par l'enseignant." },
+  exp_open: { ar: "فتح في نافذة كاملة", fr: "Ouvrir en plein écran" },
+
+  /* المدونة */
+  blog_eyebrow: { ar: "آخر المستجدات", fr: "Dernières nouvelles" },
+  blog_title: { ar: "مدونة Nova SVT", fr: "Blog Nova SVT" },
+  blog_lead: { ar: "أخبار المنصة، توجيهات للتلاميذ، وإعلانات مهمّة — في مكان واحد.", fr: "Actualités de la plateforme, conseils aux élèves et annonces importantes — au même endroit." },
+  blog_empty: { ar: "لا توجد منشورات بعد — تابعونا قريباً.", fr: "Aucun article pour l'instant — revenez bientôt." },
+  tag_news: { ar: "خبر", fr: "Actualité" },
+  tag_guide: { ar: "توجيه", fr: "Conseil" },
+  tag_announcement: { ar: "إعلان", fr: "Annonce" },
 
   /* عن المنصة */
   about_title: { ar: "نبسّط علوم الحياة والأرض لكل تلميذ مغربي", fr: "Rendre les SVT accessibles à chaque élève marocain" },

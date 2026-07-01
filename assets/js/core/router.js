@@ -10,6 +10,7 @@
  *   #/lessons/{levelId}     → بوّابة الدروس عند مستوى محدّد
  *   #/lesson/{lessonId}     → صفحة درس
  *   #/lab                   → المختبر
+ *   #/blog                  → المدونة
  *   #/about                 → عن المنصة
  *
  * تصميمياً: لا يستورد الموجّه صفحات العرض. يستقبل دالة onChange من main.js
@@ -41,6 +42,8 @@ export function parseHash(hash) {
         : { view: ROUTES.lessons, levelId: DEFAULT_LEVEL };
     case "lab":
       return { view: ROUTES.lab };
+    case "blog":
+      return { view: ROUTES.blog };
     case "about":
       return { view: ROUTES.about };
     case "home":

@@ -9,8 +9,16 @@
 import { t, ui } from "../core/i18n.js";
 import { svg } from "../core/icons.js";
 import { getLab, setLab } from "../core/state.js";
+import { getExperiments } from "../core/content.js";
 import { app, esc } from "../core/dom.js";
 import { showToast } from "../components/toast.js";
+
+/** أيقونة ومفتاح تسمية حسب نوع التجربة (فيديو / animation / صفحة تفاعلية). */
+const EXP_ICON = { video: "video", animation: "spark", interactive: "box" };
+const EXP_TYPE_KEY = { video: "exp_type_video", animation: "exp_type_animation", interactive: "exp_type_interactive" };
+
+/** التجربة المختارة حالياً في معرض التجارب (ephemeral — تُصفَّر مع كل بناء للصفحة). */
+let selectedExpIndex = 0;
 
 const ZOOM_MIN = 200;
 const ZOOM_MAX = 800;
@@ -39,8 +47,35 @@ const MITOSIS = {
 
 const zoomLabel = (zoom) => "×" + (zoom / 100).toFixed(1);
 
+/** بطاقة تجربة واحدة في معرض التجارب. */
+function expCardHTML(exp, active) {
+  return `
+  <button class="exp-card${active ? " active" : ""}" data-exp="${esc(exp.id)}" type="button">
+    <span class="exp-ico">${svg(EXP_ICON[exp.type] || "box")}</span>
+    <span class="exp-info">
+      <span class="n">${esc(t(exp.title))}</span>
+      <span class="s">${esc(ui(EXP_TYPE_KEY[exp.type] || "exp_type_interactive"))}</span>
+    </span>
+  </button>`;
+}
+
+/** لوحة عرض التجربة المختارة: فيديو/صورة متحركة/إطار تفاعلي، أو نصّ بديل إن لم يُضَف رابطها بعد. */
+function expPlayerHTML(exp) {
+  if (!exp) return `<div class="exp-placeholder"><p>${esc(ui("exp_pick"))}</p></div>`;
+  if (!exp.src) {
+    return `<div class="exp-placeholder">${svg(EXP_ICON[exp.type] || "box")}<p>${esc(
+      t(exp.desc)
+    )}</p><p>${esc(ui("exp_soon"))}</p></div>`;
+  }
+  if (exp.type === "video") return `<video controls src="${esc(exp.src)}"></video>`;
+  if (exp.type === "animation") return `<img src="${esc(exp.src)}" alt="${esc(t(exp.title))}" />`;
+  return `<iframe src="${esc(exp.src)}" title="${esc(t(exp.title))}" allowfullscreen></iframe>`;
+}
+
 export function renderLab() {
   const { phase, zoom } = getLab();
+  const experiments = getExperiments();
+  selectedExpIndex = 0;
 
   app().innerHTML = `
   <section class="section">
@@ -96,6 +131,20 @@ export function renderLab() {
           </div>
         </div>
       </div>
+
+      <div class="section-head" style="margin-block:44px 24px">
+        <span class="eyebrow">${ui("exp_eyebrow")}</span>
+        <h2>${ui("exp_title")}</h2>
+        <p>${ui("exp_lead")}</p>
+      </div>
+      ${
+        experiments.length
+          ? `<div class="exp-grid" id="expGrid">${experiments
+              .map((e, i) => expCardHTML(e, i === selectedExpIndex))
+              .join("")}</div>
+             <div class="exp-player" id="expPlayer">${expPlayerHTML(experiments[selectedExpIndex])}</div>`
+          : `<div class="empty"><p>${esc(ui("exp_empty"))}</p></div>`
+      }
     </div>
   </section>`;
 
@@ -109,6 +158,21 @@ function wireLab() {
   document.getElementById("zoomOut")?.addEventListener("click", () => changeZoom(-1));
   document.getElementById("zoomIn")?.addEventListener("click", () => changeZoom(1));
   document.getElementById("capture")?.addEventListener("click", () => showToast(ui("toast_dl")));
+
+  document.querySelectorAll("#expGrid .exp-card").forEach((btn, i) => {
+    btn.addEventListener("click", () => selectExperiment(i));
+  });
+}
+
+/** يبدّل التجربة المعروضة في لوحة معرض التجارب دون إعادة بناء الصفحة كاملةً. */
+function selectExperiment(i) {
+  selectedExpIndex = i;
+  const experiments = getExperiments();
+  document.querySelectorAll("#expGrid .exp-card").forEach((b, idx) => {
+    b.classList.toggle("active", idx === i);
+  });
+  const player = document.getElementById("expPlayer");
+  if (player) player.innerHTML = expPlayerHTML(experiments[i]);
 }
 
 function selectPhase(n) {

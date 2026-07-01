@@ -42,6 +42,10 @@ export const STORAGE_KEYS = {
 export const LEVELS_URL = "data/levels.json";
 /** مجلّد ملفات الدروس؛ يُبنى مسار كل مستوى منه: data/lessons/1ac.json */
 export const LESSONS_DIR = "data/lessons/";
+/** منشورات المدونة (أخبار، توجيهات، إعلانات). */
+export const BLOG_URL = "data/blog.json";
+/** تجارب المختبر الافتراضي (فيديو / animation / صفحة تفاعلية). */
+export const EXPERIMENTS_URL = "data/experiments.json";
 
 /** يبني مسار ملف دروس مستوى معيّن. */
 export const lessonsUrl = (levelId) => `${LESSONS_DIR}${levelId}.json`;
@@ -53,6 +57,7 @@ export const ROUTES = {
   lessons: "lessons",
   detail: "detail",
   lab: "lab",
+  blog: "blog",
   about: "about",
 };
 
