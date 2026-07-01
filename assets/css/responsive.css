@@ -22,6 +22,7 @@
   .post-grid{ grid-template-columns:1fr 1fr; }
   .exp-grid{ grid-template-columns:1fr 1fr; }
   .level-grid{ grid-template-columns:1fr 1fr; }
+  .lesson-nav{ grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); }
 
   /* إحصائيات الواجهة: عنصران في الصف */
   .stat{ min-width:140px; }
@@ -60,7 +61,7 @@
 /* ── ≥ 1001px: حواسيب ────────────────────────────────────────────────── */
 @media (min-width: 1001px){
   /* صفحة الدرس: عمود جانبي للفهرس */
-  .detail{ grid-template-columns:260px 1fr; }
+  .detail{ grid-template-columns:260px minmax(0, 1fr); }
   .toc{ display:block; }
 
   /* التذييل بثلاثة أعمدة */

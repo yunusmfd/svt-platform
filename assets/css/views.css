@@ -503,10 +503,13 @@ html[dir="rtl"] .level-card:hover .browse svg{ transform:scaleX(-1) translateX(4
    ╚══════════════════════════════════════════════════════════════════════╝ */
 .detail{
   display:grid;
-  grid-template-columns:1fr;
+  /* minmax(0,1fr) بدل 1fr: يسمح للعمود بالانكماش دون تجاوز عرض الشاشة
+     (يمنع تمدّد المحتوى الطويل أفقياً على الهاتف) */
+  grid-template-columns:minmax(0, 1fr);
   gap:34px;
   align-items:start;
 }
+.detail-main{ min-width:0; }
 /* فهرس جانبي لاصق */
 .toc{
   display:none;
@@ -821,10 +824,10 @@ html[dir="ltr"] .back-link svg{ transform:scaleX(-1); }
 .dl .dl-act svg{ width:20px; height:20px; }
 a.dl{ text-decoration:none; color:inherit; }
 
-/* التنقّل بين الدروس (السابق / التالي) */
+/* التنقّل بين الدروس (السابق / التالي) — عمود واحد على الهاتف، عمودان لاحقاً */
 .lesson-nav{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:minmax(0, 1fr);
   gap:14px;
   margin-top:44px;
   padding-top:26px;
@@ -834,6 +837,8 @@ a.dl{ text-decoration:none; color:inherit; }
   display:flex;
   align-items:center;
   gap:12px;
+  min-width:0;                 /* يسمح لعناوين الدروس الطويلة بالاقتصاص لا التمدّد */
+  overflow:hidden;
   padding:14px 16px;
   background:var(--surface);
   border:1px solid var(--line);
