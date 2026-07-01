@@ -1,15 +1,16 @@
 /**
  * Nova SVT — المحتوى (تحميل البيانات)
  * ----------------------------------------------------------------------------
- * يحمّل المستويات من data/levels.json ثم دروس كل مستوى من
- * data/lessons/{levelId}.json بالتوازي، ويوفّر دوال وصول للبيانات.
+ * يحمّل المستويات من data/levels.json وفهرس الدروس الخفيف من
+ * data/lessons/index.json (بيانات البطاقات فقط). أمّا التفاصيل الكاملة لكل
+ * درس (الاختبار والمحتوى) فتُجلب كسولاً عند فتح الدرس عبر lessonLoader.js.
  *
- * فلسفة التصميم: المحتوى منفصل عن الكود تماماً. لإضافة درس يكفي تعديل ملف
- * JSON الخاص بالمستوى؛ ولإضافة مستوى جديد: سطر في levels.json + ملف دروسه.
- * لا حاجة لأي تعديل برمجي.
+ * فلسفة التصميم: فصل تام بين البيانات والمحتوى. كل درس مجلّد مستقل
+ * (meta.json + ar.html + fr.html)، والفهرس يمنح صفحة المستويات ما يلزمها
+ * لعرض البطاقات دون تحميل كل الدروس مسبقاً.
  */
 
-import { LEVELS_URL, lessonsUrl, BLOG_URL, EXPERIMENTS_URL } from "./config.js";
+import { LEVELS_URL, LESSONS_INDEX_URL, BLOG_URL, EXPERIMENTS_URL } from "./config.js";
 
 /* ── المخزن الداخلي (يُملأ مرّة عند الإقلاع) ─────────────────────────────── */
 let _levels = [];
@@ -37,28 +38,21 @@ async function fetchOptionalJSON(url, label) {
 }
 
 /**
- * يحمّل كل المحتوى: المستويات أولاً، ثم دروس كل مستوى بالتوازي، مع منشورات
- * المدونة وتجارب المختبر (اختيارية، لا توقف الإقلاع عند فشلها).
- * فشل تحميل المستويات نفسها يُرمى ليعالجه المتصل.
+ * يحمّل المحتوى الأساسي: المستويات وفهرس الدروس (حرِجان)، مع منشورات المدونة
+ * وتجارب المختبر (اختيارية، لا توقف الإقلاع عند فشلها). فشل تحميل المستويات
+ * أو الفهرس يُرمى ليعالجه المتصل. تفاصيل كل درس تُجلب كسولاً لاحقاً.
  */
 export async function loadContent() {
-  _levels = await fetchJSON(LEVELS_URL);
-
-  const [lists, posts, experiments] = await Promise.all([
-    Promise.all(
-      _levels.map((lvl) =>
-        fetchJSON(lessonsUrl(lvl.id)).catch((err) => {
-          console.warn(`تعذّر تحميل دروس المستوى "${lvl.id}":`, err.message);
-          return [];
-        })
-      )
-    ),
+  const [levels, index, posts, experiments] = await Promise.all([
+    fetchJSON(LEVELS_URL),
+    fetchJSON(LESSONS_INDEX_URL),
     fetchOptionalJSON(BLOG_URL, "المدونة"),
     fetchOptionalJSON(EXPERIMENTS_URL, "تجارب المختبر"),
   ]);
 
-  _lessons = lists.flat();
-  _byId = new Map(_lessons.map((lesson) => [lesson.id, lesson]));
+  _levels = levels;
+  _lessons = index;
+  _byId = new Map(_lessons.map((entry) => [entry.id, entry]));
   _posts = posts;
   _experiments = experiments;
   _ready = true;
@@ -74,17 +68,19 @@ export const isReady = () => _ready;
 /** كل المستويات بالترتيب. */
 export const getLevels = () => _levels;
 
-/** كل الدروس (من جميع المستويات). */
+/** كل مدخلات فهرس الدروس (بيانات بطاقات — لا تفاصيل كاملة). */
 export const getAllLessons = () => _lessons;
 
 /** مستوى واحد بمعرّفه، أو null. */
 export const findLevel = (id) => _levels.find((lvl) => lvl.id === id) || null;
 
-/** دروس مستوى معيّن. */
+/** مدخلات فهرس دروس مستوى معيّن، مرتّبة حسب order. */
 export const lessonsForLevel = (levelId) =>
-  _lessons.filter((lesson) => lesson.level === levelId);
+  _lessons
+    .filter((entry) => entry.level === levelId)
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 
-/** درس واحد بمعرّفه، أو null. */
+/** مدخلة فهرس درس واحد بمعرّفه، أو null (للبطاقات والعنوان). */
 export const findLesson = (id) => _byId.get(id) || null;
 
 /**

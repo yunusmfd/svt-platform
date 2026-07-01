@@ -1,0 +1,125 @@
+{
+  "id": "respiration-homme",
+  "slug": "respiration-homme",
+  "subject": "svt",
+  "level": "3ac",
+  "unitNum": 5,
+  "unit": {
+    "ar": "الوحدة الخامسة: وظائف الاقتيات والتربية الغذائية",
+    "fr": "Unité 5 : Les fonctions de nutrition et l'éducation nutritionnelle"
+  },
+  "order": 1,
+  "branch": "bio",
+  "thumbnail": "gas",
+  "duration": 42,
+  "status": "published",
+  "title": {
+    "ar": "التنفس عند الإنسان",
+    "fr": "La respiration chez l'Homme"
+  },
+  "desc": {
+    "ar": "بنية الجهاز التنفسي ودوره في المبادلات الغازية على مستوى الأسناخ الرئوية.",
+    "fr": "Structure de l'appareil respiratoire et échanges gazeux au niveau des alvéoles."
+  },
+  "video": {
+    "title": {
+      "ar": "الأسناخ الرئوية والمبادلات",
+      "fr": "Alvéoles pulmonaires et échanges"
+    },
+    "length": "06:48"
+  },
+  "quiz": [
+    {
+      "q": {
+        "ar": "أين تتم المبادلات الغازية الرئوية؟",
+        "fr": "Où ont lieu les échanges gazeux pulmonaires ?"
+      },
+      "options": [
+        {
+          "ar": "في القصبة الهوائية",
+          "fr": "Dans la trachée"
+        },
+        {
+          "ar": "في الأسناخ الرئوية",
+          "fr": "Dans les alvéoles"
+        },
+        {
+          "ar": "في الأنف",
+          "fr": "Dans le nez"
+        },
+        {
+          "ar": "في الحنجرة",
+          "fr": "Dans le larynx"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "الأسناخ الرئوية هي مقر المبادلات الغازية.",
+        "fr": "Les alvéoles sont le siège des échanges gazeux."
+      }
+    },
+    {
+      "q": {
+        "ar": "خلال الشهيق يدخل:",
+        "fr": "Pendant l'inspiration, entre :"
+      },
+      "options": [
+        {
+          "ar": "هواء غني بـ CO₂",
+          "fr": "Air riche en CO₂"
+        },
+        {
+          "ar": "هواء غني بـ O₂",
+          "fr": "Air riche en O₂"
+        },
+        {
+          "ar": "ماء",
+          "fr": "De l'eau"
+        },
+        {
+          "ar": "آزوت فقط",
+          "fr": "Du diazote seulement"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "الهواء المستنشق غني بـ O₂.",
+        "fr": "L'air inspiré est riche en O₂."
+      }
+    },
+    {
+      "q": {
+        "ar": "ما الغاز الذي يرتفع في هواء الزفير؟",
+        "fr": "Quel gaz augmente dans l'air expiré ?"
+      },
+      "options": [
+        {
+          "ar": "O₂",
+          "fr": "O₂"
+        },
+        {
+          "ar": "CO₂",
+          "fr": "CO₂"
+        },
+        {
+          "ar": "الآزوت",
+          "fr": "Le diazote"
+        },
+        {
+          "ar": "الهيدروجين",
+          "fr": "L'hydrogène"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "الهواء المطروح أغنى بـ CO₂ من المستنشق.",
+        "fr": "L'air expiré est plus riche en CO₂."
+      }
+    }
+  ],
+  "attachments": [],
+  "tags": [],
+  "keywords": [],
+  "createdAt": "2026-07-01",
+  "updatedAt": "2026-07-01"
+}

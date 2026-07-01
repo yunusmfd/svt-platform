@@ -1,0 +1,125 @@
+{
+  "id": "vivants-milieu",
+  "slug": "vivants-milieu",
+  "subject": "svt",
+  "level": "1ac",
+  "unitNum": 1,
+  "unit": {
+    "ar": "الوحدة الأولى: العلاقات بين الكائنات الحية وتفاعلها مع الوسط",
+    "fr": "Unité 1 : Les relations entre les êtres vivants et leurs interactions avec le milieu"
+  },
+  "order": 1,
+  "branch": "bio",
+  "thumbnail": "cell",
+  "duration": 40,
+  "status": "published",
+  "title": {
+    "ar": "الكائنات الحية والأوساط الطبيعية",
+    "fr": "Êtres vivants et milieux naturels"
+  },
+  "desc": {
+    "ar": "تقنيات دراسة وجرد الكائنات الحية في وسط طبيعي والعوامل المؤثرة في توزّعها.",
+    "fr": "Techniques d'étude et d'inventaire des êtres vivants et facteurs de répartition."
+  },
+  "video": {
+    "title": {
+      "ar": "الخرجة البيئية والجرد",
+      "fr": "Sortie écologique et inventaire"
+    },
+    "length": "06:10"
+  },
+  "quiz": [
+    {
+      "q": {
+        "ar": "العوامل اللاإحيائية تشمل:",
+        "fr": "Les facteurs abiotiques comprennent :"
+      },
+      "options": [
+        {
+          "ar": "الحيوانات والنباتات",
+          "fr": "Animaux et plantes"
+        },
+        {
+          "ar": "الحرارة والرطوبة والضوء",
+          "fr": "Température, humidité, lumière"
+        },
+        {
+          "ar": "البكتيريا فقط",
+          "fr": "Les bactéries seulement"
+        },
+        {
+          "ar": "الفطريات",
+          "fr": "Les champignons"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "اللاإحيائية = عوامل فيزيائية وكيميائية غير حية.",
+        "fr": "Abiotiques = facteurs physico-chimiques non vivants."
+      }
+    },
+    {
+      "q": {
+        "ar": "الأداة المناسبة لجرد الحشرات الصغيرة هي:",
+        "fr": "L'outil pour inventorier les petits insectes est :"
+      },
+      "options": [
+        {
+          "ar": "المظلة المقلوبة",
+          "fr": "Le parapluie japonais"
+        },
+        {
+          "ar": "المجهر الإلكتروني",
+          "fr": "Le microscope électronique"
+        },
+        {
+          "ar": "الميزان",
+          "fr": "La balance"
+        },
+        {
+          "ar": "الحاسوب",
+          "fr": "L'ordinateur"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "ar": "المظلة المقلوبة تُستعمل لجمع الحشرات من النباتات.",
+        "fr": "Le parapluie japonais sert à collecter les insectes des plantes."
+      }
+    },
+    {
+      "q": {
+        "ar": "المكوّنات الإحيائية هي:",
+        "fr": "Les composantes biotiques sont :"
+      },
+      "options": [
+        {
+          "ar": "الصخور والماء",
+          "fr": "Roches et eau"
+        },
+        {
+          "ar": "الكائنات الحية",
+          "fr": "Les êtres vivants"
+        },
+        {
+          "ar": "الضوء",
+          "fr": "La lumière"
+        },
+        {
+          "ar": "الحرارة",
+          "fr": "La chaleur"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "الإحيائية = الكائنات الحية في الوسط.",
+        "fr": "Biotiques = les êtres vivants du milieu."
+      }
+    }
+  ],
+  "attachments": [],
+  "tags": [],
+  "keywords": [],
+  "createdAt": "2026-07-01",
+  "updatedAt": "2026-07-01"
+}

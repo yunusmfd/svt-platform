@@ -31,17 +31,21 @@ export function blobDownload(filename, text) {
   }
 }
 
-/** يبني ملخّصاً نصّياً للدرس (مقدّمة + أسئلة بإجاباتها وشروحها) وينزّله. */
-export function downloadSummary(lesson) {
+/**
+ * يبني ملخّصاً نصّياً للدرس (نصّ المحتوى + أسئلة بإجاباتها وشروحها) وينزّله.
+ * @param {object} lesson بيانات الدرس (meta) — العنوان والوحدة والاختبار.
+ * @param {string} [bodyHtml] محتوى الدرس (HTML) لاستخلاص نصّه بعد إزالة الوسوم.
+ */
+export function downloadSummary(lesson, bodyHtml = "") {
   if (!lesson) return;
   const strip = (s) => String(s).replace(/<[^>]+>/g, "");
 
   let out = "Nova SVT — " + t(lesson.title) + "\n";
   out += t(lesson.unit) + "\n" + "=".repeat(40) + "\n\n";
 
-  (lesson.intro || []).forEach((p) => {
-    out += strip(t(p)) + "\n\n";
-  });
+  if (bodyHtml) {
+    out += strip(bodyHtml).replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim() + "\n\n";
+  }
 
   out += "— " + ui("toc_quiz") + " —\n\n";
   (lesson.quiz || []).forEach((q, i) => {

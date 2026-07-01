@@ -1,0 +1,125 @@
+{
+  "id": "heredite-humaine",
+  "slug": "heredite-humaine",
+  "subject": "svt",
+  "level": "2bac-svt",
+  "unitNum": 3,
+  "unit": {
+    "ar": "الوحدة الثالثة: نقل الخبر الوراثي عبر التوالد الجنسي — علم الوراثة البشرية",
+    "fr": "Unité 3 : Transmission de l'information génétique par la reproduction sexuée — génétique humaine"
+  },
+  "order": 1,
+  "branch": "bio",
+  "thumbnail": "dna",
+  "duration": 52,
+  "status": "published",
+  "title": {
+    "ar": "انتقال الصفات الوراثية عند الإنسان",
+    "fr": "Transmission des caractères chez l'Homme"
+  },
+  "desc": {
+    "ar": "دراسة انتقال الأمراض الوراثية وشجرة النسب وقوانين مندل عند الإنسان.",
+    "fr": "Étude des maladies héréditaires, de l'arbre généalogique et des lois de Mendel."
+  },
+  "video": {
+    "title": {
+      "ar": "شجرة النسب والوراثة",
+      "fr": "Arbre généalogique et hérédité"
+    },
+    "length": "09:40"
+  },
+  "quiz": [
+    {
+      "q": {
+        "ar": "الأشكال المختلفة لنفس المورثة تسمى:",
+        "fr": "Les formes différentes d'un même gène sont :"
+      },
+      "options": [
+        {
+          "ar": "الصبغيات",
+          "fr": "Les chromosomes"
+        },
+        {
+          "ar": "الحليلات",
+          "fr": "Les allèles"
+        },
+        {
+          "ar": "الأمشاج",
+          "fr": "Les gamètes"
+        },
+        {
+          "ar": "النوى",
+          "fr": "Les noyaux"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "الحليلات هي النسخ المختلفة للمورثة.",
+        "fr": "Les allèles sont les versions différentes d'un gène."
+      }
+    },
+    {
+      "q": {
+        "ar": "الفرد الذي يحمل حليلين مختلفين يُسمى:",
+        "fr": "L'individu portant deux allèles différents est :"
+      },
+      "options": [
+        {
+          "ar": "صرف (متماثل اللواقح)",
+          "fr": "homozygote"
+        },
+        {
+          "ar": "مختلط (متخالف اللواقح)",
+          "fr": "hétérozygote"
+        },
+        {
+          "ar": "نقي",
+          "fr": "pur"
+        },
+        {
+          "ar": "طافر",
+          "fr": "mutant"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "متخالف اللواقح يحمل حليلين مختلفين.",
+        "fr": "L'hétérozygote porte deux allèles différents."
+      }
+    },
+    {
+      "q": {
+        "ar": "الصفة التي تظهر عند المختلط تسمى:",
+        "fr": "Le caractère qui s'exprime chez l'hétérozygote est :"
+      },
+      "options": [
+        {
+          "ar": "متنحية",
+          "fr": "récessif"
+        },
+        {
+          "ar": "سائدة",
+          "fr": "dominant"
+        },
+        {
+          "ar": "مرتبطة بالجنس",
+          "fr": "lié au sexe"
+        },
+        {
+          "ar": "مكتسبة",
+          "fr": "acquis"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "الصفة السائدة تظهر حتى مع حليل واحد.",
+        "fr": "Le caractère dominant s'exprime même avec un seul allèle."
+      }
+    }
+  ],
+  "attachments": [],
+  "tags": [],
+  "keywords": [],
+  "createdAt": "2026-07-01",
+  "updatedAt": "2026-07-01"
+}

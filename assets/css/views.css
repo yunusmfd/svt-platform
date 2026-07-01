@@ -503,10 +503,13 @@ html[dir="rtl"] .level-card:hover .browse svg{ transform:scaleX(-1) translateX(4
    ╚══════════════════════════════════════════════════════════════════════╝ */
 .detail{
   display:grid;
-  grid-template-columns:1fr;
+  /* minmax(0,1fr) بدل 1fr: يسمح للعمود بالانكماش دون تجاوز عرض الشاشة
+     (يمنع تمدّد المحتوى الطويل أفقياً على الهاتف) */
+  grid-template-columns:minmax(0, 1fr);
   gap:34px;
   align-items:start;
 }
+.detail-main{ min-width:0; }
 /* فهرس جانبي لاصق */
 .toc{
   display:none;
@@ -540,6 +543,26 @@ html[dir="rtl"] .level-card:hover .browse svg{ transform:scaleX(-1) translateX(4
   border-radius:50%;
   background:var(--sage);
 }
+
+/* مسار التنقّل (Breadcrumb) أعلى صفحة الدرس */
+.breadcrumb{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:6px;
+  margin-bottom:20px;
+  color:var(--text-3);
+  font-size:.86rem;
+}
+.breadcrumb a{
+  color:var(--text-2);
+  font-weight:600;
+  transition:color var(--t-fast) var(--ease);
+}
+.breadcrumb a:hover{ color:var(--sage-d); }
+.breadcrumb svg{ width:14px; height:14px; color:var(--text-3); flex:none; }
+html[dir="ltr"] .breadcrumb svg{ transform:scaleX(-1); }
+.breadcrumb [aria-current="page"]{ color:var(--text); font-weight:700; }
 
 .back-link{
   display:inline-flex;
@@ -676,6 +699,15 @@ html[dir="ltr"] .back-link svg{ transform:scaleX(-1); }
   font-family:var(--font-mono);
   font-size:12px;
 }
+.video-note{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:10px;
+  color:var(--text-3);
+  font-size:.9rem;
+}
+.video-note svg{ width:18px; height:18px; flex:none; }
 
 /* ── معرض الخطاطات ───────────────────────────────────────────────────── */
 .fig-grid{
@@ -733,6 +765,17 @@ html[dir="ltr"] .back-link svg{ transform:scaleX(-1); }
 }
 .fig-dl svg{ width:13px; height:13px; }
 
+/* خطاطة مدمجة داخل نصّ الدرس (تُحقن من ملف المحتوى) */
+.prose .lesson-fig{
+  margin:24px 0;
+}
+.prose .lesson-fig.fig{ padding:14px; }
+.fig-note{
+  margin-top:8px;
+  color:var(--text-3);
+  font-size:.85rem;
+}
+
 /* ── الملفات القابلة للتحميل ─────────────────────────────────────────── */
 .dl-list{
   display:grid;
@@ -779,6 +822,54 @@ html[dir="ltr"] .back-link svg{ transform:scaleX(-1); }
 }
 .dl .dl-act{ color:var(--sage); }
 .dl .dl-act svg{ width:20px; height:20px; }
+a.dl{ text-decoration:none; color:inherit; }
+
+/* التنقّل بين الدروس (السابق / التالي) — عمود واحد على الهاتف، عمودان لاحقاً */
+.lesson-nav{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr);
+  gap:14px;
+  margin-top:44px;
+  padding-top:26px;
+  border-top:1px solid var(--line);
+}
+.ln-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;                 /* يسمح لعناوين الدروس الطويلة بالاقتصاص لا التمدّد */
+  overflow:hidden;
+  padding:14px 16px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  transition:var(--t) var(--ease);
+}
+.ln-item:hover{
+  border-color:var(--sage);
+  box-shadow:var(--shadow-sm);
+  transform:translateY(-2px);
+}
+.ln-item svg{ width:20px; height:20px; flex:none; color:var(--sage); }
+.ln-item span{ display:flex; flex-direction:column; gap:2px; min-width:0; }
+.ln-item .ln-lbl{
+  font-family:var(--font-mono);
+  font-size:11px;
+  color:var(--text-3);
+}
+.ln-item .ln-title{
+  font-weight:700;
+  font-size:.95rem;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.ln-next{ text-align:end; flex-direction:row-reverse; }
+/* الأسهم تتبع اتجاه الكتابة: السابق للخلف، التالي للأمام */
+.ln-prev svg{ transform:scaleX(1); }
+html[dir="ltr"] .ln-prev svg{ transform:scaleX(-1); }
+.ln-next svg{ transform:scaleX(-1); }
+html[dir="ltr"] .ln-next svg{ transform:scaleX(1); }
 
 /* ╔══════════════════════════════════════════════════════════════════════╗
    ║ 8) الاختبار والنتيجة (داخل صفحة الدرس)                                 ║

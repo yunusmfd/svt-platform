@@ -1,0 +1,154 @@
+{
+  "id": "tectonique-plaques",
+  "slug": "tectonique-plaques",
+  "subject": "svt",
+  "level": "2bac-svt",
+  "unitNum": 6,
+  "unit": {
+    "ar": "الوحدة السادسة: الظواهر المصاحبة لنشوء السلاسل الجبلية وعلاقتها بتكتونية الصفائح",
+    "fr": "Unité 6 : Les phénomènes accompagnant la formation des chaînes de montagnes et leur relation avec la tectonique des plaques"
+  },
+  "order": 4,
+  "branch": "geo",
+  "thumbnail": "tecto",
+  "duration": 65,
+  "status": "published",
+  "title": {
+    "ar": "تكتونية الصفائح والظواهر المصاحبة",
+    "fr": "La tectonique des plaques et phénomènes associés"
+  },
+  "desc": {
+    "ar": "نظرية تكتونية الصفائح، حركية الغلاف الصخري، وعلاقتها بالزلازل والبراكين وتشكّل السلاسل الجبلية.",
+    "fr": "Théorie de la tectonique des plaques, dynamique de la lithosphère, séismes, volcans et chaînes de montagnes."
+  },
+  "video": {
+    "title": {
+      "ar": "مدخل إلى تكتونية الصفائح",
+      "fr": "Introduction à la tectonique des plaques"
+    },
+    "length": "12:15"
+  },
+  "quiz": [
+    {
+      "q": {
+        "ar": "ما المحرك الأساسي لحركة الصفائح التكتونية؟",
+        "fr": "Quel est le moteur du mouvement des plaques ?"
+      },
+      "options": [
+        {
+          "ar": "قوى الجذب المغناطيسي",
+          "fr": "Les forces magnétiques"
+        },
+        {
+          "ar": "تيارات الحمل الحراري",
+          "fr": "Les courants de convection"
+        },
+        {
+          "ar": "دوران الأرض حول نفسها",
+          "fr": "La rotation de la Terre"
+        },
+        {
+          "ar": "جاذبية القمر",
+          "fr": "L'attraction lunaire"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "تيارات الحمل الحراري في الرداء تحرّك الصفائح.",
+        "fr": "Les courants de convection dans le manteau déplacent les plaques."
+      }
+    },
+    {
+      "q": {
+        "ar": "تتباعد الصفائح عند:",
+        "fr": "Les plaques s'écartent au niveau :"
+      },
+      "options": [
+        {
+          "ar": "مناطق الطمر",
+          "fr": "des zones de subduction"
+        },
+        {
+          "ar": "الظهرات المحيطية",
+          "fr": "des dorsales océaniques"
+        },
+        {
+          "ar": "السلاسل الجبلية",
+          "fr": "des chaînes de montagnes"
+        },
+        {
+          "ar": "الفوالق التحويلية",
+          "fr": "des failles transformantes"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "عند الظهرات المحيطية يتشكّل غلاف صخري جديد بالتباعد.",
+        "fr": "Aux dorsales, une nouvelle lithosphère se forme par écartement."
+      }
+    },
+    {
+      "q": {
+        "ar": "الطبقة اللدنة التي تطفو فوقها الصفائح هي:",
+        "fr": "La couche ductile sous les plaques est :"
+      },
+      "options": [
+        {
+          "ar": "الغلاف الصخري",
+          "fr": "La lithosphère"
+        },
+        {
+          "ar": "الأستينوسفير",
+          "fr": "L'asthénosphère"
+        },
+        {
+          "ar": "القشرة القارية",
+          "fr": "La croûte continentale"
+        },
+        {
+          "ar": "النواة",
+          "fr": "Le noyau"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "الأستينوسفير طبقة لدنة من الرداء العلوي.",
+        "fr": "L'asthénosphère est une couche ductile du manteau supérieur."
+      }
+    },
+    {
+      "q": {
+        "ar": "في منطقة الطمر، تنغرز صفيحة:",
+        "fr": "En zone de subduction, une plaque :"
+      },
+      "options": [
+        {
+          "ar": "قارية تحت محيطية",
+          "fr": "continentale sous océanique"
+        },
+        {
+          "ar": "محيطية تحت أخرى",
+          "fr": "océanique sous une autre"
+        },
+        {
+          "ar": "لا تنغرز أي صفيحة",
+          "fr": "aucune plaque ne plonge"
+        },
+        {
+          "ar": "الصفيحتان معاً نحو الأعلى",
+          "fr": "les deux montent"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "الصفيحة المحيطية الأكثف تنغرز تحت الأخرى.",
+        "fr": "La plaque océanique, plus dense, plonge sous l'autre."
+      }
+    }
+  ],
+  "attachments": [],
+  "tags": [],
+  "keywords": [],
+  "createdAt": "2026-07-01",
+  "updatedAt": "2026-07-01"
+}

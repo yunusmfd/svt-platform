@@ -1,107 +1,120 @@
 /**
  * Nova SVT — صفحة الدرس (Detail)
  * ----------------------------------------------------------------------------
- * تعرض درساً كاملاً: فهرس جانبي، مقدّمة، فيديو، خطاطات، ملفات للتحميل، ثم
- * اختبار. روابط الفهرس تُمرّر داخل الصفحة عبر JavaScript (لا hash) كي لا
- * تتعارض مع الموجّه. كل الأزرار مربوطة برمجياً بلا onclick.
+ * قالب موحّد لكل الدروس. لا يُكرَّر تصميم الصفحة داخل ملفات الدروس:
+ *   1) يقرأ بيانات الدرس (meta.json) والمحتوى (ar.html/fr.html) عبر المحمّل.
+ *   2) يبني مسار التنقّل (Breadcrumb) والوسوم والعنوان والمدّة.
+ *   3) يحقن محتوى اللغة الحالية ثم يُفعّل خطاطاته العلمية.
+ *   4) يعرض الفيديو والملفّات والاختبار والتنقّل بين الدروس (السابق/التالي).
+ *
+ * التحميل كسول: تُجلب التفاصيل عند فتح الدرس فقط. تبديل اللغة يعيد البناء،
+ * لذا نحرس ضدّ النتائج القديمة عبر مقارنة معرّف الدرس بعد كل جلب.
  */
 
 import { t, ui } from "../core/i18n.js";
 import { svg, fillIcon, figFor } from "../core/icons.js";
-import { findLesson, findLevel } from "../core/content.js";
-import { getLessonId } from "../core/state.js";
+import { findLesson, findLevel, lessonsForLevel } from "../core/content.js";
+import { loadLessonMeta, loadLessonBody, hydrateLessonBody } from "../core/lessonLoader.js";
+import { getLessonId, getLang } from "../core/state.js";
 import { go } from "../core/router.js";
 import { app, esc } from "../core/dom.js";
 import { showToast } from "../components/toast.js";
 import { downloadSummary, downloadFigure } from "../components/downloads.js";
 import { mountQuiz } from "./quiz.js";
 
-/** عناصر الفهرس: [معرّف الكتلة, مفتاح العنوان]. */
-const TOC = [
-  ["b-intro", "toc_intro"],
-  ["b-video", "toc_video"],
-  ["b-figs", "toc_figs"],
-  ["b-dl", "toc_dl"],
-  ["b-quiz", "toc_quiz"],
-];
-
-export function renderDetail() {
-  const lesson = findLesson(getLessonId());
-  if (!lesson) {
+export async function renderDetail() {
+  const id = getLessonId();
+  const entry = findLesson(id); // مدخلة الفهرس الخفيفة (عنوان/وحدة/فرع…)
+  if (!entry) {
     go("lessons");
     return;
   }
-  const level = findLevel(lesson.level);
-  const figs = lesson.figs || [];
-  const filesCount = figs.length ? 2 : 1;
+  const level = findLevel(entry.level);
+
+  // حالة تحميل أوّلية (العنوان متاح من الفهرس فوراً)
+  app().innerHTML = `
+  <section class="section">
+    <div class="wrap">
+      ${breadcrumbHTML(entry, level)}
+      <h1 style="margin:18px 0">${esc(t(entry.title))}</h1>
+      <p class="video-note">${svg("clock")}<span>${esc(ui("lesson_loading"))}</span></p>
+    </div>
+  </section>`;
+
+  const lang = getLang();
+  const [meta, body] = await Promise.all([loadLessonMeta(id), loadLessonBody(id, lang)]);
+
+  // إن غيّر المستخدم الدرس أو اللغة أثناء الجلب، تجاهل هذه النتيجة القديمة.
+  if (getLessonId() !== id) return;
+
+  if (!meta) {
+    app().innerHTML = `
+    <section class="section"><div class="wrap">
+      ${breadcrumbHTML(entry, level)}
+      <div class="empty">${svg("doc")}<p>${esc(ui("lesson_missing"))}</p></div>
+    </div></section>`;
+    return;
+  }
+
+  renderFull(entry, level, meta, body);
+}
+
+/* ── البناء الكامل بعد توفّر البيانات والمحتوى ───────────────────────────── */
+function renderFull(entry, level, meta, body) {
+  const quiz = meta.quiz || [];
+  const attachments = meta.attachments || [];
+  const filesCount = attachments.length || 1;
+
+  // الفهرس الجانبي: فقط الأقسام الموجودة فعلاً
+  const toc = [["b-content", "toc_content"]];
+  if (meta.video) toc.push(["b-video", "toc_video"]);
+  toc.push(["b-dl", "toc_dl"]);
+  if (quiz.length) toc.push(["b-quiz", "toc_quiz"]);
 
   app().innerHTML = `
   <section class="section">
     <div class="wrap">
-      <a class="back-link" href="#/lessons/${lesson.level}">${svg("arrow")}${ui("back_lessons")}</a>
+      ${breadcrumbHTML(entry, level)}
       <div class="detail">
         <aside class="toc">
           <h5>${ui("toc_title")}</h5>
-          ${TOC.map(
-            ([id, key]) =>
-              `<a data-scroll="${id}" tabindex="0"><span class="d"></span>${ui(key)}</a>`
-          ).join("")}
+          ${toc
+            .map(([bid, key]) => `<a data-scroll="${bid}" tabindex="0"><span class="d"></span>${ui(key)}</a>`)
+            .join("")}
         </aside>
 
         <div class="detail-main">
           <div class="detail-tags">
             <span class="dtag lvl">${esc(level ? t(level.name) : "")}</span>
-            <span class="dtag subj">${lesson.branch === "geo" ? ui("branch_geo") : ui("branch_bio")}</span>
-            <span class="dtag unit">${esc(t(lesson.unit))}</span>
+            <span class="dtag subj">${meta.branch === "geo" ? ui("branch_geo") : ui("branch_bio")}</span>
+            <span class="dtag unit">${esc(t(meta.unit))}</span>
           </div>
-          <h1>${esc(t(lesson.title))}</h1>
+          <h1>${esc(t(meta.title))}</h1>
           <div class="detail-meta">
-            <span>${svg("clock")}${lesson.duration} ${ui("min")} — ${ui("meta_duration")}</span>
-            <span>${svg("quiz")}${(lesson.quiz || []).length} ${ui("meta_quiz")}</span>
+            <span>${svg("clock")}${meta.duration} ${ui("min")} — ${ui("meta_duration")}</span>
+            <span>${svg("quiz")}${quiz.length} ${ui("meta_quiz")}</span>
             <span>${svg("doc")}${filesCount} ${ui("meta_files")}</span>
           </div>
 
-          <div class="block" id="b-intro">
-            <div class="block-title"><span class="bar"></span>${ui("block_intro")}</div>
-            <div class="prose">${(lesson.intro || []).map((p) => `<p>${t(p)}</p>`).join("")}</div>
+          <div class="block" id="b-content">
+            <div class="block-title"><span class="bar"></span>${ui("block_content")}</div>
+            <div class="prose" id="lessonBody">${body || ""}</div>
           </div>
 
+          ${
+            meta.video
+              ? `
           <div class="block" id="b-video">
             <div class="block-title"><span class="bar"></span>${ui("block_video")}</div>
             <div class="video">
-              <div class="vbg">${figFor(lesson.fig)}<div class="hero-dots"></div></div>
+              <div class="vbg">${figFor(meta.thumbnail)}<div class="hero-dots"></div></div>
               <div class="vplay"><button id="videoPlay" aria-label="play">${fillIcon("play")}</button></div>
-              ${
-                lesson.video
-                  ? `<div class="vmeta"><span>${esc(t(lesson.video.title))}</span><span>${esc(
-                      lesson.video.length || ""
-                    )}</span></div>`
-                  : ""
-              }
+              <div class="vmeta"><span>${esc(t(meta.video.title))}</span><span>${esc(meta.video.length || "")}</span></div>
             </div>
-            <p style="color:var(--text-3);font-size:.9rem;margin-top:10px">${svg("video")} ${ui("video_note")}</p>
-          </div>
-
-          <div class="block" id="b-figs">
-            <div class="block-title"><span class="bar"></span>${ui("block_figs")}</div>
-            <div class="fig-grid">
-              ${figs
-                .map(
-                  (f, i) => `
-                <div class="fig">
-                  <div class="fig-canvas">${figFor(f.key)}</div>
-                  <div class="fig-cap">
-                    <span class="t">${esc(t(f.label))}</span>
-                    <button class="fig-dl" data-fig="${esc(f.key)}" data-name="NovaSVT_${lesson.id}_fig${
-                    i + 1
-                  }">${svg("download")}${ui("fig_dl")}</button>
-                  </div>
-                  <p style="color:var(--text-3);font-size:.85rem;margin-top:8px">${esc(t(f.cap))}</p>
-                </div>`
-                )
-                .join("")}
-            </div>
-          </div>
+            <p class="video-note">${svg("video")}<span>${ui("video_note")}</span></p>
+          </div>`
+              : ""
+          }
 
           <div class="block" id="b-dl">
             <div class="block-title"><span class="bar"></span>${ui("block_dl")}</div>
@@ -112,37 +125,89 @@ export function renderDetail() {
                 <span class="dl-act">${svg("download")}</span>
               </button>
               ${
-                figs.length
-                  ? `<button class="dl" id="dlSchema" data-fig="${esc(figs[0].key)}" data-name="NovaSVT_${lesson.id}_schema">
-                <span class="dl-ico">${svg("layers")}</span>
-                <span class="dl-info"><span class="n">${ui("dl_schema")}</span><span class="s">${ui("dl_schema_s")}</span></span>
-                <span class="dl-act">${svg("download")}</span>
-              </button>`
-                  : ""
-              }
-              <button class="dl" id="dlExercises">
+                attachments.length
+                  ? attachments.map(attachmentHTML).join("")
+                  : `<button class="dl" id="dlExercises">
                 <span class="dl-ico">${svg("assign")}</span>
                 <span class="dl-info"><span class="n">${ui("dl_exercises")}</span><span class="s">${ui("dl_exercises_s")}</span></span>
                 <span class="dl-act">${svg("chevR")}</span>
-              </button>
+              </button>`
+              }
             </div>
           </div>
 
+          ${
+            quiz.length
+              ? `
           <div class="block" id="b-quiz">
             <div class="block-title"><span class="bar"></span>${ui("block_quiz")}</div>
             <div class="quiz"><div class="quiz-inner" id="quizInner"></div><div class="hero-dots"></div></div>
-          </div>
+          </div>`
+              : ""
+          }
+
+          ${lessonNavHTML(entry)}
         </div>
       </div>
     </div>
   </section>`;
 
-  wireDetail(lesson);
-  mountQuiz(lesson);
+  // تفعيل الخطاطات داخل المحتوى المحقون
+  hydrateLessonBody(document.getElementById("lessonBody"), meta.id);
+  wireDetail(meta, body);
+  if (quiz.length) mountQuiz(meta);
+}
+
+/** رابط تحميل مرفق حقيقي (label + href). */
+function attachmentHTML(att) {
+  const label = typeof att.label === "object" ? t(att.label) : att.label || "";
+  const note = att.note ? (typeof att.note === "object" ? t(att.note) : att.note) : "";
+  return `
+  <a class="dl" href="${esc(att.href || "#")}" download>
+    <span class="dl-ico">${svg("download")}</span>
+    <span class="dl-info"><span class="n">${esc(label)}</span><span class="s">${esc(note)}</span></span>
+    <span class="dl-act">${svg("download")}</span>
+  </a>`;
+}
+
+/** مسار التنقّل: الرئيسية ▸ الدروس ▸ المستوى ▸ الوحدة. */
+function breadcrumbHTML(entry, level) {
+  const levelName = level ? t(level.name) : "";
+  return `
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <a href="#/">${ui("nav_home")}</a>${svg("chevR")}
+    <a href="#/lessons">${ui("nav_lessons")}</a>${svg("chevR")}
+    <a href="#/lessons/${esc(entry.level)}">${esc(levelName)}</a>${svg("chevR")}
+    <span aria-current="page">${esc(t(entry.unit))}</span>
+  </nav>`;
+}
+
+/** تنقّل بين درسَي المستوى نفسه (السابق/التالي) حسب الترتيب. */
+function lessonNavHTML(entry) {
+  const siblings = lessonsForLevel(entry.level);
+  const idx = siblings.findIndex((e) => e.id === entry.id);
+  const prev = idx > 0 ? siblings[idx - 1] : null;
+  const next = idx >= 0 && idx < siblings.length - 1 ? siblings[idx + 1] : null;
+  if (!prev && !next) return "";
+  return `
+  <nav class="lesson-nav">
+    ${
+      prev
+        ? `<a class="ln-item ln-prev" href="#/lesson/${esc(prev.id)}">${svg("arrow")}
+             <span><span class="ln-lbl">${ui("crumb_prev")}</span><span class="ln-title">${esc(t(prev.title))}</span></span></a>`
+        : `<span></span>`
+    }
+    ${
+      next
+        ? `<a class="ln-item ln-next" href="#/lesson/${esc(next.id)}">
+             <span><span class="ln-lbl">${ui("crumb_next")}</span><span class="ln-title">${esc(t(next.title))}</span></span>${svg("arrow")}</a>`
+        : `<span></span>`
+    }
+  </nav>`;
 }
 
 /** يربط الفهرس وأزرار الفيديو والتحميل. */
-function wireDetail(lesson) {
+function wireDetail(meta, body) {
   const root = app();
 
   // الفهرس: تمرير سلس داخل الصفحة (نقر + مفتاح Enter)
@@ -163,16 +228,9 @@ function wireDetail(lesson) {
   // الفيديو نموذجي: تنبيه توضيحي
   root.querySelector("#videoPlay")?.addEventListener("click", () => showToast(ui("video_note")));
 
-  // تحميل الخطاطات داخل المعرض
-  root.querySelectorAll(".fig-dl[data-fig]").forEach((btn) => {
-    btn.addEventListener("click", () => downloadFigure(btn.dataset.fig, btn.dataset.name));
-  });
+  // ملخّص الدرس النصّي (يشمل نصّ المحتوى بعد إزالة الوسوم + الأسئلة)
+  root.querySelector("#dlSummary")?.addEventListener("click", () => downloadSummary(meta, body));
 
-  // قائمة الملفات
-  root.querySelector("#dlSummary")?.addEventListener("click", () => downloadSummary(lesson));
-  const schema = root.querySelector("#dlSchema");
-  if (schema) {
-    schema.addEventListener("click", () => downloadFigure(schema.dataset.fig, schema.dataset.name));
-  }
+  // زرّ التمارين النموذجي
   root.querySelector("#dlExercises")?.addEventListener("click", () => showToast(ui("toast_soon")));
 }

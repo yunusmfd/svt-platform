@@ -25,13 +25,17 @@ function branchTag(branch) {
   }</span>`;
 }
 
-/** يعيد سلسلة HTML لبطاقة درس. */
+/**
+ * يعيد سلسلة HTML لبطاقة درس من مدخلة الفهرس الخفيفة.
+ * الحقول المستعملة: id, branch, thumbnail, unit, title, desc, duration,
+ * quizCount, hasVideo (بيانات كافية للبطاقة دون تحميل تفاصيل الدرس).
+ */
 export function lessonCardHTML(lesson) {
   const isGeo = lesson.branch === "geo";
-  const qCount = Array.isArray(lesson.quiz) ? lesson.quiz.length : 0;
+  const qCount = lesson.quizCount || 0;
 
   const tags = [];
-  if (lesson.video) tags.push(`<span class="mtag">${svg("video")}${ui("tag_video")}</span>`);
+  if (lesson.hasVideo) tags.push(`<span class="mtag">${svg("video")}${ui("tag_video")}</span>`);
   tags.push(`<span class="mtag">${svg("quiz")}${ui("tag_quiz")}</span>`);
 
   return `
@@ -41,7 +45,7 @@ export function lessonCardHTML(lesson) {
       ${branchTag(lesson.branch)}
       <div class="tags">${tags.join("")}</div>
       ${scoreBadge(lesson.id)}
-      ${figFor(lesson.fig)}
+      ${figFor(lesson.thumbnail)}
     </div>
     <div class="lcard-body">
       <span class="lcard-unit">${t(lesson.unit)}</span>

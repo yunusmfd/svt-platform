@@ -1,0 +1,125 @@
+{
+  "id": "tajwiya-sath",
+  "slug": "tajwiya-sath",
+  "subject": "svt",
+  "level": "1ac",
+  "unitNum": 2,
+  "unit": {
+    "ar": "الوحدة الثانية: الظواهر الجيولوجية الخارجية",
+    "fr": "Unité 2 : Les phénomènes géologiques externes"
+  },
+  "order": 2,
+  "branch": "geo",
+  "thumbnail": "tecto",
+  "duration": 40,
+  "status": "published",
+  "title": {
+    "ar": "التجوية والعوامل المشكِّلة لسطح الأرض",
+    "fr": "L'altération et les agents qui façonnent le relief"
+  },
+  "desc": {
+    "ar": "كيف تتفتّت الصخور وتتغيّر بفعل الحرارة والماء، وكيف تنحتها عوامل التعرية شيئاً فشيئاً.",
+    "fr": "Comment les roches se fragmentent et se transforment sous l'effet de la chaleur et de l'eau, et comment l'érosion façonne peu à peu le relief."
+  },
+  "video": {
+    "title": {
+      "ar": "من الصخرة الصلبة إلى الحبيبات",
+      "fr": "De la roche dure aux grains"
+    },
+    "length": "06:40"
+  },
+  "quiz": [
+    {
+      "q": {
+        "ar": "التجوية الفيزيائية تحدث بفعل:",
+        "fr": "L'altération physique est due à :"
+      },
+      "options": [
+        {
+          "ar": "تغيّرات الحرارة وتجمّد الماء",
+          "fr": "Variations de température et gel de l'eau"
+        },
+        {
+          "ar": "ذوبان المعادن فقط",
+          "fr": "La dissolution des minéraux seulement"
+        },
+        {
+          "ar": "النشاط البركاني",
+          "fr": "L'activité volcanique"
+        },
+        {
+          "ar": "الزلازل",
+          "fr": "Les séismes"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "ar": "تمدّد وتقلّص الصخور وتجمّد الماء في الشقوق يفتّتان الصخر فيزيائياً.",
+        "fr": "La dilatation/contraction et le gel de l'eau fragmentent physiquement la roche."
+      }
+    },
+    {
+      "q": {
+        "ar": "من عوامل التعرية الرئيسية:",
+        "fr": "Un agent d'érosion principal est :"
+      },
+      "options": [
+        {
+          "ar": "الضوء",
+          "fr": "La lumière"
+        },
+        {
+          "ar": "الماء الجاري والرياح",
+          "fr": "L'eau courante et le vent"
+        },
+        {
+          "ar": "الجاذبية القمرية",
+          "fr": "L'attraction lunaire"
+        },
+        {
+          "ar": "الحرارة الداخلية للأرض",
+          "fr": "La chaleur interne de la Terre"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "الماء الجاري والرياح والجليد تنقل الفتات الصخري وتنحت السطح.",
+        "fr": "L'eau, le vent et la glace transportent les débris et façonnent le relief."
+      }
+    },
+    {
+      "q": {
+        "ar": "التجوية الكيميائية ترتبط أساساً بـ:",
+        "fr": "L'altération chimique est surtout liée à :"
+      },
+      "options": [
+        {
+          "ar": "فعل الماء المذيب للمعادن",
+          "fr": "L'action de l'eau qui dissout les minéraux"
+        },
+        {
+          "ar": "الرياح فقط",
+          "fr": "Le vent seulement"
+        },
+        {
+          "ar": "الجليد فقط",
+          "fr": "La glace seulement"
+        },
+        {
+          "ar": "الضغط الجوي",
+          "fr": "La pression atmosphérique"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "ar": "الماء يذيب بعض المعادن ويغيّر تركيب الصخرة كيميائياً.",
+        "fr": "L'eau dissout certains minéraux et modifie chimiquement la roche."
+      }
+    }
+  ],
+  "attachments": [],
+  "tags": [],
+  "keywords": [],
+  "createdAt": "2026-07-01",
+  "updatedAt": "2026-07-01"
+}

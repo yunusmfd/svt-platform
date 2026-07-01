@@ -1,0 +1,154 @@
+{
+  "id": "tabir-warithi",
+  "slug": "tabir-warithi",
+  "subject": "svt",
+  "level": "2bac-svt",
+  "unitNum": 2,
+  "unit": {
+    "ar": "الوحدة الثانية: طبيعة الخبر الوراثي — الهندسة الوراثية",
+    "fr": "Unité 2 : La nature de l'information génétique — le génie génétique"
+  },
+  "order": 5,
+  "branch": "bio",
+  "thumbnail": "dna",
+  "duration": 55,
+  "status": "published",
+  "title": {
+    "ar": "من الجين إلى البروتين: آلية التعبير الوراثي",
+    "fr": "Du gène à la protéine : le mécanisme de l'expression génétique"
+  },
+  "desc": {
+    "ar": "كيف يتحوّل الخبر الوراثي المشفَّر في الـ ADN إلى بروتين وظيفي عبر مرحلتي الاستنساخ والترجمة.",
+    "fr": "Comment l'information génétique codée dans l'ADN est convertie en protéine fonctionnelle via la transcription et la traduction."
+  },
+  "video": {
+    "title": {
+      "ar": "من الشفرة إلى البروتين",
+      "fr": "Du code à la protéine"
+    },
+    "length": "09:20"
+  },
+  "quiz": [
+    {
+      "q": {
+        "ar": "الجزيء الوسيط الذي ينقل الخبر الوراثي من النواة إلى الهيولى هو:",
+        "fr": "La molécule intermédiaire transportant l'information du noyau au cytoplasme est :"
+      },
+      "options": [
+        {
+          "ar": "الـ ADN",
+          "fr": "L'ADN"
+        },
+        {
+          "ar": "الـ ARN الرسول",
+          "fr": "L'ARN messager"
+        },
+        {
+          "ar": "البروتين",
+          "fr": "La protéine"
+        },
+        {
+          "ar": "الريبوزوم",
+          "fr": "Le ribosome"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "الـ ARN الرسول يُصطنع في النواة وينقل المعلومة إلى الريبوزومات في الهيولى.",
+        "fr": "L'ARN messager, synthétisé dans le noyau, transporte l'information vers les ribosomes."
+      }
+    },
+    {
+      "q": {
+        "ar": "مرحلة اصطناع الـ ARN الرسول انطلاقاً من الـ ADN تسمى:",
+        "fr": "L'étape de synthèse de l'ARN messager à partir de l'ADN est :"
+      },
+      "options": [
+        {
+          "ar": "الترجمة",
+          "fr": "La traduction"
+        },
+        {
+          "ar": "الاستنساخ",
+          "fr": "La transcription"
+        },
+        {
+          "ar": "المضاعفة",
+          "fr": "La réplication"
+        },
+        {
+          "ar": "الإلقاح",
+          "fr": "La fécondation"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "الاستنساخ هو نسخ متتالية الـ ADN إلى ARN رسول داخل النواة.",
+        "fr": "La transcription copie la séquence d'ADN en ARN messager dans le noyau."
+      }
+    },
+    {
+      "q": {
+        "ar": "الرامزة (codon) هي:",
+        "fr": "Un codon est :"
+      },
+      "options": [
+        {
+          "ar": "نيكليوتيد واحد",
+          "fr": "Un seul nucléotide"
+        },
+        {
+          "ar": "ثلاثة نيكليوتيدات تحدّد حمضاً أمينياً",
+          "fr": "Trois nucléotides spécifiant un acide aminé"
+        },
+        {
+          "ar": "بروتين كامل",
+          "fr": "Une protéine entière"
+        },
+        {
+          "ar": "صبغي كامل",
+          "fr": "Un chromosome entier"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "الرامزة ثلاثية نيكليوتيدية على الـ ARN الرسول تقابل حمضاً أمينياً واحداً.",
+        "fr": "Un codon est un triplet de nucléotides de l'ARNm correspondant à un acide aminé."
+      }
+    },
+    {
+      "q": {
+        "ar": "تتمّ ترجمة الـ ARN الرسول إلى بروتين على مستوى:",
+        "fr": "La traduction de l'ARNm en protéine se déroule au niveau :"
+      },
+      "options": [
+        {
+          "ar": "النواة",
+          "fr": "Du noyau"
+        },
+        {
+          "ar": "الريبوزومات",
+          "fr": "Des ribosomes"
+        },
+        {
+          "ar": "الغشاء الهيولي",
+          "fr": "De la membrane"
+        },
+        {
+          "ar": "الميتوكندري فقط",
+          "fr": "Des mitochondries uniquement"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "الترجمة تتمّ في الهيولى على مستوى الريبوزومات التي تقرأ الرامزات.",
+        "fr": "La traduction s'effectue dans le cytoplasme au niveau des ribosomes lisant les codons."
+      }
+    }
+  ],
+  "attachments": [],
+  "tags": [],
+  "keywords": [],
+  "createdAt": "2026-07-01",
+  "updatedAt": "2026-07-01"
+}

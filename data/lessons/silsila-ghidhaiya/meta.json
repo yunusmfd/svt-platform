@@ -1,0 +1,125 @@
+{
+  "id": "silsila-ghidhaiya",
+  "slug": "silsila-ghidhaiya",
+  "subject": "svt",
+  "level": "tcs",
+  "unitNum": 1,
+  "unit": {
+    "ar": "الوحدة 1: علم البيئة",
+    "fr": "Unité 1 : L'écologie"
+  },
+  "order": 0,
+  "branch": "bio",
+  "thumbnail": "cell",
+  "duration": 50,
+  "status": "published",
+  "title": {
+    "ar": "السلاسل والشبكات الغذائية داخل النظام البيئي",
+    "fr": "Chaînes et réseaux alimentaires dans l'écosystème"
+  },
+  "desc": {
+    "ar": "كيف تنتقل المادة والطاقة بين الكائنات الحية عبر المستويات الغذائية المختلفة داخل النظام البيئي.",
+    "fr": "Comment la matière et l'énergie circulent entre les êtres vivants à travers les différents niveaux trophiques de l'écosystème."
+  },
+  "video": {
+    "title": {
+      "ar": "من المنتج إلى المحلِّل",
+      "fr": "Du producteur au décomposeur"
+    },
+    "length": "08:15"
+  },
+  "quiz": [
+    {
+      "q": {
+        "ar": "المنتجات في النظام البيئي هي:",
+        "fr": "Les producteurs de l'écosystème sont :"
+      },
+      "options": [
+        {
+          "ar": "الحيوانات اللاحمة",
+          "fr": "Les animaux carnivores"
+        },
+        {
+          "ar": "النباتات الخضراء",
+          "fr": "Les plantes vertes"
+        },
+        {
+          "ar": "الفطريات",
+          "fr": "Les champignons"
+        },
+        {
+          "ar": "البكتيريا المحلِّلة",
+          "fr": "Les bactéries décomposeuses"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "النباتات الخضراء تصنع مادتها العضوية بنفسها فهي منتجات.",
+        "fr": "Les plantes vertes fabriquent leur propre matière organique : ce sont les producteurs."
+      }
+    },
+    {
+      "q": {
+        "ar": "دور المحلِّلات هو:",
+        "fr": "Le rôle des décomposeurs est de :"
+      },
+      "options": [
+        {
+          "ar": "صنع المادة العضوية",
+          "fr": "Fabriquer la matière organique"
+        },
+        {
+          "ar": "تفكيك البقايا إلى مادة معدنية",
+          "fr": "Dégrader les restes en matière minérale"
+        },
+        {
+          "ar": "افتراس المستهلكات",
+          "fr": "Prédater les consommateurs"
+        },
+        {
+          "ar": "إنتاج الأكسجين فقط",
+          "fr": "Produire uniquement de l'oxygène"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "المحلِّلات تفكّك البقايا والفضلات وتعيد المادة المعدنية إلى الوسط.",
+        "fr": "Les décomposeurs dégradent les restes et renvoient la matière minérale au milieu."
+      }
+    },
+    {
+      "q": {
+        "ar": "تجمّع سلاسل غذائية مترابطة يُشكِّل:",
+        "fr": "Un ensemble de chaînes alimentaires reliées forme :"
+      },
+      "options": [
+        {
+          "ar": "شبكة غذائية",
+          "fr": "Un réseau alimentaire"
+        },
+        {
+          "ar": "مستوى غذائياً واحداً",
+          "fr": "Un seul niveau trophique"
+        },
+        {
+          "ar": "محلِّلاً",
+          "fr": "Un décomposeur"
+        },
+        {
+          "ar": "مشيجاً",
+          "fr": "Un gamète"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "ar": "الشبكة الغذائية تجمع عدّة سلاسل غذائية متقاطعة.",
+        "fr": "Le réseau alimentaire regroupe plusieurs chaînes alimentaires interconnectées."
+      }
+    }
+  ],
+  "attachments": [],
+  "tags": [],
+  "keywords": [],
+  "createdAt": "2026-07-01",
+  "updatedAt": "2026-07-01"
+}

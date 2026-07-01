@@ -1,0 +1,154 @@
+{
+  "id": "resp-vivants",
+  "slug": "resp-vivants",
+  "subject": "svt",
+  "level": "1ac",
+  "unitNum": 1,
+  "unit": {
+    "ar": "الوحدة الأولى: العلاقات بين الكائنات الحية وتفاعلها مع الوسط",
+    "fr": "Unité 1 : Les relations entre les êtres vivants et leurs interactions avec le milieu"
+  },
+  "order": 0,
+  "branch": "bio",
+  "thumbnail": "gas",
+  "duration": 45,
+  "status": "published",
+  "title": {
+    "ar": "التنفس عند الكائنات الحية",
+    "fr": "La respiration chez les êtres vivants"
+  },
+  "desc": {
+    "ar": "كيف تتنفس الحيوانات والنباتات في الأوساط المختلفة، وما المبادلات الغازية على مستوى أعضاء التنفس.",
+    "fr": "Comment animaux et plantes respirent dans les différents milieux et quels échanges gazeux se produisent."
+  },
+  "video": {
+    "title": {
+      "ar": "مدخل إلى ظاهرة التنفس",
+      "fr": "Introduction au phénomène respiratoire"
+    },
+    "length": "07:20"
+  },
+  "quiz": [
+    {
+      "q": {
+        "ar": "ما الغاز الذي تمتصه الكائنات الحية أثناء التنفس؟",
+        "fr": "Quel gaz les êtres vivants absorbent-ils en respirant ?"
+      },
+      "options": [
+        {
+          "ar": "ثنائي أكسيد الكربون CO₂",
+          "fr": "Le dioxyde de carbone CO₂"
+        },
+        {
+          "ar": "ثنائي الأكسجين O₂",
+          "fr": "Le dioxygène O₂"
+        },
+        {
+          "ar": "ثنائي الآزوت N₂",
+          "fr": "Le diazote N₂"
+        },
+        {
+          "ar": "بخار الماء",
+          "fr": "La vapeur d'eau"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "تمتص الكائنات الحية O₂ وتطرح CO₂ خلال التنفس.",
+        "fr": "Les êtres vivants absorbent l'O₂ et rejettent le CO₂."
+      }
+    },
+    {
+      "q": {
+        "ar": "ما عضو التنفس عند السمكة؟",
+        "fr": "Quel est l'organe respiratoire du poisson ?"
+      },
+      "options": [
+        {
+          "ar": "الرئتان",
+          "fr": "Les poumons"
+        },
+        {
+          "ar": "الجلد",
+          "fr": "La peau"
+        },
+        {
+          "ar": "الغلاصم",
+          "fr": "Les branchies"
+        },
+        {
+          "ar": "القصبات الهوائية",
+          "fr": "Les trachées"
+        }
+      ],
+      "correct": 2,
+      "explain": {
+        "ar": "تتنفس الأسماك بالغلاصم التي تستخلص O₂ الذائب في الماء.",
+        "fr": "Les poissons respirent par les branchies qui extraient l'O₂ dissous."
+      }
+    },
+    {
+      "q": {
+        "ar": "أين تتم المبادلات الغازية بكفاءة؟",
+        "fr": "Où les échanges gazeux sont-ils efficaces ?"
+      },
+      "options": [
+        {
+          "ar": "عبر سطوح سميكة",
+          "fr": "Surfaces épaisses"
+        },
+        {
+          "ar": "عبر سطوح رقيقة مُوعّاة",
+          "fr": "Surfaces fines vascularisées"
+        },
+        {
+          "ar": "عبر العظام",
+          "fr": "À travers les os"
+        },
+        {
+          "ar": "عبر الشعر",
+          "fr": "À travers les poils"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "السطوح الرقيقة المُوعّاة تسهّل انتقال الغازات.",
+        "fr": "Les surfaces fines et vascularisées facilitent le passage des gaz."
+      }
+    },
+    {
+      "q": {
+        "ar": "الغاز المطروح أثناء التنفس هو:",
+        "fr": "Le gaz rejeté lors de la respiration est :"
+      },
+      "options": [
+        {
+          "ar": "O₂",
+          "fr": "O₂"
+        },
+        {
+          "ar": "CO₂",
+          "fr": "CO₂"
+        },
+        {
+          "ar": "H₂",
+          "fr": "H₂"
+        },
+        {
+          "ar": "الأوزون O₃",
+          "fr": "L'ozone O₃"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "يُطرح CO₂ كناتج عن التنفس الخلوي.",
+        "fr": "Le CO₂ est rejeté comme produit de la respiration cellulaire."
+      }
+    }
+  ],
+  "attachments": [],
+  "tags": [],
+  "keywords": [],
+  "createdAt": "2026-07-01",
+  "updatedAt": "2026-07-01"
+}
