@@ -13,7 +13,7 @@
  * ملاحظة: عامل الخدمة يحتاج HTTPS أو localhost (لا يعمل عبر file://).
  */
 
-const VERSION = "nova-svt-v6";
+const VERSION = "nova-svt-v7";
 
 /** هيكل التطبيق وكل الأصول التي تُخزَّن عند التثبيت (مسارات نسبية). */
 const PRECACHE = [
@@ -64,8 +64,15 @@ const PRECACHE = [
   "data/lessons/2ac.json",
   "data/lessons/3ac.json",
   "data/lessons/tcs.json",
-  "data/lessons/1bac.json",
-  "data/lessons/2bac.json",
+  "data/lessons/tc-lettres.json",
+  "data/lessons/1bac-exp.json",
+  "data/lessons/1bac-math.json",
+  "data/lessons/1bac-agro.json",
+  "data/lessons/1bac-lettres.json",
+  "data/lessons/2bac-svt.json",
+  "data/lessons/2bac-pc.json",
+  "data/lessons/2bac-math.json",
+  "data/lessons/2bac-agro.json",
   "data/blog.json",
   "data/experiments.json",
 

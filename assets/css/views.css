@@ -406,31 +406,23 @@ html[dir="rtl"] .level-card:hover .browse svg{ transform:scaleX(-1) translateX(4
   gap:20px;
 }
 
-/* أكورديون الوحدات: المستويات (الشريط أعلاه) ← الوحدات (هنا) ← الدروس */
-.unit-accordion{
+/* قائمة الوحدات: المستويات (الشريط أعلاه) ← الوحدات (عنوان بخط عريض) ← الدروس مباشرة */
+.unit-list{
   display:flex;
   flex-direction:column;
-  gap:14px;
+  gap:36px;
 }
-.acc-item{
-  background:var(--surface);
-  border:1px solid var(--line);
+.unit-group{
   border-inline-start:4px solid var(--spec-item, var(--sage));
-  border-radius:var(--r);
-  overflow:hidden;
-  transition:border-color var(--t-fast) var(--ease);
+  padding-inline-start:18px;
 }
-.acc-item.open{ border-color:var(--sage); border-inline-start-color:var(--spec-item, var(--sage)); }
-.acc-head{
+.unit-head{
   display:flex;
   align-items:center;
   gap:14px;
-  width:100%;
-  padding:18px 20px;
-  text-align:start;
-  cursor:pointer;
+  margin-bottom:18px;
 }
-.acc-head .acc-num{
+.unit-head .unit-num{
   flex:none;
   padding:4px 9px;
   border-radius:var(--pill);
@@ -438,39 +430,22 @@ html[dir="rtl"] .level-card:hover .browse svg{ transform:scaleX(-1) translateX(4
   font-size:12px;
   font-weight:700;
 }
-.acc-head .acc-title{
+.unit-head .unit-title{
   flex:1;
   font-weight:700;
-  font-size:1.05rem;
+  font-size:1.15rem;
   color:var(--forest);
 }
-.acc-head .acc-count{
+.unit-head .unit-count{
   flex:none;
   color:var(--text-3);
   font-size:.85rem;
 }
-.acc-head .acc-chev{
-  flex:none;
-  width:18px;
-  height:18px;
-  color:var(--text-3);
-  transition:transform var(--t-fast) var(--ease);
-}
-.acc-item.open .acc-head .acc-chev{ transform:rotate(90deg); }
-.acc-body{
-  display:none;
-  padding:0 20px 22px;
-}
-.acc-item.open .acc-body{ display:block; }
-.acc-body .acc-empty{
-  padding:10px 0 4px;
+.unit-empty{
+  padding:0 0 4px;
   color:var(--text-3);
   font-size:.92rem;
 }
-.acc-body .lesson-grid{ margin-top:6px; }
-
-/* كتلة دروس بلا وحدة معروفة (استثنائية، بلا رأس أكورديون) */
-.unit-block{ margin-top:4px; }
 
 /* ╔══════════════════════════════════════════════════════════════════════╗
    ║ 7) صفحة الدرس — التخطيط والفهرس والعنوان                               ║
