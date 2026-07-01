@@ -338,21 +338,21 @@ html[dir="rtl"] .dual-card:hover .dual-link svg{ transform:scaleX(-1) translateX
   padding:24px;
   background:var(--surface);
   border:1px solid var(--line);
+  border-inline-start:4px solid var(--spec-item, var(--sage));
   border-radius:var(--r-lg);
   transition:var(--t) var(--ease);
 }
 .level-card:hover{
   transform:translateY(-4px);
   box-shadow:var(--shadow);
-  border-color:var(--sage);
+  border-color:var(--mint);
+  border-inline-start-color:var(--spec-item, var(--sage));
 }
 .level-card .code{
   position:absolute;
   inset-block-start:22px;
   inset-inline-end:22px;
   padding:5px 12px;
-  background:var(--mint-tint);
-  color:var(--forest);
   border-radius:var(--pill);
   font-family:var(--font-mono);
   font-size:12px;

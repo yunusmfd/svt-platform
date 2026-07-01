@@ -41,12 +41,13 @@ export function renderLessons() {
    الطبقة 1: دليل المستويات (بلا مستوى محدَّد في الرابط)
    ========================================================================== */
 
-/** بطاقة مستوى واحد ضمن دليل المستويات. */
+/** بطاقة مستوى واحد ضمن دليل المستويات، بلون يتماشى مع طبيعة المستوى. */
 function levelCardHTML(level) {
   const count = (level.units || []).length;
+  const token = `--spec-${level.spec || "green"}`;
   return `
-  <a class="level-card" href="#/lessons/${esc(level.id)}">
-    <span class="code">${esc(level.code)}</span>
+  <a class="level-card" href="#/lessons/${esc(level.id)}" style="--spec-item:var(${token})">
+    <span class="code" style="${specStyle(token)}">${esc(level.code)}</span>
     <h3>${esc(t(level.name))}</h3>
     <p class="count">${count} ${esc(ui("level_units_count"))}</p>
     <span class="browse">${ui("browse_units")}${svg("chevR")}</span>

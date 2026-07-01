@@ -3,6 +3,7 @@
     "id": "1ac",
     "stage": "college",
     "code": "1AC",
+    "spec": "green",
     "name": { "ar": "الأولى إعدادي", "fr": "1ère collège" },
     "units": [
       { "num": 1, "spec": "green", "ar": "الوحدة الأولى: العلاقات بين الكائنات الحية وتفاعلها مع الوسط", "fr": "Unité 1 : Les relations entre les êtres vivants et leurs interactions avec le milieu" },
@@ -13,6 +14,7 @@
     "id": "2ac",
     "stage": "college",
     "code": "2AC",
+    "spec": "green",
     "name": { "ar": "الثانية إعدادي", "fr": "2ème collège" },
     "units": [
       { "num": 3, "spec": "gold", "ar": "الوحدة الثالثة: الظواهر الجيولوجية الباطنية", "fr": "Unité 3 : Les phénomènes géologiques internes" },
@@ -23,6 +25,7 @@
     "id": "3ac",
     "stage": "college",
     "code": "3AC",
+    "spec": "green",
     "name": { "ar": "الثالثة إعدادي", "fr": "3ème collège" },
     "units": [
       { "num": 5, "spec": "teal", "ar": "الوحدة الخامسة: وظائف الاقتيات والتربية الغذائية", "fr": "Unité 5 : Les fonctions de nutrition et l'éducation nutritionnelle" },
@@ -33,6 +36,7 @@
     "id": "tcs",
     "stage": "tc",
     "code": "TCS",
+    "spec": "green",
     "name": { "ar": "جذع مشترك علمي", "fr": "Tronc commun sc." },
     "units": [
       { "num": 1, "spec": "green", "ar": "الوحدة 1: علم البيئة", "fr": "Unité 1 : L'écologie" },
@@ -43,6 +47,7 @@
     "id": "tc-lettres",
     "stage": "tc",
     "code": "TCL",
+    "spec": "rose",
     "name": { "ar": "جذع مشترك أدبي", "fr": "Tronc commun lettres" },
     "units": []
   },
@@ -50,6 +55,7 @@
     "id": "1bac-exp",
     "stage": "bac1",
     "code": "1BAC-SE",
+    "spec": "green",
     "name": { "ar": "شعبة علوم تجريبية", "fr": "1ère Bac sciences expérimentales" },
     "units": [
       { "num": 1, "spec": "gold", "ar": "الوحدة 1: الظواهر الجيولوجية الخارجية", "fr": "Unité 1 : Les phénomènes géologiques externes" },
@@ -62,6 +68,7 @@
     "id": "1bac-math",
     "stage": "bac1",
     "code": "1BAC-SM",
+    "spec": "violet",
     "name": { "ar": "شعبة علوم رياضية", "fr": "1ère Bac sciences mathématiques" },
     "units": []
   },
@@ -69,6 +76,7 @@
     "id": "1bac-agro",
     "stage": "bac1",
     "code": "1BAC-SA",
+    "spec": "gold",
     "name": { "ar": "شعبة علوم زراعية", "fr": "1ère Bac sciences agronomiques" },
     "units": []
   },
@@ -76,6 +84,7 @@
     "id": "1bac-lettres",
     "stage": "bac1",
     "code": "1BAC-L",
+    "spec": "rose",
     "name": { "ar": "شعبة الآداب", "fr": "1ère Bac lettres" },
     "units": []
   },
@@ -83,6 +92,7 @@
     "id": "2bac-svt",
     "stage": "bac2",
     "code": "2BAC-SVT",
+    "spec": "green",
     "name": { "ar": "مسلك علوم الحياة والأرض", "fr": "2ème Bac SVT" },
     "units": [
       { "num": 1, "spec": "green", "ar": "الوحدة الأولى: استهلاك المادة وتدفق الطاقة", "fr": "Unité 1 : Consommation de la matière et flux d'énergie" },
@@ -97,6 +107,7 @@
     "id": "2bac-pc",
     "stage": "bac2",
     "code": "2BAC-PC",
+    "spec": "blue",
     "name": { "ar": "مسلك علوم فيزيائية", "fr": "2ème Bac sciences physiques" },
     "units": []
   },
@@ -104,6 +115,7 @@
     "id": "2bac-math",
     "stage": "bac2",
     "code": "2BAC-SM",
+    "spec": "violet",
     "name": { "ar": "مسلك علوم رياضية", "fr": "2ème Bac sciences mathématiques" },
     "units": []
   },
@@ -111,6 +123,7 @@
     "id": "2bac-agro",
     "stage": "bac2",
     "code": "2BAC-SA",
+    "spec": "gold",
     "name": { "ar": "مسلك علوم زراعية", "fr": "2ème Bac sciences agronomiques" },
     "units": []
   }
