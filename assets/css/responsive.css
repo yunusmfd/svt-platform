@@ -19,6 +19,8 @@
   .lesson-grid{ grid-template-columns:1fr 1fr; }
   .fig-grid{ grid-template-columns:1fr 1fr; }
   .qoptions{ grid-template-columns:1fr 1fr; }
+  .post-grid{ grid-template-columns:1fr 1fr; }
+  .exp-grid{ grid-template-columns:1fr 1fr; }
 
   /* إحصائيات الواجهة: عنصران في الصف */
   .stat{ min-width:140px; }
@@ -46,6 +48,8 @@
   .dual{ grid-template-columns:1fr 1fr; }
   .lesson-grid{ grid-template-columns:repeat(3, 1fr); }
   .why-grid{ grid-template-columns:1fr 1fr; }
+  .level-grid{ grid-template-columns:repeat(3, 1fr); }
+  .exp-grid{ grid-template-columns:repeat(3, 1fr); }
 }
 
 /* ── ≥ 1001px: حواسيب ────────────────────────────────────────────────── */
@@ -53,10 +57,6 @@
   /* صفحة الدرس: عمود جانبي للفهرس */
   .detail{ grid-template-columns:260px 1fr; }
   .toc{ display:block; }
-
-  /* المختبر: لوحة جانبية بحدّ جانبي */
-  .lab{ grid-template-columns:340px 1fr; }
-  .lab-side{ border-inline-end:1px solid var(--line); border-block-end:none; }
 
   /* التذييل بثلاثة أعمدة */
   .footer-inner{ grid-template-columns:1.6fr 1fr 1fr; }

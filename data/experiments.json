@@ -1,0 +1,30 @@
+[
+  {
+    "id": "mitose-simulation",
+    "type": "interactive",
+    "duration": "06:00",
+    "title": { "ar": "محاكاة الانقسام الخيطي المتساوي", "fr": "Simulation de la mitose" },
+    "desc": { "ar": "لاحظ مراحل الانقسام تحت المجهر الافتراضي — اختر الطور وتحكّم في التكبير.", "fr": "Observe les phases de la mitose au microscope virtuel — choisis la phase et règle le zoom." }
+  },
+  {
+    "id": "mitose-video",
+    "type": "video",
+    "duration": "05:10",
+    "title": { "ar": "فيديو: الانقسام الخيطي المتساوي تحت المجهر", "fr": "Vidéo : la mitose au microscope" },
+    "desc": { "ar": "تسجيل مجهري حقيقي لأطوار الانقسام يكمّل المحاكاة أعلاه.", "fr": "Enregistrement microscopique réel des phases de la mitose, en complément de la simulation ci-dessus." }
+  },
+  {
+    "id": "germination-animation",
+    "type": "animation",
+    "duration": "03:30",
+    "title": { "ar": "Animation: إنبات بذرة الفول", "fr": "Animation : germination d'une graine de fève" },
+    "desc": { "ar": "رسم متحرك يوضّح مراحل إنبات البذرة من الامتصاص إلى ظهور الجذير والسويقة.", "fr": "Animation illustrant les étapes de la germination, de l'imbibition à l'apparition de la radicule et de la tigelle." }
+  },
+  {
+    "id": "tectonique-interactive",
+    "type": "interactive",
+    "duration": "04:00",
+    "title": { "ar": "صفحة تفاعلية: محاكاة حدود الصفائح", "fr": "Page interactive : simulation des limites de plaques" },
+    "desc": { "ar": "تجربة تفاعلية لاستكشاف حركة الصفائح عند الظهرات ومناطق الطمر.", "fr": "Expérience interactive pour explorer le mouvement des plaques aux dorsales et zones de subduction." }
+  }
+]

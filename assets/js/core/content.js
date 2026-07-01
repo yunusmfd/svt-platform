@@ -9,12 +9,14 @@
  * لا حاجة لأي تعديل برمجي.
  */
 
-import { LEVELS_URL, lessonsUrl } from "./config.js";
+import { LEVELS_URL, lessonsUrl, BLOG_URL, EXPERIMENTS_URL } from "./config.js";
 
 /* ── المخزن الداخلي (يُملأ مرّة عند الإقلاع) ─────────────────────────────── */
 let _levels = [];
 let _lessons = [];
 let _byId = new Map();
+let _posts = [];
+let _experiments = [];
 let _ready = false;
 
 /** يجلب ملف JSON ويعيد محتواه، ويرمي خطأً عند فشل الطلب. */
@@ -24,28 +26,44 @@ async function fetchJSON(url) {
   return res.json();
 }
 
+/** يجلب ملف JSON اختيارياً (غير حرج لإقلاع المنصة)؛ يعيد قائمة فارغة عند الفشل. */
+async function fetchOptionalJSON(url, label) {
+  try {
+    return await fetchJSON(url);
+  } catch (err) {
+    console.warn(`تعذّر تحميل "${label}":`, err.message);
+    return [];
+  }
+}
+
 /**
- * يحمّل كل المحتوى: المستويات أولاً، ثم دروس كل مستوى بالتوازي.
- * إن تعذّر تحميل دروس مستوى معيّن، يُتجاهل ذلك المستوى (قائمة فارغة) دون
- * إيقاف بقية المنصة. أمّا فشل تحميل المستويات نفسها فيُرمى ليعالجه المتصل.
+ * يحمّل كل المحتوى: المستويات أولاً، ثم دروس كل مستوى بالتوازي، مع منشورات
+ * المدونة وتجارب المختبر (اختيارية، لا توقف الإقلاع عند فشلها).
+ * فشل تحميل المستويات نفسها يُرمى ليعالجه المتصل.
  */
 export async function loadContent() {
   _levels = await fetchJSON(LEVELS_URL);
 
-  const lists = await Promise.all(
-    _levels.map((lvl) =>
-      fetchJSON(lessonsUrl(lvl.id)).catch((err) => {
-        console.warn(`تعذّر تحميل دروس المستوى "${lvl.id}":`, err.message);
-        return [];
-      })
-    )
-  );
+  const [lists, posts, experiments] = await Promise.all([
+    Promise.all(
+      _levels.map((lvl) =>
+        fetchJSON(lessonsUrl(lvl.id)).catch((err) => {
+          console.warn(`تعذّر تحميل دروس المستوى "${lvl.id}":`, err.message);
+          return [];
+        })
+      )
+    ),
+    fetchOptionalJSON(BLOG_URL, "المدونة"),
+    fetchOptionalJSON(EXPERIMENTS_URL, "تجارب المختبر"),
+  ]);
 
   _lessons = lists.flat();
   _byId = new Map(_lessons.map((lesson) => [lesson.id, lesson]));
+  _posts = posts;
+  _experiments = experiments;
   _ready = true;
 
-  return { levels: _levels, lessons: _lessons };
+  return { levels: _levels, lessons: _lessons, posts: _posts, experiments: _experiments };
 }
 
 /* ── دوال الوصول ────────────────────────────────────────────────────────── */
@@ -68,6 +86,25 @@ export const lessonsForLevel = (levelId) =>
 
 /** درس واحد بمعرّفه، أو null. */
 export const findLesson = (id) => _byId.get(id) || null;
+
+/**
+ * كل منشورات المدونة: المثبَّتة أولاً، ثم الأحدث فالأقدم داخل كل مجموعة
+ * (فهرس وصفي فقط — محتوى كل مقال في ملفّه الخاص).
+ */
+export const getPosts = () =>
+  [..._posts].sort((a, b) => {
+    const pinDiff = (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0);
+    return pinDiff !== 0 ? pinDiff : a.date < b.date ? 1 : a.date > b.date ? -1 : 0;
+  });
+
+/** منشور مدونة واحد بمعرّفه، أو null. */
+export const findPost = (id) => _posts.find((p) => p.id === id) || null;
+
+/** كل تجارب المختبر الافتراضي (فهرس وصفي فقط — محتوى كل تجربة في ملفّها الخاص). */
+export const getExperiments = () => _experiments;
+
+/** تجربة مختبر واحدة بمعرّفها، أو null. */
+export const findExperiment = (id) => _experiments.find((e) => e.id === id) || null;
 
 /**
  * يجمّع المستويات حسب السلك (college / lycee) مع الحفاظ على ترتيبها،
