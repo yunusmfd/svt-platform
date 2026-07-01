@@ -102,7 +102,7 @@ export function renderHome() {
           <p>${ui("dual_bio_d")}</p>
           <span class="dual-link">${ui("dual_explore")} ${svg("arrow")}</span>
         </a>
-        <a class="dual-card dual-geo" href="#/lessons/2bac">
+        <a class="dual-card dual-geo" href="#/lessons/2bac-svt">
           <div class="dual-art">${FIGURES.tecto}</div>
           <span class="dual-tag">${ui("dual_geo_tag")}</span>
           <h3>${ui("dual_geo_t")}</h3>

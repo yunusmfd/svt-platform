@@ -13,7 +13,7 @@
  * ملاحظة: عامل الخدمة يحتاج HTTPS أو localhost (لا يعمل عبر file://).
  */
 
-const VERSION = "nova-svt-v5";
+const VERSION = "nova-svt-v7";
 
 /** هيكل التطبيق وكل الأصول التي تُخزَّن عند التثبيت (مسارات نسبية). */
 const PRECACHE = [
@@ -64,8 +64,15 @@ const PRECACHE = [
   "data/lessons/2ac.json",
   "data/lessons/3ac.json",
   "data/lessons/tcs.json",
-  "data/lessons/1bac.json",
-  "data/lessons/2bac.json",
+  "data/lessons/tc-lettres.json",
+  "data/lessons/1bac-exp.json",
+  "data/lessons/1bac-math.json",
+  "data/lessons/1bac-agro.json",
+  "data/lessons/1bac-lettres.json",
+  "data/lessons/2bac-svt.json",
+  "data/lessons/2bac-pc.json",
+  "data/lessons/2bac-math.json",
+  "data/lessons/2bac-agro.json",
   "data/blog.json",
   "data/experiments.json",
 
@@ -100,8 +107,18 @@ self.addEventListener("fetch", (event) => {
   const req = event.request;
   if (req.method !== "GET") return;
 
-  // التنقّل (SPA): قدّم هيكل التطبيق من الذاكرة
-  if (req.mode === "navigate") {
+  // التنقّل (SPA): قدّم هيكل التطبيق من الذاكرة — فقط لتنقّلات الإطار
+  // الرئيسي نحو صفحات المنصّة نفسها. صفحات التجارب/المقالات المستقلّة
+  // (ملفات HTML كاملة بذاتها تحت data/، تُعرض داخل <iframe>) يجب ألّا
+  // تُستبدل بهيكل التطبيق — وإلا ظهرت واجهة المنصّة داخل الإطار المضمَّن
+  // بدل محتوى الملفّ الفعلي. نستثنيها عبر destination و/أو المسار.
+  const url = new URL(req.url);
+  const isAppShellNavigation =
+    req.mode === "navigate" &&
+    req.destination !== "iframe" &&
+    !url.pathname.includes("/data/");
+
+  if (isAppShellNavigation) {
     event.respondWith(
       (async () => {
         const cache = await caches.open(VERSION);

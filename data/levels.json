@@ -31,19 +31,26 @@
   },
   {
     "id": "tcs",
-    "stage": "lycee",
+    "stage": "tc",
     "code": "TCS",
-    "name": { "ar": "الجذع المشترك العلمي", "fr": "Tronc commun sc." },
+    "name": { "ar": "جذع مشترك علمي", "fr": "Tronc commun sc." },
     "units": [
       { "num": 1, "spec": "green", "ar": "الوحدة 1: علم البيئة", "fr": "Unité 1 : L'écologie" },
       { "num": 2, "spec": "blue", "ar": "الوحدة 2: التوالد عند النباتات", "fr": "Unité 2 : La reproduction chez les plantes" }
     ]
   },
   {
-    "id": "1bac",
-    "stage": "lycee",
-    "code": "1BAC",
-    "name": { "ar": "الأولى باك علوم", "fr": "1ère Bac sc. exp." },
+    "id": "tc-lettres",
+    "stage": "tc",
+    "code": "TCL",
+    "name": { "ar": "جذع مشترك أدبي", "fr": "Tronc commun lettres" },
+    "units": []
+  },
+  {
+    "id": "1bac-exp",
+    "stage": "bac1",
+    "code": "1BAC-SE",
+    "name": { "ar": "شعبة علوم تجريبية", "fr": "1ère Bac sciences expérimentales" },
     "units": [
       { "num": 1, "spec": "gold", "ar": "الوحدة 1: الظواهر الجيولوجية الخارجية", "fr": "Unité 1 : Les phénomènes géologiques externes" },
       { "num": 2, "spec": "green", "ar": "الوحدة 2: إنتاج المادة العضوية", "fr": "Unité 2 : La production de la matière organique" },
@@ -52,10 +59,31 @@
     ]
   },
   {
-    "id": "2bac",
-    "stage": "lycee",
-    "code": "2BAC",
-    "name": { "ar": "الثانية باك علوم", "fr": "2ème Bac sc. exp." },
+    "id": "1bac-math",
+    "stage": "bac1",
+    "code": "1BAC-SM",
+    "name": { "ar": "شعبة علوم رياضية", "fr": "1ère Bac sciences mathématiques" },
+    "units": []
+  },
+  {
+    "id": "1bac-agro",
+    "stage": "bac1",
+    "code": "1BAC-SA",
+    "name": { "ar": "شعبة علوم زراعية", "fr": "1ère Bac sciences agronomiques" },
+    "units": []
+  },
+  {
+    "id": "1bac-lettres",
+    "stage": "bac1",
+    "code": "1BAC-L",
+    "name": { "ar": "شعبة الآداب", "fr": "1ère Bac lettres" },
+    "units": []
+  },
+  {
+    "id": "2bac-svt",
+    "stage": "bac2",
+    "code": "2BAC-SVT",
+    "name": { "ar": "مسلك علوم الحياة والأرض", "fr": "2ème Bac SVT" },
     "units": [
       { "num": 1, "spec": "green", "ar": "الوحدة الأولى: استهلاك المادة وتدفق الطاقة", "fr": "Unité 1 : Consommation de la matière et flux d'énergie" },
       { "num": 2, "spec": "teal", "ar": "الوحدة الثانية: طبيعة الخبر الوراثي — الهندسة الوراثية", "fr": "Unité 2 : La nature de l'information génétique — le génie génétique" },
@@ -64,5 +92,26 @@
       { "num": 5, "spec": "rose", "ar": "الوحدة الخامسة: علم المناعة", "fr": "Unité 5 : L'immunologie" },
       { "num": 6, "spec": "gold", "ar": "الوحدة السادسة: الظواهر المصاحبة لنشوء السلاسل الجبلية وعلاقتها بتكتونية الصفائح", "fr": "Unité 6 : Les phénomènes accompagnant la formation des chaînes de montagnes et leur relation avec la tectonique des plaques" }
     ]
+  },
+  {
+    "id": "2bac-pc",
+    "stage": "bac2",
+    "code": "2BAC-PC",
+    "name": { "ar": "مسلك علوم فيزيائية", "fr": "2ème Bac sciences physiques" },
+    "units": []
+  },
+  {
+    "id": "2bac-math",
+    "stage": "bac2",
+    "code": "2BAC-SM",
+    "name": { "ar": "مسلك علوم رياضية", "fr": "2ème Bac sciences mathématiques" },
+    "units": []
+  },
+  {
+    "id": "2bac-agro",
+    "stage": "bac2",
+    "code": "2BAC-SA",
+    "name": { "ar": "مسلك علوم زراعية", "fr": "2ème Bac sciences agronomiques" },
+    "units": []
   }
 ]
