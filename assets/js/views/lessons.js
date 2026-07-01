@@ -173,7 +173,7 @@ function unitGroupHTML(unit, lessons) {
   return `
   <div class="unit-group" style="--spec-item:var(${token})">
     <div class="unit-head">
-      <span class="unit-num" style="${specStyle(token)}">${String(unit.num).padStart(2, "0")}</span>
+      <span class="unit-num" style="${specStyle(token)}">${esc(ui("unit_word"))} ${unit.num}</span>
       <h3 class="unit-title">${esc(t(unit))}</h3>
       <span class="unit-count">${count} ${esc(ui("lessons_count"))}</span>
     </div>

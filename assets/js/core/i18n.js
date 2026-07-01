@@ -93,6 +93,7 @@ const STRINGS = {
   lvl_bac2: { ar: "الثانية باكالوريا", fr: "2ème Bac" },
   level_units_count: { ar: "وحدة", fr: "unité(s)" },
   browse_units: { ar: "تصفّح الوحدات", fr: "Voir les unités" },
+  unit_word: { ar: "الوحدة", fr: "Unité" },
   back_levels: { ar: "العودة إلى المستويات", fr: "Retour aux niveaux" },
   search_ph: { ar: "ابحث عن درس...", fr: "Rechercher un cours..." },
   lessons_count: { ar: "درس متاح", fr: "cours disponible(s)" },

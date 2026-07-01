@@ -25,6 +25,10 @@
   /* إحصائيات الواجهة: عنصران في الصف */
   .stat{ min-width:140px; }
 
+  /* عنوان الوحدة: يعود سطراً واحداً (رقم + اسم + عدد الدروس) بعد اتّساع الشاشة */
+  .unit-head{ flex-wrap:nowrap; align-items:center; }
+  .unit-head .unit-count{ flex:none; margin-inline-start:auto; }
+
   /* مبدّل اللغة بحجمه الكامل */
   .lang-toggle button{ min-width:64px; padding:7px 15px; }
 
