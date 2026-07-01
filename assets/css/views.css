@@ -411,45 +411,68 @@ html[dir="rtl"] .dual-card:hover .dual-link svg{ transform:scaleX(-1) translateX
   gap:20px;
 }
 
-/* سلّم وحدات المستوى (أعلى شبكة الدروس) */
-.unit-syllabus{
-  margin-bottom:30px;
-  padding:18px 20px;
+/* أكورديون الوحدات: المستويات (الشريط أعلاه) ← الوحدات (هنا) ← الدروس */
+.unit-accordion{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.acc-item{
   background:var(--surface);
   border:1px solid var(--line);
   border-radius:var(--r);
+  overflow:hidden;
+  transition:border-color var(--t-fast) var(--ease);
 }
-.unit-syllabus-h{
-  display:block;
-  margin-bottom:12px;
-}
-.unit-chips{
+.acc-item.open{ border-color:var(--sage); }
+.acc-head{
   display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-.unit-chip{
-  display:inline-flex;
   align-items:center;
-  gap:8px;
-  padding:6px 12px;
-  border:1px solid var(--forest);
-  border-radius:var(--pill);
-  color:var(--forest);
-  font-size:.88rem;
+  gap:14px;
+  width:100%;
+  padding:18px 20px;
+  text-align:start;
+  cursor:pointer;
 }
-.unit-chip .num{
+.acc-head .acc-num{
+  flex:none;
   font-family:var(--font-mono);
-  font-size:11px;
+  font-size:12px;
   color:var(--text-3);
 }
-
-/* مجموعات الدروس مرتّبة حسب الوحدة */
-.lesson-groups{
-  display:flex;
-  flex-direction:column;
-  gap:36px;
+.acc-head .acc-title{
+  flex:1;
+  font-weight:700;
+  font-size:1.05rem;
+  color:var(--forest);
 }
+.acc-head .acc-count{
+  flex:none;
+  color:var(--text-3);
+  font-size:.85rem;
+}
+.acc-head .acc-chev{
+  flex:none;
+  width:18px;
+  height:18px;
+  color:var(--text-3);
+  transition:transform var(--t-fast) var(--ease);
+}
+.acc-item.open .acc-head .acc-chev{ transform:rotate(90deg); }
+.acc-body{
+  display:none;
+  padding:0 20px 22px;
+}
+.acc-item.open .acc-body{ display:block; }
+.acc-body .acc-empty{
+  padding:10px 0 4px;
+  color:var(--text-3);
+  font-size:.92rem;
+}
+.acc-body .lesson-grid{ margin-top:6px; }
+
+/* كتلة دروس بلا وحدة معروفة (استثنائية، بلا رأس أكورديون) */
+.unit-block{ margin-top:4px; }
 
 /* ╔══════════════════════════════════════════════════════════════════════╗
    ║ 7) صفحة الدرس — التخطيط والفهرس والعنوان                               ║
@@ -1317,6 +1340,33 @@ html.lang-fr .qquestion{ font-family:var(--font-display); }
   margin-bottom:12px;
   font-size:1.2rem;
 }
+.post-card h3 a{
+  color:inherit;
+  transition:color var(--t-fast) var(--ease);
+}
+.post-card h3 a:hover{ color:var(--sage-d); }
+.post-card p{
+  margin-bottom:14px;
+  color:var(--text-2);
+  font-size:.97rem;
+  line-height:1.6;
+}
+.post-more{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--forest);
+  font-weight:700;
+  font-size:.92rem;
+}
+.post-more svg{
+  width:16px;
+  height:16px;
+  transition:transform var(--t-fast) var(--ease);
+}
+html[dir="rtl"] .post-more svg{ transform:scaleX(-1); }
+.post-card:hover .post-more svg{ transform:translateX(4px); }
+html[dir="rtl"] .post-card:hover .post-more svg{ transform:scaleX(-1) translateX(4px); }
 
 /* ╔══════════════════════════════════════════════════════════════════════╗
    ║ 12) معرض تجارب المختبر (فيديو / animation / صفحة تفاعلية)              ║

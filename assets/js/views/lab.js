@@ -10,6 +10,7 @@ import { t, ui } from "../core/i18n.js";
 import { svg } from "../core/icons.js";
 import { getLab, setLab } from "../core/state.js";
 import { getExperiments } from "../core/content.js";
+import { experimentBodyUrl } from "../core/config.js";
 import { app, esc } from "../core/dom.js";
 import { showToast } from "../components/toast.js";
 
@@ -59,17 +60,17 @@ function expCardHTML(exp, active) {
   </button>`;
 }
 
-/** لوحة عرض التجربة المختارة: فيديو/صورة متحركة/إطار تفاعلي، أو نصّ بديل إن لم يُضَف رابطها بعد. */
-function expPlayerHTML(exp) {
-  if (!exp) return `<div class="exp-placeholder"><p>${esc(ui("exp_pick"))}</p></div>`;
-  if (!exp.src) {
-    return `<div class="exp-placeholder">${svg(EXP_ICON[exp.type] || "box")}<p>${esc(
-      t(exp.desc)
-    )}</p><p>${esc(ui("exp_soon"))}</p></div>`;
+/** يجلب ملفّ محتوى تجربة (فيديو/رسم متحرك/صفحة تفاعلية) — كل تجربة ملفّها الخاص. */
+async function fetchExperimentBody(exp) {
+  try {
+    const res = await fetch(experimentBodyUrl(exp.id));
+    if (res.ok) return await res.text();
+  } catch {
+    /* نعرض بديلاً أدناه */
   }
-  if (exp.type === "video") return `<video controls src="${esc(exp.src)}"></video>`;
-  if (exp.type === "animation") return `<img src="${esc(exp.src)}" alt="${esc(t(exp.title))}" />`;
-  return `<iframe src="${esc(exp.src)}" title="${esc(t(exp.title))}" allowfullscreen></iframe>`;
+  return `<div class="exp-placeholder">${svg(EXP_ICON[exp.type] || "box")}<p>${esc(
+    t(exp.desc)
+  )}</p><p>${esc(ui("exp_soon"))}</p></div>`;
 }
 
 export function renderLab() {
@@ -142,13 +143,16 @@ export function renderLab() {
           ? `<div class="exp-grid" id="expGrid">${experiments
               .map((e, i) => expCardHTML(e, i === selectedExpIndex))
               .join("")}</div>
-             <div class="exp-player" id="expPlayer">${expPlayerHTML(experiments[selectedExpIndex])}</div>`
+             <div class="exp-player" id="expPlayer"><div class="exp-placeholder"><p>${esc(
+               ui("exp_loading")
+             )}</p></div></div>`
           : `<div class="empty"><p>${esc(ui("exp_empty"))}</p></div>`
       }
     </div>
   </section>`;
 
   wireLab();
+  if (experiments.length) selectExperiment(selectedExpIndex);
 }
 
 function wireLab() {
@@ -165,14 +169,25 @@ function wireLab() {
 }
 
 /** يبدّل التجربة المعروضة في لوحة معرض التجارب دون إعادة بناء الصفحة كاملةً. */
-function selectExperiment(i) {
+async function selectExperiment(i) {
   selectedExpIndex = i;
   const experiments = getExperiments();
+  const exp = experiments[i];
+  if (!exp) return;
+
   document.querySelectorAll("#expGrid .exp-card").forEach((b, idx) => {
     b.classList.toggle("active", idx === i);
   });
+
   const player = document.getElementById("expPlayer");
-  if (player) player.innerHTML = expPlayerHTML(experiments[i]);
+  if (player) player.innerHTML = `<div class="exp-placeholder"><p>${esc(ui("exp_loading"))}</p></div>`;
+
+  const html = await fetchExperimentBody(exp);
+
+  // إن بدّل المستخدم التجربة أثناء الجلب، تجاهل هذه النتيجة القديمة.
+  if (selectedExpIndex !== i) return;
+  const freshPlayer = document.getElementById("expPlayer");
+  if (freshPlayer) freshPlayer.innerHTML = html;
 }
 
 function selectPhase(n) {

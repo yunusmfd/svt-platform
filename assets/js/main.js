@@ -17,9 +17,9 @@ import { get, set } from "./core/storage.js";
 import { t, ui, setLanguage } from "./core/i18n.js";
 import { LOGO, svg } from "./core/icons.js";
 import { initTheme } from "./core/theme.js";
-import { loadContent, findLesson, findLevel } from "./core/content.js";
+import { loadContent, findLesson, findLevel, findPost } from "./core/content.js";
 import { initRouter } from "./core/router.js";
-import { getLang, getView, getLessonId, getLevelId } from "./core/state.js";
+import { getLang, getView, getLessonId, getLevelId, getBlogId } from "./core/state.js";
 import { app } from "./core/dom.js";
 import { initNav, updateNavActive } from "./components/nav.js";
 import { initDrawer, closeDrawer } from "./components/drawer.js";
@@ -27,11 +27,11 @@ import { renderHome } from "./views/home.js";
 import { renderLessons } from "./views/lessons.js";
 import { renderDetail } from "./views/detail.js";
 import { renderLab } from "./views/lab.js";
-import { renderBlog } from "./views/blog.js";
+import { renderBlog, renderBlogPost } from "./views/blog.js";
 import { renderAbout } from "./views/about.js";
 
 /** الصفحة التي يُبرز عندها رابط "الدروس" في التنقّل (صفحة الدرس تتبع الدروس). */
-const NAV_KEY = { [ROUTES.detail]: ROUTES.lessons };
+const NAV_KEY = { [ROUTES.detail]: ROUTES.lessons, [ROUTES.blogPost]: ROUTES.blog };
 
 /** يوزّع العرض على الصفحة المناسبة ثم يحدّث التنقّل ويغلق القائمة. */
 function render() {
@@ -51,6 +51,9 @@ function render() {
       break;
     case ROUTES.blog:
       renderBlog();
+      break;
+    case ROUTES.blogPost:
+      renderBlogPost();
       break;
     case ROUTES.about:
       renderAbout();
@@ -77,6 +80,9 @@ function updateTitle(view) {
     prefix = ui("nav_lab");
   } else if (view === ROUTES.blog) {
     prefix = ui("nav_blog");
+  } else if (view === ROUTES.blogPost) {
+    const post = findPost(getBlogId());
+    prefix = post ? t(post.title) : ui("nav_blog");
   } else if (view === ROUTES.about) {
     prefix = ui("nav_about");
   }

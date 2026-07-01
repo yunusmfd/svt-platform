@@ -1,15 +1,19 @@
 /**
  * Nova SVT — المدونة (Blog)
  * ----------------------------------------------------------------------------
- * قائمة منشورات (أخبار، توجيهات للتلاميذ، إعلانات) مصدرها data/blog.json.
- * كل صفحات العرض تفترض أن المحتوى مُحمَّل مسبقاً عبر loadContent() في main.js،
- * لذا لا يوجد هنا أي جلب شبكي — فقط عرض تزامني كبقية الصفحات.
+ * قائمة منشورات مصدرها الفهرس الوصفي data/blog.json (عنوان، تاريخ، صنف،
+ * مقتطف). محتوى كل مقال بالكامل يعيش في ملفّه HTML الخاص به
+ * (data/blog/{id}.{lang}.html)، ويُجلب عند فتح صفحة المقال فقط — وليس عند
+ * تحميل القائمة — كي يبقى كل مقال مستقلاً بملفّه الخاص.
  */
 
 import { t, ui } from "../core/i18n.js";
-import { getPosts } from "../core/content.js";
-import { getLang } from "../core/state.js";
+import { getPosts, findPost } from "../core/content.js";
+import { getLang, getBlogId } from "../core/state.js";
+import { blogBodyUrl } from "../core/config.js";
+import { go } from "../core/router.js";
 import { app, esc } from "../core/dom.js";
+import { svg } from "../core/icons.js";
 
 /** يترجم مفتاح صنف المنشور (خبر/توجيه/إعلان) إلى صنف "دتاق" لونيّ موجود مسبقاً. */
 const TAG_CLASS = { news: "lvl", guide: "unit", announcement: "subj" };
@@ -29,24 +33,26 @@ function formatDate(iso) {
   }
 }
 
-function postCardHTML(post) {
+function tagPill(post) {
   const cls = TAG_CLASS[post.tag] || "unit";
   const label = TAG_LABEL[post.tag] ? ui(TAG_LABEL[post.tag]) : "";
-  const body = Array.isArray(post.body) ? post.body : [];
+  return `<span class="dtag ${cls}">${esc(label)}</span>`;
+}
 
+function postCardHTML(post) {
   return `
   <article class="post-card">
     <div class="post-meta">
-      <span class="dtag ${cls}">${esc(label)}</span>
+      ${tagPill(post)}
       <time datetime="${esc(post.date)}">${esc(formatDate(post.date))}</time>
     </div>
-    <h3>${esc(t(post.title))}</h3>
-    <div class="prose">
-      ${body.map((p) => `<p>${t(p)}</p>`).join("")}
-    </div>
+    <h3><a href="#/blog/${esc(post.id)}">${esc(t(post.title))}</a></h3>
+    <p>${esc(t(post.excerpt))}</p>
+    <a class="post-more" href="#/blog/${esc(post.id)}">${ui("blog_read_more")}${svg("arrow")}</a>
   </article>`;
 }
 
+/** بوّابة المدونة: قائمة بطاقات منفصلة، كل بطاقة تفتح ملفّ مقالها الخاص. */
 export function renderBlog() {
   const posts = getPosts();
 
@@ -70,4 +76,48 @@ export function renderBlog() {
       }
     </div>
   </section>`;
+}
+
+/** يجلب محتوى ملفّ المقال بلغة الواجهة الحالية، مع نسخة احتياطية بالعربية. */
+async function fetchPostBody(postId, lang) {
+  const tryLangs = lang === "ar" ? ["ar"] : [lang, "ar"];
+  for (const l of tryLangs) {
+    try {
+      const res = await fetch(blogBodyUrl(postId, l));
+      if (res.ok) return await res.text();
+    } catch {
+      /* نجرّب اللغة التالية */
+    }
+  }
+  return `<p>${esc(ui("post_missing"))}</p>`;
+}
+
+/** صفحة مقال واحد: تُبنى فوراً برأس المقال، ثم يُحقن محتواه بعد جلب ملفّه. */
+export async function renderBlogPost() {
+  const post = findPost(getBlogId());
+  if (!post) {
+    go("blog");
+    return;
+  }
+
+  app().innerHTML = `
+  <section class="section">
+    <div class="wrap" style="max-width:760px">
+      <a class="back-link" href="#/blog">${svg("arrow")}${ui("back_blog")}</a>
+      <div class="detail-tags">${tagPill(post)}</div>
+      <h1>${esc(t(post.title))}</h1>
+      <div class="detail-meta">
+        <time datetime="${esc(post.date)}">${esc(formatDate(post.date))}</time>
+      </div>
+      <div class="prose" id="postBody"><p>${esc(ui("post_loading"))}</p></div>
+    </div>
+  </section>`;
+
+  const lang = getLang();
+  const html = await fetchPostBody(post.id, lang);
+
+  // إن غيّر المستخدم اللغة أو الصفحة أثناء الجلب، تجاهل النتيجة القديمة.
+  if (getBlogId() !== post.id) return;
+  const bodyEl = document.getElementById("postBody");
+  if (bodyEl) bodyEl.innerHTML = html;
 }

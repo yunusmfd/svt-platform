@@ -16,9 +16,10 @@ const state = {
 
   /** الصفحة الحالية ومعاملاتها. */
   route: {
-    view: DEFAULT_ROUTE,      // "home" | "lessons" | "detail" | "lab" | "about"
+    view: DEFAULT_ROUTE,      // "home" | "lessons" | "detail" | "lab" | "blog" | "blogPost" | "about"
     levelId: DEFAULT_LEVEL,   // المستوى المختار في صفحة الدروس
     lessonId: null,           // معرّف الدرس المفتوح (في صفحة الدرس)
+    blogId: null,             // معرّف منشور المدونة المفتوح (في صفحة المقال)
     search: "",               // نص البحث في صفحة الدروس
   },
 
@@ -39,6 +40,7 @@ export const getRoute = () => ({ ...state.route });
 export const getView = () => state.route.view;
 export const getLevelId = () => state.route.levelId;
 export const getLessonId = () => state.route.lessonId;
+export const getBlogId = () => state.route.blogId;
 export const getSearch = () => state.route.search;
 
 /** يدمج تعديلاً جزئياً على حالة المسار. */

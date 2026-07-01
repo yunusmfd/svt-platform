@@ -11,6 +11,7 @@
  *   #/lesson/{lessonId}     → صفحة درس
  *   #/lab                   → المختبر
  *   #/blog                  → المدونة
+ *   #/blog/{postId}         → مقال مدونة (ملف HTML منفصل لكل مقال)
  *   #/about                 → عن المنصة
  *
  * تصميمياً: لا يستورد الموجّه صفحات العرض. يستقبل دالة onChange من main.js
@@ -43,7 +44,7 @@ export function parseHash(hash) {
     case "lab":
       return { view: ROUTES.lab };
     case "blog":
-      return { view: ROUTES.blog };
+      return param ? { view: ROUTES.blogPost, blogId: param } : { view: ROUTES.blog };
     case "about":
       return { view: ROUTES.about };
     case "home":
@@ -61,6 +62,8 @@ function applyRoute() {
     setRoute({ view: route.view, levelId: route.levelId, lessonId: null });
   } else if (route.view === ROUTES.detail) {
     setRoute({ view: route.view, lessonId: route.lessonId });
+  } else if (route.view === ROUTES.blogPost) {
+    setRoute({ view: route.view, blogId: route.blogId });
   } else {
     setRoute({ view: route.view });
   }
@@ -87,6 +90,8 @@ export function navigate(path) {
 export function go(view, param) {
   if (view === ROUTES.lessons) navigate(param ? `/lessons/${param}` : "/lessons");
   else if (view === ROUTES.detail) navigate(`/lesson/${param}`);
+  else if (view === ROUTES.blogPost) navigate(`/blog/${param}`);
+  else if (view === ROUTES.blog) navigate("/blog");
   else if (view === ROUTES.home) navigate("/");
   else navigate(`/${view}`);
 }

@@ -4,27 +4,20 @@
     "date": "2026-07-01",
     "tag": "news",
     "title": { "ar": "مرحباً بكم في مدونة Nova SVT", "fr": "Bienvenue sur le blog de Nova SVT" },
-    "body": [
-      { "ar": "تنطلق مدونة المنصة لتكون نافذة دائمة على آخر الأخبار والتحديثات، وتوجيهات مفيدة للتلاميذ، وإعلانات مهمّة حول محتوى مادة علوم الحياة والأرض.", "fr": "Le blog de la plateforme est lancé pour devenir une fenêtre permanente sur les dernières actualités, des conseils utiles aux élèves et des annonces importantes autour des SVT." },
-      { "ar": "تابعونا هنا بانتظام لمعرفة كل جديد يخصّ الدروس والمختبر الافتراضي.", "fr": "Suivez-nous régulièrement pour toute nouveauté concernant les cours et le laboratoire virtuel." }
-    ]
+    "excerpt": { "ar": "تنطلق مدونة المنصة لتكون نافذة دائمة على آخر الأخبار والتحديثات وتوجيهات التلاميذ.", "fr": "Le blog de la plateforme est lancé pour devenir une fenêtre permanente sur les actualités et les conseils aux élèves." }
   },
   {
     "id": "tanzim-wahdat-manhaj",
     "date": "2026-07-01",
     "tag": "announcement",
     "title": { "ar": "تنظيم جديد للدروس حسب السلك والوحدات", "fr": "Nouvelle organisation des cours par cycle et par unités" },
-    "body": [
-      { "ar": "أصبحت بوّابة الدروس منظَّمة الآن حسب السلك (الإعدادي والثانوي التأهيلي)، ثم حسب المستوى، ثم حسب وحدات المنهاج الرسمية لكل مستوى — لتسهيل تتبّع تقدّمكم الدراسي.", "fr": "Le portail des cours est désormais organisé par cycle (collège et lycée qualifiant), puis par niveau, puis par unités officielles du programme — pour faciliter le suivi de votre progression." }
-    ]
+    "excerpt": { "ar": "أصبحت بوّابة الدروس منظَّمة حسب السلك، ثم المستوى، ثم وحدات المنهاج الرسمية.", "fr": "Le portail des cours est désormais organisé par cycle, puis par niveau, puis par unités officielles du programme." }
   },
   {
     "id": "nasa2ih-almoraja3a",
     "date": "2026-06-20",
     "tag": "guide",
     "title": { "ar": "5 نصائح لمراجعة فعّالة في مادة SVT", "fr": "5 conseils pour une révision efficace en SVT" },
-    "body": [
-      { "ar": "1) راجع الخطاطات العلمية قبل النص. 2) أعد صياغة التعريفات بأسلوبك. 3) حلّ اختبار الدرس مرّتين على الأقل. 4) اربط كل درس بوحدته داخل المنهاج. 5) خصّص وقتاً يومياً قصيراً بدل المراجعة المكثّفة ليلة الامتحان.", "fr": "1) Revoyez les schémas avant le texte. 2) Reformulez les définitions avec vos mots. 3) Refaites le quiz du cours au moins deux fois. 4) Reliez chaque cours à son unité du programme. 5) Consacrez un court moment quotidien plutôt qu'une révision intensive la veille de l'examen." }
-    ]
+    "excerpt": { "ar": "خمس عادات بسيطة تجعل مراجعتك لمادة علوم الحياة والأرض أكثر فعالية.", "fr": "Cinq habitudes simples pour rendre votre révision des SVT plus efficace." }
   }
 ]

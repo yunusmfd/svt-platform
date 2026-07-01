@@ -87,12 +87,18 @@ export const lessonsForLevel = (levelId) =>
 /** درس واحد بمعرّفه، أو null. */
 export const findLesson = (id) => _byId.get(id) || null;
 
-/** كل منشورات المدونة، الأحدث أولاً. */
+/** كل منشورات المدونة، الأحدث أولاً (فهرس وصفي فقط — محتوى كل مقال في ملفّه الخاص). */
 export const getPosts = () =>
   [..._posts].sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
 
-/** كل تجارب المختبر الافتراضي. */
+/** منشور مدونة واحد بمعرّفه، أو null. */
+export const findPost = (id) => _posts.find((p) => p.id === id) || null;
+
+/** كل تجارب المختبر الافتراضي (فهرس وصفي فقط — محتوى كل تجربة في ملفّها الخاص). */
 export const getExperiments = () => _experiments;
+
+/** تجربة مختبر واحدة بمعرّفها، أو null. */
+export const findExperiment = (id) => _experiments.find((e) => e.id === id) || null;
 
 /**
  * يجمّع المستويات حسب السلك (college / lycee) مع الحفاظ على ترتيبها،
