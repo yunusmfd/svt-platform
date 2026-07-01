@@ -418,8 +418,10 @@ html[dir="rtl"] .level-card:hover .browse svg{ transform:scaleX(-1) translateX(4
 }
 .unit-head{
   display:flex;
-  align-items:center;
-  gap:14px;
+  flex-wrap:wrap;
+  align-items:flex-start;
+  column-gap:14px;
+  row-gap:4px;
   margin-bottom:18px;
 }
 .unit-head .unit-num{
@@ -431,13 +433,14 @@ html[dir="rtl"] .level-card:hover .browse svg{ transform:scaleX(-1) translateX(4
   font-weight:700;
 }
 .unit-head .unit-title{
-  flex:1;
+  flex:1 1 auto;
+  min-width:0;
   font-weight:700;
   font-size:1.15rem;
   color:var(--forest);
 }
 .unit-head .unit-count{
-  flex:none;
+  flex:1 0 100%;
   color:var(--text-3);
   font-size:.85rem;
 }
