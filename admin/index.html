@@ -5,206 +5,207 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nova SVT — لوحة تحرير الدروس</title>
 
-  <!-- Quill Rich Text Editor -->
-  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
-  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-
   <!-- خطوط Google -->
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Cairo:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- تنسيقات لوحة الإدارة -->
   <link rel="stylesheet" href="css/admin.css" />
 </head>
 <body>
   <div class="admin-container">
-    <!-- ===== رأس الصفحة ===== -->
     <header class="admin-header">
       <div class="header-content">
         <h1>Nova SVT — محرّر الدروس</h1>
-        <p class="subtitle">أنشئ وحرّر دروس المنصة بكل سهولة</p>
+        <p class="subtitle">يُنتج مجلّد الدرس كاملاً: meta.json + ar.html + fr.html — مطابقاً لمعمارية المنصة</p>
       </div>
     </header>
 
-    <!-- ===== المحتوى الرئيسي ===== -->
+    <div id="loadWarn" class="load-warn" hidden>
+      ⚠️ تعذّر تحميل <code>data/levels.json</code> تلقائياً. افتح اللوحة عبر خادم محلّي
+      (Live Server) لتظهر الوحدات الرسمية. تعمل اللوحة الآن بقائمة مستويات احتياطية.
+    </div>
+
     <main class="admin-main">
-      <!-- الجانب الأيسر: نموذج الإدخال -->
       <div class="editor-panel">
         <form id="lessonForm">
           <!-- البيانات الأساسية -->
           <section class="form-section">
             <h2>البيانات الأساسية</h2>
-
             <div class="form-group">
               <label for="lessonId">معرّف الدرس (ID) *</label>
               <input type="text" id="lessonId" placeholder="مثلاً: photosynthese" required />
-              <small>أحرف لاتينية صغيرة وشرطات فقط</small>
+              <small>أحرف لاتينية صغيرة وشرطات فقط — يصبح اسم مجلّد الدرس</small>
             </div>
-
             <div class="form-row">
               <div class="form-group">
                 <label for="lessonLevel">المستوى *</label>
-                <select id="lessonLevel" required>
-                  <option value="">اختر مستوى</option>
-                  <option value="1ac">الأولى إعدادي</option>
-                  <option value="2ac">الثانية إعدادي</option>
-                  <option value="3ac">الثالثة إعدادي</option>
-                  <option value="tcs">الجذع المشترك العلمي</option>
-                  <option value="1bac">الأولى باك علوم</option>
-                  <option value="2bac">الثانية باك علوم</option>
-                </select>
+                <select id="lessonLevel" required><option value="">اختر مستوى…</option></select>
+                <small id="levelFileHint" class="file-hint"></small>
               </div>
-
+              <div class="form-group">
+                <label for="lessonUnit">الوحدة *</label>
+                <select id="lessonUnit" required disabled><option value="">اختر المستوى أوّلاً…</option></select>
+              </div>
+            </div>
+            <div class="form-row">
               <div class="form-group">
                 <label for="lessonBranch">الفرع *</label>
                 <select id="lessonBranch" required>
-                  <option value="">اختر فرع</option>
+                  <option value="">اختر فرعاً…</option>
                   <option value="bio">حياة (Bio)</option>
                   <option value="geo">أرض (Geo)</option>
                 </select>
               </div>
+              <div class="form-group">
+                <label for="lessonThumb">الخطاطة (صورة البطاقة) *</label>
+                <select id="lessonThumb" required>
+                  <option value="">اختر خطاطة…</option>
+                  <option value="cell">خلية (cell)</option>
+                  <option value="dna">حمض نووي (dna)</option>
+                  <option value="tecto">تكتونية الصفائح (tecto)</option>
+                  <option value="gas">مبادلات غازية (gas)</option>
+                  <option value="digest">جهاز هضمي (digest)</option>
+                </select>
+              </div>
             </div>
-
-            <div class="form-group">
-              <label for="lessonFig">الخطاطة (صورة البطاقة) *</label>
-              <select id="lessonFig" required>
-                <option value="">اختر خطاطة</option>
-                <option value="cell">خلية</option>
-                <option value="dna">ADN (حمض نووي)</option>
-                <option value="tecto">تكتونية الصفائح</option>
-                <option value="gas">مبادلات غازية</option>
-                <option value="digest">جهاز هضمي</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="lessonDuration">مدّة الدرس (دقائق) *</label>
-              <input type="number" id="lessonDuration" min="1" max="180" placeholder="45" required />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="lessonDuration">المدّة (دقائق) *</label>
+                <input type="number" id="lessonDuration" min="1" max="180" placeholder="45" required />
+              </div>
+              <div class="form-group">
+                <label for="lessonOrder">الترتيب داخل المستوى</label>
+                <input type="number" id="lessonOrder" min="0" placeholder="0" />
+              </div>
             </div>
           </section>
 
           <!-- النصوص -->
           <section class="form-section">
-            <h2>النصوص (عربي وفرنسي)</h2>
-
+            <h2>النصوص الأساسية (عربي وفرنسي)</h2>
             <div class="lang-tabs">
               <button type="button" class="lang-tab active" data-lang="ar">العربية</button>
               <button type="button" class="lang-tab" data-lang="fr">Français</button>
             </div>
-
             <div class="lang-content" data-lang="ar">
-              <div class="form-group">
-                <label for="unitAr">اسم الوحدة (عربي) *</label>
-                <input type="text" id="unitAr" placeholder="مثلاً: الوحدة 3: التغذية عند النباتات الخضراء" required />
-              </div>
-
-              <div class="form-group">
-                <label for="titleAr">عنوان الدرس (عربي) *</label>
-                <input type="text" id="titleAr" placeholder="مثلاً: التركيب الضوئي" required />
-              </div>
-
-              <div class="form-group">
-                <label for="descAr">وصف مختصر (عربي) *</label>
-                <textarea id="descAr" rows="3" placeholder="وصف الدرس في سطر أو سطرين..." required></textarea>
-              </div>
-
-              <div class="form-group">
-                <label for="videoTitleAr">عنوان الفيديو (عربي) *</label>
-                <input type="text" id="videoTitleAr" placeholder="مثلاً: آلية التركيب الضوئي" required />
-              </div>
-
-              <div class="form-group">
-                <label for="videoLengthAr">طول الفيديو (دقائق:ثوان) *</label>
-                <input type="text" id="videoLengthAr" placeholder="08:30" pattern="\d{1,2}:\d{2}" required />
-              </div>
+              <div class="form-group"><label for="titleAr">عنوان الدرس (عربي) *</label>
+                <input type="text" id="titleAr" placeholder="التركيب الضوئي" required /></div>
+              <div class="form-group"><label for="descAr">وصف مختصر (عربي) *</label>
+                <textarea id="descAr" rows="2" placeholder="يظهر في بطاقة الدرس…" required></textarea></div>
+              <div class="form-group"><label for="videoTitleAr">عنوان الفيديو (عربي)</label>
+                <input type="text" id="videoTitleAr" placeholder="آلية التركيب الضوئي" /></div>
             </div>
-
-            <div class="lang-content" data-lang="fr" style="display: none">
-              <div class="form-group">
-                <label for="unitFr">Unité (Français) *</label>
-                <input type="text" id="unitFr" placeholder="Ex: Unité 3 : La nutrition chez les plantes vertes" required />
-              </div>
-
-              <div class="form-group">
-                <label for="titleFr">Titre (Français) *</label>
-                <input type="text" id="titleFr" placeholder="Ex: La photosynthèse" required />
-              </div>
-
-              <div class="form-group">
-                <label for="descFr">Description (Français) *</label>
-                <textarea id="descFr" rows="3" placeholder="Description courte..."></textarea>
-              </div>
-
-              <div class="form-group">
-                <label for="videoTitleFr">Titre vidéo (Français) *</label>
-                <input type="text" id="videoTitleFr" placeholder="Ex: Mécanisme de la photosynthèse" required />
-              </div>
-
-              <div class="form-group">
-                <label for="videoLengthFr">Durée vidéo (mm:ss) *</label>
-                <input type="text" id="videoLengthFr" placeholder="08:30" pattern="\d{1,2}:\d{2}" required />
-              </div>
+            <div class="lang-content" data-lang="fr" hidden>
+              <div class="form-group"><label for="titleFr">عنوان الدرس (فرنسي) *</label>
+                <input type="text" id="titleFr" placeholder="La photosynthèse" required /></div>
+              <div class="form-group"><label for="descFr">وصف مختصر (فرنسي) *</label>
+                <textarea id="descFr" rows="2" placeholder="Apparaît dans la carte…" required></textarea></div>
+              <div class="form-group"><label for="videoTitleFr">عنوان الفيديو (فرنسي)</label>
+                <input type="text" id="videoTitleFr" placeholder="Mécanisme de la photosynthèse" /></div>
             </div>
+            <div class="form-group"><label for="videoLength">طول الفيديو (دقائق:ثوان)</label>
+              <input type="text" id="videoLength" placeholder="08:30" pattern="\d{1,2}:\d{2}" /></div>
           </section>
 
-          <!-- محتوى الدرس -->
+          <!-- محتوى الدرس (Fragment HTML) -->
           <section class="form-section">
-            <h2>محتوى الدرس (المقدّمة)</h2>
-            <div class="editor-wrapper">
-              <div id="editor"></div>
+            <h2>محتوى الدرس (ar.html / fr.html)</h2>
+            <p class="hint">
+              اكتب المحتوى بصيغة HTML مبسّطة (فقرات <code>&lt;p&gt;…&lt;/p&gt;</code> ووسم
+              <code>&lt;strong&gt;</code> للتشديد). لإدراج خطاطة علمية استعمل الزرّ أدناه:
+              يُضاف عنصر <code>&lt;figure data-fig="…"&gt;</code> يحوّله القالب تلقائياً إلى الخطاطة المناسبة.
+            </p>
+            <div class="content-tools">
+              <label for="figKey">الخطاطة:</label>
+              <select id="figKey">
+                <option value="cell">cell</option>
+                <option value="dna">dna</option>
+                <option value="tecto">tecto</option>
+                <option value="gas">gas</option>
+                <option value="digest">digest</option>
+              </select>
+              <button type="button" class="btn btn-add" id="insertFigAr">＋ خطاطة (عربي)</button>
+              <button type="button" class="btn btn-add" id="insertFigFr">＋ خطاطة (فرنسي)</button>
             </div>
+            <div class="form-group"><label for="bodyAr">المحتوى (عربي) *</label>
+              <textarea id="bodyAr" rows="8" class="mono-area" placeholder="<p>…</p>" required></textarea></div>
+            <div class="form-group"><label for="bodyFr">المحتوى (فرنسي) *</label>
+              <textarea id="bodyFr" rows="8" class="mono-area" placeholder="<p>…</p>" required></textarea></div>
           </section>
 
-          <!-- الأزرار -->
+          <!-- الاختبار -->
+          <section class="form-section">
+            <div class="section-head-row">
+              <h2>الاختبار (Quiz)</h2>
+              <button type="button" class="btn btn-add" data-add="quiz">＋ سؤال</button>
+            </div>
+            <div id="quizList" class="repeat-list"></div>
+          </section>
+
           <section class="form-section form-actions">
-            <button type="button" id="saveDraft" class="btn btn-secondary">
-              💾 حفظ مسودة
-            </button>
-            <button type="button" id="exportJSON" class="btn btn-primary">
-              📥 تصدير JSON
-            </button>
-            <button type="button" id="clearForm" class="btn btn-danger">
-              🗑️ مسح النموذج
-            </button>
+            <button type="button" id="saveDraft" class="btn btn-secondary">💾 حفظ مسودة</button>
+            <button type="button" id="exportJSON" class="btn btn-primary">📦 توليد ملفات الدرس</button>
+            <button type="button" id="clearForm" class="btn btn-danger">🗑️ مسح</button>
           </section>
         </form>
       </div>
 
-      <!-- الجانب الأيمن: معاينة فورية -->
       <aside class="preview-panel">
         <div class="preview-header">
           <h3>معاينة الدرس</h3>
-          <p class="preview-subtitle">يُحدَّث تلقائياً أثناء الكتابة</p>
+          <p class="preview-subtitle">تُحدَّث تلقائياً أثناء الكتابة</p>
         </div>
         <div class="preview-content" id="previewContent">
-          <div class="preview-placeholder">
-            <p>👈 املأ البيانات لرؤية المعاينة</p>
-          </div>
+          <div class="preview-placeholder"><p>👈 املأ البيانات لرؤية المعاينة</p></div>
         </div>
       </aside>
     </main>
   </div>
 
-  <!-- Modal لتصدير JSON -->
-  <div id="exportModal" class="modal" style="display: none">
-    <div class="modal-content">
+  <!-- Modal التصدير: أربعة مخرجات -->
+  <div id="exportModal" class="modal" hidden>
+    <div class="modal-content modal-wide">
       <button class="modal-close" id="closeModal">&times;</button>
-      <h2>تصدير JSON</h2>
-      <p>انسخ هذا الـ JSON والصقه في ملف المستوى المناسب داخل <code>data/lessons/</code>:</p>
-      <textarea id="jsonOutput" class="json-textarea" readonly></textarea>
-      <div class="modal-actions">
-        <button class="btn btn-primary" id="copyJSON">📋 نسخ</button>
-        <button class="btn btn-secondary" id="downloadJSON">⬇️ تحميل ملف</button>
+      <h2>ملفات الدرس</h2>
+      <p id="exportHint" class="hint"></p>
+
+      <div class="out-block">
+        <div class="out-head"><span>meta.json</span>
+          <span class="out-path" id="pathMeta"></span>
+          <span class="out-acts"><button class="btn btn-mini" data-copy="outMeta">نسخ</button><button class="btn btn-mini" data-dl="outMeta">تحميل</button></span>
+        </div>
+        <textarea id="outMeta" class="json-textarea" readonly></textarea>
+      </div>
+
+      <div class="out-block">
+        <div class="out-head"><span>ar.html</span>
+          <span class="out-path" id="pathAr"></span>
+          <span class="out-acts"><button class="btn btn-mini" data-copy="outAr">نسخ</button><button class="btn btn-mini" data-dl="outAr">تحميل</button></span>
+        </div>
+        <textarea id="outAr" class="json-textarea sm" readonly></textarea>
+      </div>
+
+      <div class="out-block">
+        <div class="out-head"><span>fr.html</span>
+          <span class="out-path" id="pathFr"></span>
+          <span class="out-acts"><button class="btn btn-mini" data-copy="outFr">نسخ</button><button class="btn btn-mini" data-dl="outFr">تحميل</button></span>
+        </div>
+        <textarea id="outFr" class="json-textarea sm" readonly></textarea>
+      </div>
+
+      <div class="out-block">
+        <div class="out-head"><span>مدخلة الفهرس — أضِفها إلى مصفوفة <code>data/lessons/index.json</code></span>
+          <span class="out-acts"><button class="btn btn-mini" data-copy="outIndex">نسخ</button></span>
+        </div>
+        <textarea id="outIndex" class="json-textarea sm" readonly></textarea>
       </div>
     </div>
   </div>
 
-  <!-- Modal لحفظ المسودة -->
-  <div id="saveModal" class="modal" style="display: none">
+  <div id="saveModal" class="modal" hidden>
     <div class="modal-content">
       <button class="modal-close" id="closeSaveModal">&times;</button>
       <h2>✅ تم الحفظ</h2>
-      <p>تم حفظ المسودة في متصفّحك. إذا أغلقت الصفحة ورجعت، ستظهر البيانات كما هي.</p>
-      <p class="modal-note">💡 ملاحظة: البيانات محفوظة محلياً فقط. استخدم "تصدير JSON" لحفظ نسخة احتياطية.</p>
+      <p>حُفظت المسودة في متصفّحك. استعمل «توليد ملفات الدرس» لتصدير النسخة النهائية.</p>
       <button class="btn btn-primary" id="closeSaveBtn">حسناً</button>
     </div>
   </div>

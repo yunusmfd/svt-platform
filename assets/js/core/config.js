@@ -40,8 +40,10 @@ export const STORAGE_KEYS = {
 /* ── مسارات البيانات (JSON) ─────────────────────────────────────────────── */
 /** قائمة المستويات الدراسية. */
 export const LEVELS_URL = "data/levels.json";
-/** مجلّد ملفات الدروس؛ يُبنى مسار كل مستوى منه: data/lessons/1ac.json */
+/** مجلّد الدروس؛ كل درس مجلّد مستقل: data/lessons/{id}/{meta.json,ar.html,fr.html} */
 export const LESSONS_DIR = "data/lessons/";
+/** فهرس الدروس الخفيف (بيانات البطاقات فقط) — يُحمَّل عند الإقلاع. */
+export const LESSONS_INDEX_URL = "data/lessons/index.json";
 /** فهرس منشورات المدونة (أخبار، توجيهات، إعلانات) — بيانات وصفية فقط. */
 export const BLOG_URL = "data/blog.json";
 /** مجلّد ملفات كل منشور (كل مقال ملف HTML منفصل، بنسخة لكل لغة). */
@@ -51,8 +53,10 @@ export const EXPERIMENTS_URL = "data/experiments.json";
 /** مجلّد ملفات كل تجربة (كل تجربة ملف HTML منفصل). */
 export const EXPERIMENTS_DIR = "data/experiments/";
 
-/** يبني مسار ملف دروس مستوى معيّن. */
-export const lessonsUrl = (levelId) => `${LESSONS_DIR}${levelId}.json`;
+/** يبني مسار بيانات درس معيّن (البيانات المنظّمة + الاختبار). */
+export const lessonMetaUrl = (id) => `${LESSONS_DIR}${id}/meta.json`;
+/** يبني مسار محتوى درس بلغة معيّنة (Fragment HTML، مع نسخة احتياطية بالعربية). */
+export const lessonBodyUrl = (id, lang) => `${LESSONS_DIR}${id}/${lang}.html`;
 /** يبني مسار ملف محتوى منشور مدونة بلغة معيّنة (مع نسخة احتياطية بالعربية). */
 export const blogBodyUrl = (postId, lang) => `${BLOG_DIR}${postId}.${lang}.html`;
 /** يبني مسار ملف محتوى تجربة مختبر (ملف واحد بلا لغة، محايد أو تفاعلي). */

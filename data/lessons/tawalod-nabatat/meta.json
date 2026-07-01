@@ -1,0 +1,125 @@
+{
+  "id": "tawalod-nabatat",
+  "slug": "tawalod-nabatat",
+  "subject": "svt",
+  "level": "tcs",
+  "unitNum": 2,
+  "unit": {
+    "ar": "الوحدة 2: التوالد عند النباتات",
+    "fr": "Unité 2 : La reproduction chez les plantes"
+  },
+  "order": 1,
+  "branch": "bio",
+  "thumbnail": "cell",
+  "duration": 45,
+  "status": "published",
+  "title": {
+    "ar": "التكاثر الجنسي عند النباتات الزهرية",
+    "fr": "La reproduction sexuée chez les plantes à fleurs"
+  },
+  "desc": {
+    "ar": "بنية الزهرة، وكيفية الإلقاح عبر التلقيح، وتشكّل البذور والثمار بعده.",
+    "fr": "Structure de la fleur, mécanisme de la pollinisation et formation des graines et des fruits."
+  },
+  "video": {
+    "title": {
+      "ar": "رحلة حبوب اللقاح",
+      "fr": "Le voyage du pollen"
+    },
+    "length": "07:45"
+  },
+  "quiz": [
+    {
+      "q": {
+        "ar": "العضو الذكري المنتج لحبوب اللقاح هو:",
+        "fr": "L'organe mâle producteur de pollen est :"
+      },
+      "options": [
+        {
+          "ar": "المدقّة",
+          "fr": "Le pistil"
+        },
+        {
+          "ar": "الأسدية",
+          "fr": "Les étamines"
+        },
+        {
+          "ar": "البتلات",
+          "fr": "Les pétales"
+        },
+        {
+          "ar": "الكأس",
+          "fr": "Le calice"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "الأسدية هي الأعضاء الذكرية المنتجة لحبوب اللقاح.",
+        "fr": "Les étamines sont les organes mâles produisant le pollen."
+      }
+    },
+    {
+      "q": {
+        "ar": "انتقال حبوب اللقاح إلى ميسم المدقّة يسمى:",
+        "fr": "Le transport du pollen jusqu'au stigmate est appelé :"
+      },
+      "options": [
+        {
+          "ar": "الإلقاح",
+          "fr": "La fécondation"
+        },
+        {
+          "ar": "التلقيح",
+          "fr": "La pollinisation"
+        },
+        {
+          "ar": "الإنبات",
+          "fr": "La germination"
+        },
+        {
+          "ar": "التبرعم",
+          "fr": "Le bourgeonnement"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "التلقيح هو انتقال حبوب اللقاح من الأسدية إلى ميسم المدقّة.",
+        "fr": "La pollinisation est le transport du pollen des étamines au stigmate."
+      }
+    },
+    {
+      "q": {
+        "ar": "بعد الإلقاح، يتحوّل المبيض إلى:",
+        "fr": "Après fécondation, l'ovaire se transforme en :"
+      },
+      "options": [
+        {
+          "ar": "بذرة",
+          "fr": "Graine"
+        },
+        {
+          "ar": "ثمرة",
+          "fr": "Fruit"
+        },
+        {
+          "ar": "ورقة",
+          "fr": "Feuille"
+        },
+        {
+          "ar": "جذر",
+          "fr": "Racine"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "المبيض يتحوّل إلى ثمرة، بينما تتحوّل البويضة إلى بذرة.",
+        "fr": "L'ovaire devient un fruit, tandis que l'ovule devient une graine."
+      }
+    }
+  ],
+  "attachments": [],
+  "tags": [],
+  "keywords": [],
+  "createdAt": "2026-07-01",
+  "updatedAt": "2026-07-01"
+}

@@ -1,0 +1,462 @@
+[
+  {
+    "id": "resp-vivants",
+    "level": "1ac",
+    "unitNum": 1,
+    "unit": {
+      "ar": "الوحدة الأولى: العلاقات بين الكائنات الحية وتفاعلها مع الوسط",
+      "fr": "Unité 1 : Les relations entre les êtres vivants et leurs interactions avec le milieu"
+    },
+    "order": 0,
+    "branch": "bio",
+    "thumbnail": "gas",
+    "duration": 45,
+    "hasVideo": true,
+    "quizCount": 4,
+    "title": {
+      "ar": "التنفس عند الكائنات الحية",
+      "fr": "La respiration chez les êtres vivants"
+    },
+    "desc": {
+      "ar": "كيف تتنفس الحيوانات والنباتات في الأوساط المختلفة، وما المبادلات الغازية على مستوى أعضاء التنفس.",
+      "fr": "Comment animaux et plantes respirent dans les différents milieux et quels échanges gazeux se produisent."
+    }
+  },
+  {
+    "id": "vivants-milieu",
+    "level": "1ac",
+    "unitNum": 1,
+    "unit": {
+      "ar": "الوحدة الأولى: العلاقات بين الكائنات الحية وتفاعلها مع الوسط",
+      "fr": "Unité 1 : Les relations entre les êtres vivants et leurs interactions avec le milieu"
+    },
+    "order": 1,
+    "branch": "bio",
+    "thumbnail": "cell",
+    "duration": 40,
+    "hasVideo": true,
+    "quizCount": 3,
+    "title": {
+      "ar": "الكائنات الحية والأوساط الطبيعية",
+      "fr": "Êtres vivants et milieux naturels"
+    },
+    "desc": {
+      "ar": "تقنيات دراسة وجرد الكائنات الحية في وسط طبيعي والعوامل المؤثرة في توزّعها.",
+      "fr": "Techniques d'étude et d'inventaire des êtres vivants et facteurs de répartition."
+    }
+  },
+  {
+    "id": "tajwiya-sath",
+    "level": "1ac",
+    "unitNum": 2,
+    "unit": {
+      "ar": "الوحدة الثانية: الظواهر الجيولوجية الخارجية",
+      "fr": "Unité 2 : Les phénomènes géologiques externes"
+    },
+    "order": 2,
+    "branch": "geo",
+    "thumbnail": "tecto",
+    "duration": 40,
+    "hasVideo": true,
+    "quizCount": 3,
+    "title": {
+      "ar": "التجوية والعوامل المشكِّلة لسطح الأرض",
+      "fr": "L'altération et les agents qui façonnent le relief"
+    },
+    "desc": {
+      "ar": "كيف تتفتّت الصخور وتتغيّر بفعل الحرارة والماء، وكيف تنحتها عوامل التعرية شيئاً فشيئاً.",
+      "fr": "Comment les roches se fragmentent et se transforment sous l'effet de la chaleur et de l'eau, et comment l'érosion façonne peu à peu le relief."
+    }
+  },
+  {
+    "id": "genetique-humaine",
+    "level": "2ac",
+    "unitNum": 4,
+    "unit": {
+      "ar": "الوحدة الرابعة: التوالد عند الكائنات الحية والوراثة عند الإنسان",
+      "fr": "Unité 4 : La reproduction chez les êtres vivants et l'hérédité humaine"
+    },
+    "order": 0,
+    "branch": "bio",
+    "thumbnail": "dna",
+    "duration": 55,
+    "hasVideo": true,
+    "quizCount": 4,
+    "title": {
+      "ar": "الصبغيات وانتقال الصفات الوراثية",
+      "fr": "Chromosomes et transmission des caractères"
+    },
+    "desc": {
+      "ar": "الدعامة الصبغية للصفات الوراثية، الصيغة الصبغية للإنسان، وكيفية انتقال الصفات.",
+      "fr": "Support chromosomique, formule chromosomique de l'Homme et transmission des caractères."
+    }
+  },
+  {
+    "id": "zalazil",
+    "level": "2ac",
+    "unitNum": 3,
+    "unit": {
+      "ar": "الوحدة الثالثة: الظواهر الجيولوجية الباطنية",
+      "fr": "Unité 3 : Les phénomènes géologiques internes"
+    },
+    "order": 1,
+    "branch": "geo",
+    "thumbnail": "tecto",
+    "duration": 45,
+    "hasVideo": true,
+    "quizCount": 4,
+    "title": {
+      "ar": "الزلازل: الأسباب والنتائج",
+      "fr": "Les séismes : causes et conséquences"
+    },
+    "desc": {
+      "ar": "كيف تتولّد الزلازل داخل الأرض، وكيف تُقاس شدّتها، وما إجراءات الوقاية منها.",
+      "fr": "Comment naissent les séismes, comment mesurer leur intensité, et quelles mesures de prévention adopter."
+    }
+  },
+  {
+    "id": "digestion",
+    "level": "3ac",
+    "unitNum": 5,
+    "unit": {
+      "ar": "الوحدة الخامسة: وظائف الاقتيات والتربية الغذائية",
+      "fr": "Unité 5 : Les fonctions de nutrition et l'éducation nutritionnelle"
+    },
+    "order": 0,
+    "branch": "bio",
+    "thumbnail": "digest",
+    "duration": 50,
+    "hasVideo": true,
+    "quizCount": 4,
+    "title": {
+      "ar": "الهضم والامتصاص عند الإنسان",
+      "fr": "La digestion et l'absorption chez l'Homme"
+    },
+    "desc": {
+      "ar": "التحولات الميكانيكية والكيميائية للأغذية على طول الأنبوب الهضمي ودور الأنزيمات.",
+      "fr": "Transformations mécaniques et chimiques des aliments le long du tube digestif et rôle des enzymes."
+    }
+  },
+  {
+    "id": "respiration-homme",
+    "level": "3ac",
+    "unitNum": 5,
+    "unit": {
+      "ar": "الوحدة الخامسة: وظائف الاقتيات والتربية الغذائية",
+      "fr": "Unité 5 : Les fonctions de nutrition et l'éducation nutritionnelle"
+    },
+    "order": 1,
+    "branch": "bio",
+    "thumbnail": "gas",
+    "duration": 42,
+    "hasVideo": true,
+    "quizCount": 3,
+    "title": {
+      "ar": "التنفس عند الإنسان",
+      "fr": "La respiration chez l'Homme"
+    },
+    "desc": {
+      "ar": "بنية الجهاز التنفسي ودوره في المبادلات الغازية على مستوى الأسناخ الرئوية.",
+      "fr": "Structure de l'appareil respiratoire et échanges gazeux au niveau des alvéoles."
+    }
+  },
+  {
+    "id": "systeme-nerveux",
+    "level": "3ac",
+    "unitNum": 6,
+    "unit": {
+      "ar": "الوحدة السادسة: وظائف الربط وعلم المناعة",
+      "fr": "Unité 6 : Les fonctions de relation et l'immunologie"
+    },
+    "order": 2,
+    "branch": "bio",
+    "thumbnail": "cell",
+    "duration": 48,
+    "hasVideo": true,
+    "quizCount": 3,
+    "title": {
+      "ar": "وظيفة الجهاز العصبي",
+      "fr": "Fonction du système nerveux"
+    },
+    "desc": {
+      "ar": "دور الجهاز العصبي المركزي والمحيطي في الإحساس والاستجابة الحركية والتنسيق.",
+      "fr": "Rôle du système nerveux dans la sensation, la réponse motrice et la coordination."
+    }
+  },
+  {
+    "id": "silsila-ghidhaiya",
+    "level": "tcs",
+    "unitNum": 1,
+    "unit": {
+      "ar": "الوحدة 1: علم البيئة",
+      "fr": "Unité 1 : L'écologie"
+    },
+    "order": 0,
+    "branch": "bio",
+    "thumbnail": "cell",
+    "duration": 50,
+    "hasVideo": true,
+    "quizCount": 3,
+    "title": {
+      "ar": "السلاسل والشبكات الغذائية داخل النظام البيئي",
+      "fr": "Chaînes et réseaux alimentaires dans l'écosystème"
+    },
+    "desc": {
+      "ar": "كيف تنتقل المادة والطاقة بين الكائنات الحية عبر المستويات الغذائية المختلفة داخل النظام البيئي.",
+      "fr": "Comment la matière et l'énergie circulent entre les êtres vivants à travers les différents niveaux trophiques de l'écosystème."
+    }
+  },
+  {
+    "id": "tawalod-nabatat",
+    "level": "tcs",
+    "unitNum": 2,
+    "unit": {
+      "ar": "الوحدة 2: التوالد عند النباتات",
+      "fr": "Unité 2 : La reproduction chez les plantes"
+    },
+    "order": 1,
+    "branch": "bio",
+    "thumbnail": "cell",
+    "duration": 45,
+    "hasVideo": true,
+    "quizCount": 3,
+    "title": {
+      "ar": "التكاثر الجنسي عند النباتات الزهرية",
+      "fr": "La reproduction sexuée chez les plantes à fleurs"
+    },
+    "desc": {
+      "ar": "بنية الزهرة، وكيفية الإلقاح عبر التلقيح، وتشكّل البذور والثمار بعده.",
+      "fr": "Structure de la fleur, mécanisme de la pollinisation et formation des graines et des fruits."
+    }
+  },
+  {
+    "id": "cycle-sedimentaire",
+    "level": "1bac-exp",
+    "unitNum": 1,
+    "unit": {
+      "ar": "الوحدة 1: الظواهر الجيولوجية الخارجية",
+      "fr": "Unité 1 : Les phénomènes géologiques externes"
+    },
+    "order": 0,
+    "branch": "geo",
+    "thumbnail": "tecto",
+    "duration": 50,
+    "hasVideo": true,
+    "quizCount": 3,
+    "title": {
+      "ar": "الدورة الرسوبية وتشكّل الصخور",
+      "fr": "Cycle sédimentaire et formation des roches"
+    },
+    "desc": {
+      "ar": "مراحل تشكّل الصخور الرسوبية من تعرية ونقل وترسّب، وأهميتها في قراءة تاريخ الأرض.",
+      "fr": "Étapes de formation des roches sédimentaires et leur importance dans l'histoire de la Terre."
+    }
+  },
+  {
+    "id": "tarkib-daoi",
+    "level": "1bac-exp",
+    "unitNum": 2,
+    "unit": {
+      "ar": "الوحدة 2: إنتاج المادة العضوية",
+      "fr": "Unité 2 : La production de la matière organique"
+    },
+    "order": 1,
+    "branch": "bio",
+    "thumbnail": "cell",
+    "duration": 55,
+    "hasVideo": true,
+    "quizCount": 4,
+    "title": {
+      "ar": "آلية التركيب الضوئي عند النباتات الخضراء",
+      "fr": "Le mécanisme de la photosynthèse chez les plantes vertes"
+    },
+    "desc": {
+      "ar": "كيف تستعمل الصانعات الخضراء طاقة الضوء لتحويل الماء وثنائي أكسيد الكربون إلى مادة عضوية وثنائي الأكسجين.",
+      "fr": "Comment les chloroplastes utilisent l'énergie lumineuse pour transformer l'eau et le CO₂ en matière organique et dioxygène."
+    }
+  },
+  {
+    "id": "tashabok-asabi",
+    "level": "1bac-exp",
+    "unitNum": 3,
+    "unit": {
+      "ar": "الوحدة 3: التواصلات العصبية والهرمونية",
+      "fr": "Unité 3 : Les communications nerveuse et hormonale"
+    },
+    "order": 2,
+    "branch": "bio",
+    "thumbnail": "cell",
+    "duration": 50,
+    "hasVideo": true,
+    "quizCount": 3,
+    "title": {
+      "ar": "التشابك العصبي وانتقال الرسالة العصبية",
+      "fr": "La synapse et la transmission du message nerveux"
+    },
+    "desc": {
+      "ar": "كيف تنتقل الرسالة العصبية من عصبون إلى آخر عبر التشابكات العصبية والنواقل الكيميائية.",
+      "fr": "Comment le message nerveux passe d'un neurone à l'autre à travers les synapses et les neurotransmetteurs."
+    }
+  },
+  {
+    "id": "tandim-sokkar-addam",
+    "level": "1bac-exp",
+    "unitNum": 4,
+    "unit": {
+      "ar": "الوحدة 4: الاندماج العصبي الهرموني",
+      "fr": "Unité 4 : L'intégration nerveuse et hormonale"
+    },
+    "order": 3,
+    "branch": "bio",
+    "thumbnail": "cell",
+    "duration": 50,
+    "hasVideo": true,
+    "quizCount": 3,
+    "title": {
+      "ar": "التنظيم الهرموني لنسبة السكر في الدم",
+      "fr": "La régulation hormonale de la glycémie"
+    },
+    "desc": {
+      "ar": "كيف يحافظ البنكرياس على استقرار نسبة الغلوكوز في الدم بواسطة هرمونين متعاكسي المفعول.",
+      "fr": "Comment le pancréas maintient la glycémie stable grâce à deux hormones aux effets opposés."
+    }
+  },
+  {
+    "id": "matiere-energie",
+    "level": "2bac-svt",
+    "unitNum": 1,
+    "unit": {
+      "ar": "الوحدة الأولى: استهلاك المادة وتدفق الطاقة",
+      "fr": "Unité 1 : Consommation de la matière et flux d'énergie"
+    },
+    "order": 0,
+    "branch": "bio",
+    "thumbnail": "cell",
+    "duration": 60,
+    "hasVideo": true,
+    "quizCount": 4,
+    "title": {
+      "ar": "استهلاك المادة العضوية وتدفق الطاقة",
+      "fr": "Consommation de la matière organique et flux d'énergie"
+    },
+    "desc": {
+      "ar": "كيف تحرّر الخلايا الطاقة الكامنة في المادة العضوية عبر التنفس والتخمر، ودور الميتوكندري.",
+      "fr": "Comment les cellules libèrent l'énergie de la matière organique par respiration et fermentation."
+    }
+  },
+  {
+    "id": "heredite-humaine",
+    "level": "2bac-svt",
+    "unitNum": 3,
+    "unit": {
+      "ar": "الوحدة الثالثة: نقل الخبر الوراثي عبر التوالد الجنسي — علم الوراثة البشرية",
+      "fr": "Unité 3 : Transmission de l'information génétique par la reproduction sexuée — génétique humaine"
+    },
+    "order": 1,
+    "branch": "bio",
+    "thumbnail": "dna",
+    "duration": 52,
+    "hasVideo": true,
+    "quizCount": 3,
+    "title": {
+      "ar": "انتقال الصفات الوراثية عند الإنسان",
+      "fr": "Transmission des caractères chez l'Homme"
+    },
+    "desc": {
+      "ar": "دراسة انتقال الأمراض الوراثية وشجرة النسب وقوانين مندل عند الإنسان.",
+      "fr": "Étude des maladies héréditaires, de l'arbre généalogique et des lois de Mendel."
+    }
+  },
+  {
+    "id": "genetique-populations",
+    "level": "2bac-svt",
+    "unitNum": 4,
+    "unit": {
+      "ar": "الوحدة الرابعة: علم وراثة الساكنة",
+      "fr": "Unité 4 : La génétique des populations"
+    },
+    "order": 2,
+    "branch": "bio",
+    "thumbnail": "dna",
+    "duration": 55,
+    "hasVideo": true,
+    "quizCount": 3,
+    "title": {
+      "ar": "الخريطة الصبغية وعلم الوراثة السكانية",
+      "fr": "Génétique et génétique des populations"
+    },
+    "desc": {
+      "ar": "دراسة انتقال الصفات وفق قوانين مندل، والتأثيرات على بنية الساكنة الوراثية.",
+      "fr": "Transmission des caractères selon Mendel et structure génétique des populations."
+    }
+  },
+  {
+    "id": "immunologie",
+    "level": "2bac-svt",
+    "unitNum": 5,
+    "unit": {
+      "ar": "الوحدة الخامسة: علم المناعة",
+      "fr": "Unité 5 : L'immunologie"
+    },
+    "order": 3,
+    "branch": "bio",
+    "thumbnail": "cell",
+    "duration": 58,
+    "hasVideo": true,
+    "quizCount": 4,
+    "title": {
+      "ar": "المناعة الطبيعية والمكتسبة",
+      "fr": "L'immunité naturelle et acquise"
+    },
+    "desc": {
+      "ar": "خطوط الدفاع عن الجسم ضد العناصر الغريبة، ودور الخلايا المناعية والأجسام المضادة.",
+      "fr": "Lignes de défense de l'organisme et rôle des cellules immunitaires et des anticorps."
+    }
+  },
+  {
+    "id": "tectonique-plaques",
+    "level": "2bac-svt",
+    "unitNum": 6,
+    "unit": {
+      "ar": "الوحدة السادسة: الظواهر المصاحبة لنشوء السلاسل الجبلية وعلاقتها بتكتونية الصفائح",
+      "fr": "Unité 6 : Les phénomènes accompagnant la formation des chaînes de montagnes et leur relation avec la tectonique des plaques"
+    },
+    "order": 4,
+    "branch": "geo",
+    "thumbnail": "tecto",
+    "duration": 65,
+    "hasVideo": true,
+    "quizCount": 4,
+    "title": {
+      "ar": "تكتونية الصفائح والظواهر المصاحبة",
+      "fr": "La tectonique des plaques et phénomènes associés"
+    },
+    "desc": {
+      "ar": "نظرية تكتونية الصفائح، حركية الغلاف الصخري، وعلاقتها بالزلازل والبراكين وتشكّل السلاسل الجبلية.",
+      "fr": "Théorie de la tectonique des plaques, dynamique de la lithosphère, séismes, volcans et chaînes de montagnes."
+    }
+  },
+  {
+    "id": "tabir-warithi",
+    "level": "2bac-svt",
+    "unitNum": 2,
+    "unit": {
+      "ar": "الوحدة الثانية: طبيعة الخبر الوراثي — الهندسة الوراثية",
+      "fr": "Unité 2 : La nature de l'information génétique — le génie génétique"
+    },
+    "order": 5,
+    "branch": "bio",
+    "thumbnail": "dna",
+    "duration": 55,
+    "hasVideo": true,
+    "quizCount": 4,
+    "title": {
+      "ar": "من الجين إلى البروتين: آلية التعبير الوراثي",
+      "fr": "Du gène à la protéine : le mécanisme de l'expression génétique"
+    },
+    "desc": {
+      "ar": "كيف يتحوّل الخبر الوراثي المشفَّر في الـ ADN إلى بروتين وظيفي عبر مرحلتي الاستنساخ والترجمة.",
+      "fr": "Comment l'information génétique codée dans l'ADN est convertie en protéine fonctionnelle via la transcription et la traduction."
+    }
+  }
+]

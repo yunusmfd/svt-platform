@@ -1,0 +1,125 @@
+{
+  "id": "tandim-sokkar-addam",
+  "slug": "tandim-sokkar-addam",
+  "subject": "svt",
+  "level": "1bac-exp",
+  "unitNum": 4,
+  "unit": {
+    "ar": "الوحدة 4: الاندماج العصبي الهرموني",
+    "fr": "Unité 4 : L'intégration nerveuse et hormonale"
+  },
+  "order": 3,
+  "branch": "bio",
+  "thumbnail": "cell",
+  "duration": 50,
+  "status": "published",
+  "title": {
+    "ar": "التنظيم الهرموني لنسبة السكر في الدم",
+    "fr": "La régulation hormonale de la glycémie"
+  },
+  "desc": {
+    "ar": "كيف يحافظ البنكرياس على استقرار نسبة الغلوكوز في الدم بواسطة هرمونين متعاكسي المفعول.",
+    "fr": "Comment le pancréas maintient la glycémie stable grâce à deux hormones aux effets opposés."
+  },
+  "video": {
+    "title": {
+      "ar": "البنكرياس حارس التوازن السكري",
+      "fr": "Le pancréas, gardien de l'équilibre glycémique"
+    },
+    "length": "08:20"
+  },
+  "quiz": [
+    {
+      "q": {
+        "ar": "الهرمون الذي يخفّض نسبة السكر في الدم هو:",
+        "fr": "L'hormone qui fait baisser la glycémie est :"
+      },
+      "options": [
+        {
+          "ar": "الأنسولين",
+          "fr": "L'insuline"
+        },
+        {
+          "ar": "الغلوكاكون",
+          "fr": "Le glucagon"
+        },
+        {
+          "ar": "الأدرينالين",
+          "fr": "L'adrénaline"
+        },
+        {
+          "ar": "الثيروكسين",
+          "fr": "La thyroxine"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "ar": "الأنسولين يخفّض الغليسيميا بتنشيط تخزين الغلوكوز.",
+        "fr": "L'insuline abaisse la glycémie en favorisant le stockage du glucose."
+      }
+    },
+    {
+      "q": {
+        "ar": "الغلوكاكون يُفرَز عندما:",
+        "fr": "Le glucagon est sécrété quand :"
+      },
+      "options": [
+        {
+          "ar": "ترتفع الغليسيميا",
+          "fr": "La glycémie augmente"
+        },
+        {
+          "ar": "تنخفض الغليسيميا",
+          "fr": "La glycémie diminue"
+        },
+        {
+          "ar": "يتوقّف الهضم",
+          "fr": "La digestion s'arrête"
+        },
+        {
+          "ar": "يرتفع ضغط الدم",
+          "fr": "La pression artérielle augmente"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "انخفاض الغليسيميا يحفّز إفراز الغلوكاكون لرفعها.",
+        "fr": "Une baisse de la glycémie déclenche la sécrétion de glucagon."
+      }
+    },
+    {
+      "q": {
+        "ar": "الغدة المسؤولة عن إفراز الأنسولين والغلوكاكون هي:",
+        "fr": "La glande responsable de la sécrétion d'insuline et de glucagon est :"
+      },
+      "options": [
+        {
+          "ar": "الغدة الدرقية",
+          "fr": "La thyroïde"
+        },
+        {
+          "ar": "البنكرياس",
+          "fr": "Le pancréas"
+        },
+        {
+          "ar": "الكبد",
+          "fr": "Le foie"
+        },
+        {
+          "ar": "الكلية",
+          "fr": "Le rein"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "البنكرياس هو الغدة الصماء المسؤولة عن إفراز هرموني الأنسولين والغلوكاكون.",
+        "fr": "Le pancréas est la glande endocrine qui sécrète l'insuline et le glucagon."
+      }
+    }
+  ],
+  "attachments": [],
+  "tags": [],
+  "keywords": [],
+  "createdAt": "2026-07-01",
+  "updatedAt": "2026-07-01"
+}

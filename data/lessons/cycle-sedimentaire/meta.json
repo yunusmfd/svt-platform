@@ -1,0 +1,125 @@
+{
+  "id": "cycle-sedimentaire",
+  "slug": "cycle-sedimentaire",
+  "subject": "svt",
+  "level": "1bac-exp",
+  "unitNum": 1,
+  "unit": {
+    "ar": "الوحدة 1: الظواهر الجيولوجية الخارجية",
+    "fr": "Unité 1 : Les phénomènes géologiques externes"
+  },
+  "order": 0,
+  "branch": "geo",
+  "thumbnail": "tecto",
+  "duration": 50,
+  "status": "published",
+  "title": {
+    "ar": "الدورة الرسوبية وتشكّل الصخور",
+    "fr": "Cycle sédimentaire et formation des roches"
+  },
+  "desc": {
+    "ar": "مراحل تشكّل الصخور الرسوبية من تعرية ونقل وترسّب، وأهميتها في قراءة تاريخ الأرض.",
+    "fr": "Étapes de formation des roches sédimentaires et leur importance dans l'histoire de la Terre."
+  },
+  "video": {
+    "title": {
+      "ar": "من الصخرة إلى الرسابة",
+      "fr": "De la roche au sédiment"
+    },
+    "length": "08:00"
+  },
+  "quiz": [
+    {
+      "q": {
+        "ar": "الترتيب الصحيح لمراحل الدورة الرسوبية:",
+        "fr": "L'ordre correct du cycle sédimentaire :"
+      },
+      "options": [
+        {
+          "ar": "ترسّب ← نقل ← تعرية",
+          "fr": "dépôt ← transport ← érosion"
+        },
+        {
+          "ar": "تعرية ← نقل ← ترسّب",
+          "fr": "érosion ← transport ← dépôt"
+        },
+        {
+          "ar": "نقل ← ترسّب ← تعرية",
+          "fr": "transport ← dépôt ← érosion"
+        },
+        {
+          "ar": "ترسّب ← تعرية ← نقل",
+          "fr": "dépôt ← érosion ← transport"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "التعرية أولاً، ثم النقل، فالترسّب.",
+        "fr": "Érosion, puis transport, puis dépôt."
+      }
+    },
+    {
+      "q": {
+        "ar": "الصخور المتكوّنة على شكل طبقات تسمى:",
+        "fr": "Les roches formées en strates sont dites :"
+      },
+      "options": [
+        {
+          "ar": "نارية",
+          "fr": "magmatiques"
+        },
+        {
+          "ar": "رسوبية",
+          "fr": "sédimentaires"
+        },
+        {
+          "ar": "متحولة",
+          "fr": "métamorphiques"
+        },
+        {
+          "ar": "بركانية",
+          "fr": "volcaniques"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "الترسّب الطبقي يميّز الصخور الرسوبية.",
+        "fr": "La stratification caractérise les roches sédimentaires."
+      }
+    },
+    {
+      "q": {
+        "ar": "تساعد المتحجرات على:",
+        "fr": "Les fossiles permettent de :"
+      },
+      "options": [
+        {
+          "ar": "إنتاج الطاقة",
+          "fr": "produire de l'énergie"
+        },
+        {
+          "ar": "تأريخ الطبقات ومعرفة البيئات القديمة",
+          "fr": "dater les strates et connaître les milieux anciens"
+        },
+        {
+          "ar": "تصفية الماء",
+          "fr": "filtrer l'eau"
+        },
+        {
+          "ar": "توليد الزلازل",
+          "fr": "générer des séismes"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "المتحجرات شواهد على الزمن والبيئة القديمة.",
+        "fr": "Les fossiles témoignent du temps et des milieux anciens."
+      }
+    }
+  ],
+  "attachments": [],
+  "tags": [],
+  "keywords": [],
+  "createdAt": "2026-07-01",
+  "updatedAt": "2026-07-01"
+}

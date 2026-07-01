@@ -145,7 +145,7 @@ function renderGrid() {
   const units = (level && level.units) || [];
   const groups = units.map((unit) => ({
     unit,
-    lessons: list.filter((l) => l.unit && l.unit.ar === unit.ar),
+    lessons: list.filter((l) => l.unitNum === unit.num),
   }));
 
   const grouped = new Set(groups.flatMap((g) => g.lessons));

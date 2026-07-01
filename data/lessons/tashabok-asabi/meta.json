@@ -1,0 +1,125 @@
+{
+  "id": "tashabok-asabi",
+  "slug": "tashabok-asabi",
+  "subject": "svt",
+  "level": "1bac-exp",
+  "unitNum": 3,
+  "unit": {
+    "ar": "الوحدة 3: التواصلات العصبية والهرمونية",
+    "fr": "Unité 3 : Les communications nerveuse et hormonale"
+  },
+  "order": 2,
+  "branch": "bio",
+  "thumbnail": "cell",
+  "duration": 50,
+  "status": "published",
+  "title": {
+    "ar": "التشابك العصبي وانتقال الرسالة العصبية",
+    "fr": "La synapse et la transmission du message nerveux"
+  },
+  "desc": {
+    "ar": "كيف تنتقل الرسالة العصبية من عصبون إلى آخر عبر التشابكات العصبية والنواقل الكيميائية.",
+    "fr": "Comment le message nerveux passe d'un neurone à l'autre à travers les synapses et les neurotransmetteurs."
+  },
+  "video": {
+    "title": {
+      "ar": "اللقاء بين عصبونين",
+      "fr": "La rencontre de deux neurones"
+    },
+    "length": "07:50"
+  },
+  "quiz": [
+    {
+      "q": {
+        "ar": "منطقة الاتصال بين عصبونين تسمى:",
+        "fr": "La zone de contact entre deux neurones est :"
+      },
+      "options": [
+        {
+          "ar": "التشابك العصبي",
+          "fr": "La synapse"
+        },
+        {
+          "ar": "المشبك العضلي",
+          "fr": "La jonction musculaire"
+        },
+        {
+          "ar": "النخاع الشوكي",
+          "fr": "La moelle épinière"
+        },
+        {
+          "ar": "المستقبل الحسي",
+          "fr": "Le récepteur sensoriel"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "ar": "التشابك العصبي هو منطقة الاتصال الوظيفي بين عصبونين.",
+        "fr": "La synapse est la zone de contact fonctionnel entre deux neurones."
+      }
+    },
+    {
+      "q": {
+        "ar": "المادة الكيميائية التي تُحرَّر على مستوى التشابك تسمى:",
+        "fr": "La substance chimique libérée au niveau de la synapse est :"
+      },
+      "options": [
+        {
+          "ar": "الناقل العصبي",
+          "fr": "Le neurotransmetteur"
+        },
+        {
+          "ar": "الهرمون",
+          "fr": "L'hormone"
+        },
+        {
+          "ar": "الإنزيم",
+          "fr": "L'enzyme"
+        },
+        {
+          "ar": "الغلوكوز",
+          "fr": "Le glucose"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "ar": "الناقل العصبي يُحرَّر في الشُّق التشابكي وينقل الرسالة للعصبون الموالي.",
+        "fr": "Le neurotransmetteur est libéré dans la fente synaptique vers le neurone suivant."
+      }
+    },
+    {
+      "q": {
+        "ar": "تنتقل الرسالة العصبية عبر التشابك:",
+        "fr": "Le message nerveux traverse la synapse :"
+      },
+      "options": [
+        {
+          "ar": "في اتجاهين",
+          "fr": "Dans les deux sens"
+        },
+        {
+          "ar": "في اتجاه واحد فقط",
+          "fr": "Dans un seul sens"
+        },
+        {
+          "ar": "لا تنتقل إطلاقاً",
+          "fr": "Elle ne se transmet pas"
+        },
+        {
+          "ar": "بشكل عشوائي",
+          "fr": "De façon aléatoire"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "التشابك العصبي يضمن انتقال الرسالة في اتجاه واحد فقط.",
+        "fr": "La synapse assure une transmission à sens unique du message."
+      }
+    }
+  ],
+  "attachments": [],
+  "tags": [],
+  "keywords": [],
+  "createdAt": "2026-07-01",
+  "updatedAt": "2026-07-01"
+}

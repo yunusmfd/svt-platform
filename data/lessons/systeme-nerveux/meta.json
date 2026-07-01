@@ -1,0 +1,125 @@
+{
+  "id": "systeme-nerveux",
+  "slug": "systeme-nerveux",
+  "subject": "svt",
+  "level": "3ac",
+  "unitNum": 6,
+  "unit": {
+    "ar": "الوحدة السادسة: وظائف الربط وعلم المناعة",
+    "fr": "Unité 6 : Les fonctions de relation et l'immunologie"
+  },
+  "order": 2,
+  "branch": "bio",
+  "thumbnail": "cell",
+  "duration": 48,
+  "status": "published",
+  "title": {
+    "ar": "وظيفة الجهاز العصبي",
+    "fr": "Fonction du système nerveux"
+  },
+  "desc": {
+    "ar": "دور الجهاز العصبي المركزي والمحيطي في الإحساس والاستجابة الحركية والتنسيق.",
+    "fr": "Rôle du système nerveux dans la sensation, la réponse motrice et la coordination."
+  },
+  "video": {
+    "title": {
+      "ar": "من المثير إلى الاستجابة",
+      "fr": "Du stimulus à la réponse"
+    },
+    "length": "07:15"
+  },
+  "quiz": [
+    {
+      "q": {
+        "ar": "يتكوّن الجهاز العصبي المركزي من:",
+        "fr": "Le système nerveux central est constitué de :"
+      },
+      "options": [
+        {
+          "ar": "الدماغ والنخاع الشوكي",
+          "fr": "Encéphale et moelle épinière"
+        },
+        {
+          "ar": "القلب والرئتين",
+          "fr": "Cœur et poumons"
+        },
+        {
+          "ar": "العضلات",
+          "fr": "Les muscles"
+        },
+        {
+          "ar": "الجلد",
+          "fr": "La peau"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "ar": "المركز العصبي = الدماغ + النخاع الشوكي.",
+        "fr": "Le centre nerveux = encéphale + moelle épinière."
+      }
+    },
+    {
+      "q": {
+        "ar": "الوحدة البنيوية للجهاز العصبي هي:",
+        "fr": "L'unité structurale du système nerveux est :"
+      },
+      "options": [
+        {
+          "ar": "العصبون",
+          "fr": "Le neurone"
+        },
+        {
+          "ar": "الكرية الحمراء",
+          "fr": "Le globule rouge"
+        },
+        {
+          "ar": "العظم",
+          "fr": "L'os"
+        },
+        {
+          "ar": "الزغابة",
+          "fr": "La villosité"
+        }
+      ],
+      "correct": 0,
+      "explain": {
+        "ar": "العصبون هو الخلية العصبية الأساسية.",
+        "fr": "Le neurone est la cellule nerveuse de base."
+      }
+    },
+    {
+      "q": {
+        "ar": "الرسالة التي تأمر العضلة بالحركة هي:",
+        "fr": "Le message ordonnant le mouvement est :"
+      },
+      "options": [
+        {
+          "ar": "حسّية",
+          "fr": "sensitif"
+        },
+        {
+          "ar": "حركية",
+          "fr": "moteur"
+        },
+        {
+          "ar": "هرمونية",
+          "fr": "hormonal"
+        },
+        {
+          "ar": "ضوئية",
+          "fr": "lumineux"
+        }
+      ],
+      "correct": 1,
+      "explain": {
+        "ar": "الرسالة الحركية تنطلق من المركز نحو العضلة.",
+        "fr": "Le message moteur va du centre vers le muscle."
+      }
+    }
+  ],
+  "attachments": [],
+  "tags": [],
+  "keywords": [],
+  "createdAt": "2026-07-01",
+  "updatedAt": "2026-07-01"
+}
