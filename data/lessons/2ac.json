@@ -63,5 +63,69 @@
         "explain": { "ar": "المورثة هي وحدة المعلومة الوراثية على الصبغي.", "fr": "Le gène est l'unité d'information héréditaire." }
       }
     ]
+  },
+  {
+    "id": "zalazil",
+    "level": "2ac",
+    "branch": "geo",
+    "fig": "tecto",
+    "duration": 45,
+    "unit": { "ar": "الوحدة الثالثة: الظواهر الجيولوجية الباطنية", "fr": "Unité 3 : Les phénomènes géologiques internes" },
+    "title": { "ar": "الزلازل: الأسباب والنتائج", "fr": "Les séismes : causes et conséquences" },
+    "desc": { "ar": "كيف تتولّد الزلازل داخل الأرض، وكيف تُقاس شدّتها، وما إجراءات الوقاية منها.", "fr": "Comment naissent les séismes, comment mesurer leur intensité, et quelles mesures de prévention adopter." },
+    "video": { "title": { "ar": "لحظة انطلاق الزلزال", "fr": "L'instant du déclenchement d'un séisme" }, "length": "07:00" },
+    "intro": [
+      { "ar": "ينتج <strong>الزلزال</strong> عن تراكم إجهادات داخل الصخور إلى أن تنكسر فجأة عند نقطة تسمى <strong>البؤرة</strong>، فتتحرّر طاقة هائلة على شكل اهتزازات تنتشر في كل الاتجاهات. تسمى النقطة على سطح الأرض العمودية على البؤرة <strong>المركز السطحي</strong>، وهي أكثر منطقة تتأثر بالزلزال.", "fr": "Un <strong>séisme</strong> résulte de l'accumulation de contraintes dans les roches jusqu'à une rupture brutale au niveau d'un point appelé <strong>foyer</strong>, libérant une énergie considérable sous forme de vibrations. Le point en surface situé à la verticale du foyer est l'<strong>épicentre</strong>, la zone la plus touchée." },
+      { "ar": "تنتقل هذه الاهتزازات على شكل <strong>موجات زلزالية</strong> تُسجَّل بأجهزة تسمى السيسموغراف، وتُقاس شدّة الزلزال بمقياس ريختر. تسمح دراسة الزلازل بتحديد المناطق المعرّضة للخطر واتّخاذ إجراءات الوقاية المناسبة.", "fr": "Ces vibrations se propagent sous forme d'<strong>ondes sismiques</strong> enregistrées par des sismographes, et l'intensité du séisme est mesurée sur l'échelle de Richter. L'étude des séismes permet d'identifier les zones à risque et d'adopter des mesures de prévention." }
+    ],
+    "figs": [
+      { "key": "tecto", "label": { "ar": "الشكل 1 — بؤرة الزلزال ومركزه السطحي", "fr": "Fig. 1 — Foyer et épicentre" }, "cap": { "ar": "انتشار الموجات الزلزالية", "fr": "Propagation des ondes sismiques" } }
+    ],
+    "quiz": [
+      {
+        "q": { "ar": "النقطة داخل الأرض التي ينطلق منها الزلزال تسمى:", "fr": "Le point à l'intérieur de la Terre où naît le séisme est :" },
+        "options": [
+          { "ar": "المركز السطحي", "fr": "L'épicentre" },
+          { "ar": "البؤرة", "fr": "Le foyer" },
+          { "ar": "الصدع", "fr": "La faille" },
+          { "ar": "القشرة", "fr": "La croûte" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "البؤرة هي نقطة انكسار الصخور داخل الأرض حيث ينطلق الزلزال.", "fr": "Le foyer est le point de rupture en profondeur où naît le séisme." }
+      },
+      {
+        "q": { "ar": "أكثر منطقة تتضرّر من الزلزال هي:", "fr": "La zone la plus touchée par un séisme est :" },
+        "options": [
+          { "ar": "البؤرة", "fr": "Le foyer" },
+          { "ar": "المركز السطحي", "fr": "L'épicentre" },
+          { "ar": "المحيط", "fr": "L'océan" },
+          { "ar": "القطب", "fr": "Le pôle" }
+        ],
+        "correct": 1,
+        "explain": { "ar": "المركز السطحي هو النقطة السطحية العمودية على البؤرة، وهي الأكثر تضرّراً.", "fr": "L'épicentre, à la verticale du foyer, est la zone la plus touchée." }
+      },
+      {
+        "q": { "ar": "يُستعمل السيسموغراف من أجل:", "fr": "Le sismographe sert à :" },
+        "options": [
+          { "ar": "تسجيل الموجات الزلزالية", "fr": "Enregistrer les ondes sismiques" },
+          { "ar": "قياس درجة الحرارة", "fr": "Mesurer la température" },
+          { "ar": "التنبؤ بالطقس", "fr": "Prévoir la météo" },
+          { "ar": "قياس ضغط الماء", "fr": "Mesurer la pression de l'eau" }
+        ],
+        "correct": 0,
+        "explain": { "ar": "السيسموغراف جهاز يسجّل اهتزازات الموجات الزلزالية.", "fr": "Le sismographe enregistre les vibrations des ondes sismiques." }
+      },
+      {
+        "q": { "ar": "شدّة الزلزال تُقاس بواسطة:", "fr": "L'intensité d'un séisme se mesure avec :" },
+        "options": [
+          { "ar": "مقياس ريختر", "fr": "L'échelle de Richter" },
+          { "ar": "الترمومتر", "fr": "Le thermomètre" },
+          { "ar": "البارومتر", "fr": "Le baromètre" },
+          { "ar": "الميزان", "fr": "La balance" }
+        ],
+        "correct": 0,
+        "explain": { "ar": "مقياس ريختر يقيس شدّة الطاقة المحرَّرة أثناء الزلزال.", "fr": "L'échelle de Richter mesure l'énergie libérée lors d'un séisme." }
+      }
+    ]
   }
 ]
