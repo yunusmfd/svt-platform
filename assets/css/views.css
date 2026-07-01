@@ -426,11 +426,11 @@ html[dir="rtl"] .level-card:hover .browse svg{ transform:scaleX(-1) translateX(4
 }
 .unit-head .unit-num{
   flex:none;
-  padding:4px 9px;
+  padding:5px 12px;
   border-radius:var(--pill);
-  font-family:var(--font-mono);
-  font-size:12px;
+  font-size:13px;
   font-weight:700;
+  white-space:nowrap;
 }
 .unit-head .unit-title{
   flex:1 1 auto;
