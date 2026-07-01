@@ -47,9 +47,10 @@ function levelCardHTML(level) {
   const token = `--spec-${level.spec || "green"}`;
   return `
   <a class="level-card" href="#/lessons/${esc(level.id)}" style="--spec-item:var(${token})">
-    <span class="code" style="${specStyle(token)}">${esc(level.code)}</span>
+    <span class="level-glow" aria-hidden="true"></span>
+    <span class="level-badge" style="${specStyle(token)}">${esc(level.code)}</span>
     <h3>${esc(t(level.name))}</h3>
-    <p class="count">${count} ${esc(ui("level_units_count"))}</p>
+    <p class="count">${svg("layers")}<span>${count} ${esc(ui("level_units_count"))}</span></p>
     <span class="browse">${ui("browse_units")}${svg("chevR")}</span>
   </a>`;
 }
